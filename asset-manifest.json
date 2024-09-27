@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/amamiaman/static/css/main.9598936d.css",
+    "main.js": "/amamiaman/static/js/main.5cef11a0.js",
+    "static/media/s.jpg": "/amamiaman/static/media/s.e3207a848d019950d22e.jpg",
+    "static/media/bg-AboutSection.png": "/amamiaman/static/media/bg-AboutSection.15c351537a97a8522495.png",
+    "static/media/logo.svg": "/amamiaman/static/media/logo.8b4cb4de98e040b257c8926eb044f3dc.svg",
+    "static/media/seakayak.svg": "/amamiaman/static/media/seakayak.37b196b363c1e4819ec12ae7a0b0cad7.svg",
+    "static/media/Snorkelling.svg": "/amamiaman/static/media/Snorkelling.f5bdfffc323a7a17545f518a5f639a3a.svg",
+    "static/media/boat.svg": "/amamiaman/static/media/boat.a5d3258b918525cd833f3d2243c2c901.svg",
+    "static/media/lodging.svg": "/amamiaman/static/media/lodging.b2a5824fba0ca5baa0bb7b4a70422aad.svg",
+    "index.html": "/amamiaman/index.html",
+    "main.9598936d.css.map": "/amamiaman/static/css/main.9598936d.css.map",
+    "main.5cef11a0.js.map": "/amamiaman/static/js/main.5cef11a0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9598936d.css",
+    "static/js/main.5cef11a0.js"
+  ]
+}
