@@ -1,0 +1,61 @@
+.parallaxSection {
+  width: 100%;
+  overflow: hidden;
+}
+
+.parallax {
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+.title {
+  color: #fff;
+  font-size: 3rem;
+  text-align: center;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.content {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .parallax {
+    background-attachment: scroll;
+    height: 40vh;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}

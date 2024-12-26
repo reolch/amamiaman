@@ -1,0 +1,94 @@
+/* src/components/Section/AboutSection/AboutSection.module.css */
+.section {
+    position: relative;
+    padding: 60px 20px;
+    text-align: center;
+    background-color: var(--background-color);
+    overflow: hidden;
+}
+
+.content {
+    opacity: 0;
+    transform: translateY(20%);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.contentAnimate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+.button {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover,
+.button:focus {
+    background-color: #16a085;
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding: 80px 40px;
+    }
+
+    .content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+
+    .content p {
+        font-size: 1.2rem;
+        line-height: 2;
+        margin-bottom: 40px;
+    }
+
+    .button {
+        padding: 14px 30px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section {
+        padding: 100px 60px;
+    }
+
+    .content h2 {
+        font-size: 3rem;
+        margin-bottom: 40px;
+    }
+
+    .content p {
+        font-size: 1.4rem;
+        line-height: 2.2;
+        margin-bottom: 50px;
+    }
+
+    .button {
+        padding: 16px 35px;
+        font-size: 1.2rem;
+    }
+}

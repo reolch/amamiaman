@@ -1,0 +1,84 @@
+/* src/components/ContactPage/ContactPage.module.css */
+
+
+.section {
+  padding: 60px 20px;
+  background-color: var(--background-color);
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* フォーム */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--white-color);
+  padding: 30px;
+  /* シャドウと角丸を削除 */
+  border: 1px solid var(--border-color);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.input,
+.textarea {
+  padding: 10px 15px;
+  border: 1px solid var(--border-color);
+  /* 角丸を削除 */
+  font-size: 1rem;
+  transition: border-color var(--transition-duration) ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #1da1f2;
+  outline: none;
+}
+
+.button {
+  padding: 12px 20px;
+  background-color: #1da1f2;
+  color: var(--white-color);
+  border: none;
+  /* 角丸を削除 */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease;
+}
+
+.button:hover {
+  background-color: #0d95e8;
+}
+
+/* レスポンシブスタイル */
+@media (min-width: 768px) {
+  .form {
+    padding: 40px;
+  }
+
+  .button {
+    align-self: flex-start;
+  }
+}

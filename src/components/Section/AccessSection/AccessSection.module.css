@@ -1,0 +1,144 @@
+/* src/components/Section/AccessSection/AccessSection.module.css */
+
+
+.accessSection {
+  padding: 60px 20px;
+  background-color: var(--background-color);
+}
+
+.accessSectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.accessSectionTitle {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.accessSectionCardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.accessSectionInfoCard,
+.accessSectionMapCard {
+  background-color: var(--white-color);
+  padding: 30px;
+  border: 1px solid var(--border-color);
+}
+
+.accessSectionInfoList {
+  display: flex;
+  flex-direction: column;
+}
+
+.accessSectionInfoItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.accessSectionIcon {
+  margin-right: 15px;
+  color: var(--accent-color);
+  font-size: 2rem;
+}
+
+.accessSectionInfoText {
+  text-align: left;
+}
+
+.accessSectionInfoTitle {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.accessSectionInfoDescription {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.accessSectionInfoDescription a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.accessSectionInfoDescription a:hover,
+.accessSectionInfoDescription a:focus {
+  text-decoration: underline;
+}
+
+.accessSectionMapContainer {
+  width: 100%;
+  height: 400px;
+}
+
+.accessSectionMapIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* レスポンシブスタイル */
+
+/* タブレット以上のスタイル */
+@media (min-width: 768px) {
+  .accessSectionCardsWrapper {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .accessSectionInfoCard,
+  .accessSectionMapCard {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .accessSectionMapContainer {
+    height: 100%;
+  }
+
+  .accessSectionIcon {
+    font-size: 2.5rem;
+  }
+
+  .accessSectionInfoTitle {
+    font-size: 1.4rem;
+  }
+
+  .accessSectionInfoDescription {
+    font-size: 1.1rem;
+  }
+}
+
+/* デスクトップ以上のスタイル */
+@media (min-width: 1024px) {
+  .accessSectionMapContainer {
+    height: 100%;
+  }
+
+  .accessSectionTitle {
+    font-size: 2.5rem;
+  }
+
+  .accessSectionIcon {
+    font-size: 3rem;
+  }
+
+  .accessSectionInfoTitle {
+    font-size: 1.6rem;
+  }
+
+  .accessSectionInfoDescription {
+    font-size: 1.2rem;
+  }
+}

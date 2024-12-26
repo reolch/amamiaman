@@ -1,0 +1,51 @@
+/* モバイル向けのデザイン */
+.faq-section {
+    position: relative;
+    text-align: center;
+    color: #333;
+}
+
+.parallax-content {
+    position: relative;
+    padding: 60px 15px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.more.text-center {
+    margin-top: 20px;
+}
+
+.more.text-center a {
+    color: #333;
+    text-decoration: underline;
+}
+
+/* メディアクエリ（デスクトップ向けに調整） */
+@media(min-width: 768px) {
+    .parallax-content {
+        padding: 100px 30px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+@media(min-width: 992px) {
+    .parallax-content {
+        padding: 120px 50px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}

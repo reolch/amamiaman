@@ -1,0 +1,100 @@
+/* src/components/OurPassion/OurPassionPage.module.css */
+
+  .section {
+    padding: 40px 15px;
+    background-color: var(--background-color);
+  }
+  
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .passionBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--white-color);
+    border: 1px solid #bdc3c7; /* 薄い境界線を追加 */
+    /* border-radius: 8px; */ /* 角丸を削除してフラットに */
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */ /* シャドウを削除 */
+    transition: background-color var(--transition-duration) ease;
+  }
+  
+  .passionBlock:hover {
+    background-color: #f5f5f5; /* ホバー時に背景色を変更 */
+  }
+  
+  .reverse {
+    flex-direction: column-reverse;
+  }
+  
+  .textColumn {
+    width: 100%;
+  }
+  
+  .imageColumn {
+    width: 100%;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    /* border-radius: 8px; */ /* 画像の角丸を削除 */
+    object-fit: cover;
+  }
+  
+  .heading {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+  
+  .paragraph {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--secondary-color);
+    text-align: justify;
+  }
+  
+  /* レスポンシブデザイン */
+  @media (min-width: 768px) {
+    .passionBlock {
+      flex-direction: row;
+    }
+  
+    .reverse {
+      flex-direction: row-reverse;
+    }
+  
+    .textColumn,
+    .imageColumn {
+      width: 50%;
+    }
+  
+    .heading {
+      font-size: 2rem;
+    }
+  
+    .paragraph {
+      font-size: 1.125rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .heading {
+      font-size: 2.2rem;
+    }
+  
+    .paragraph {
+      font-size: 1.25rem;
+    }
+  }
+  

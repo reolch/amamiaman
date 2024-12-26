@@ -1,0 +1,24 @@
+/* すべての要素のマージンとパディングをリセット */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* 基本的なスタイルのリセット */
+  html, body {
+    font-family: sans-serif; /* フォントファミリーのリセット */
+    line-height: 1.6;
+  }
+  
+  /* リンクのデフォルトスタイルのリセット */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* ヘッダー、フッター、セクションのデフォルトスタイルのリセット */
+  header, footer, section {
+    display: block;
+  }
+  

@@ -1,0 +1,184 @@
+/* src/components/StoreInformationPage/StoreInformationPage.module.css */
+
+.section {
+  padding: 60px 20px;
+  background-color: var(--background-color);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* メインコンテンツ */
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageCaption {
+  margin-top: 8px;
+  font-size: 0.875rem;
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+.descriptionContainer {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--primary-color);
+}
+
+.desktopOnly {
+  display: none;
+}
+
+/* 店舗概要 */
+.details {
+  margin-bottom: 40px;
+}
+
+.detailsTitle {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-align: center;
+  font-weight: bold;
+}
+
+.detailsContent {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border-color);
+}
+
+.table th,
+.table td {
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  vertical-align: top;
+  color: var(--secondary-color);
+  text-align: left;
+}
+
+.table th {
+  background-color: #e0e0e0;
+}
+
+.link {
+  color: #1da1f2;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Google Maps セクション */
+.mapSection {
+  margin-bottom: 40px;
+}
+
+.mapTitle {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-align: center;
+  font-weight: bold;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.mapDescription {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--secondary-color);
+}
+
+/* レスポンシブスタイル */
+
+/* Tablet and Up */
+@media (min-width: 768px) {
+  .desktopOnly {
+    display: inline;
+  }
+
+  .mainContent {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .imageContainer,
+  .descriptionContainer {
+    width: 48%;
+    padding: 15px;
+  }
+
+  .description {
+    font-size: 1.125rem;
+    text-align: left;
+  }
+
+  .table th,
+  .table td {
+    padding: 16px 20px;
+  }
+}
+
+/* Desktop and Up */
+@media (min-width: 1024px) {
+
+  .mapSection {
+    margin-bottom: 128px;
+  }
+
+  .description {
+    font-size: 1.25rem;
+    line-height: 1.8;
+  }
+}

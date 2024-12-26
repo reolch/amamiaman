@@ -1,0 +1,16 @@
+/* src/components/GlassBoatPage/FooterNote.module.css */
+
+/* Base Styles (Mobile First) */
+.footer-note__text {
+    text-align: right;
+    font-size: 0.875rem;
+    color: #555555;
+    margin-top: 20px;
+}
+
+/* Desktop and Above */
+@media (min-width: 1024px) {
+    .footer-note__text {
+        font-size: 1rem;
+    }
+}

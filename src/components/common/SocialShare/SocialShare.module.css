@@ -1,0 +1,94 @@
+/* src/components/SocialShare/SocialShare.module.css */
+
+/* Base Styles (Mobile First) */
+.social-share__section {
+    margin-top: 50px;
+}
+
+.social-share__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0; /* 上下にパディングを追加 */
+}
+
+.social-share__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* ボタン間のギャップを調整 */
+}
+
+.social-share__button {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* アイコンとテキストの間のギャップを増加 */
+    padding: 10px 20px; /* パディングを調整 */
+    border: none;
+    border-radius: 8px; /* ボーダー半径を増加 */
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem; /* フォントサイズを調整 */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* シャドウを追加 */
+    justify-content: center; /* テキストとアイコンを中央揃え */
+}
+
+.social-share__icon {
+    font-size: 1.5rem; /* アイコンサイズを増加 */
+}
+
+.social-share__button--facebook {
+    background-color: #3b5998;
+}
+
+.social-share__button--facebook:hover,
+.social-share__button--facebook:focus {
+    background-color: #2d4373;
+    transform: translateY(-2px); /* ホバー時に少し浮かせる */
+}
+
+.social-share__button--twitter {
+    background-color: #1da1f2;
+}
+
+.social-share__button--twitter:hover,
+.social-share__button--twitter:focus {
+    background-color: #0d95e8;
+    transform: translateY(-2px);
+}
+
+.social-share__button--line {
+    background-color: #00c300;
+}
+
+.social-share__button--line:hover,
+.social-share__button--line:focus {
+    background-color: #009a00;
+    transform: translateY(-2px);
+}
+
+/* Tablet and Above */
+@media (min-width: 768px) {
+    .social-share__buttons {
+        flex-direction: row; /* 横並びに変更 */
+        flex-wrap: wrap; /* ボタンが多い場合に折り返す */
+        justify-content: center;
+        gap: 25px; /* ボタン間のギャップを増加 */
+    }
+}
+
+/* Desktop and Above */
+@media (min-width: 1024px) {
+    .social-share__section {
+        margin-top: 60px;
+    }
+
+    .social-share__button {
+        padding: 14px 24px; /* パディングを増加 */
+        font-size: 1.1rem; /* フォントサイズを増加 */
+    }
+
+    .social-share__icon {
+        font-size: 1.5rem; /* アイコンサイズを維持 */
+    }
+}

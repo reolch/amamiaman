@@ -1,0 +1,167 @@
+/* src/components/Header/Header.module.css */
+
+/* ベーススタイル（モバイルファースト） */
+.header {
+  background-color: var(--background-color);
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.topBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+}
+
+.logo {
+  margin-bottom: 1rem;
+}
+
+.logoImage {
+  height: 4rem;
+  width: auto;
+}
+
+.menuIcon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--text-color);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.menuIcon:hover,
+.menuIcon:focus {
+  outline: none;
+  color: var(--accent-color);
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.phoneIcon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: var(--text-color);
+}
+
+.phoneNumber {
+  font-size: 1rem;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.phoneNumber:hover,
+.phoneNumber:focus {
+  text-decoration: underline;
+}
+
+.globalNav {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  width: 100%;
+}
+
+.open {
+  max-height: 500px;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.navItem {
+  margin-bottom: 0.5rem;
+}
+
+.navLink {
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 5px;
+  color: var(--text-color);
+  line-height: 2;
+  font-size: 1rem;
+  display: inline-block;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.navLink:hover,
+.navLink:focus {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* タブレット以上のスタイル */
+@media (min-width: 768px) {
+  .topBar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    margin-bottom: 0;
+  }
+
+  .globalNav {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .navList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navItem {
+    margin: 0 1rem;
+  }
+
+  .contact {
+    margin-top: 0;
+  }
+
+  .phoneIcon,
+  .phoneNumber {
+    font-size: 1.5rem;
+  }
+
+  .menuIcon {
+    display: none;
+  }
+}
+
+/* デスクトップ以上のスタイル */
+@media (min-width: 1024px) {
+  .logoImage {
+    height: 6rem;
+  }
+
+  .navItem {
+    margin: 0 1.5rem;
+  }
+
+  .navLink {
+    font-size: 1.2rem;
+  }
+
+  .phoneIcon,
+  .phoneNumber {
+    font-size: 1.8rem;
+  }
+}
