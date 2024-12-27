@@ -9,9 +9,7 @@ import NewsSection from './components/Section/NewsSection/NewsSection';
 import ServicesSection from './components/Section/ServiceSection/ServiceSection';
 import AccessSection from './components/Section/AccessSection/AccessSection';
 import Footer from './components/common/Footer/Footer';
-
-// Parallaxのインポート
-import { Parallax } from 'react-parallax';
+import ParallaxSection from './components/component/ParallaxSection';
 
 // Pages
 import StoreInformation from './pages/StoreInformationPage/StoreInformationPage';
@@ -40,13 +38,9 @@ function App() {
           <Route path="/" element={
             <>
               <HeroSection />
-              <Parallax bgImage={aboutSectionBg} strength={500}>
-                <AboutSection />
-              </Parallax>
+              <AboutSection />
               <ServicesSection />
-              <Parallax bgImage={aboutSectionBg} strength={500}>
-                <AccessSection />
-              </Parallax>
+              <AccessSection />
               <NewsSection />
             </>
           } />

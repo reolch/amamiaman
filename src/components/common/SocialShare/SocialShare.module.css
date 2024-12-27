@@ -1,6 +1,6 @@
-/* src/components/SocialShare/SocialShare.module.css */
+/* ソーシャルシェアボタンのスタイル */
 
-/* Base Styles (Mobile First) */
+/* モバイルファーストのベーススタイル */
 .social-share__section {
     margin-top: 50px;
 }
@@ -9,34 +9,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0; /* 上下にパディングを追加 */
+    padding: 20px 0;
 }
 
 .social-share__buttons {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* ボタン間のギャップを調整 */
+    gap: 15px;
 }
 
+/* 共通のボタンスタイル */
 .social-share__button {
     display: flex;
     align-items: center;
-    gap: 10px; /* アイコンとテキストの間のギャップを増加 */
-    padding: 10px 20px; /* パディングを調整 */
+    gap: 10px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 8px; /* ボーダー半径を増加 */
+    border-radius: 8px;
     color: #fff;
     text-decoration: none;
-    font-size: 1rem; /* フォントサイズを調整 */
+    font-size: 1rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* シャドウを追加 */
-    justify-content: center; /* テキストとアイコンを中央揃え */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    justify-content: center;
 }
 
 .social-share__icon {
-    font-size: 1.5rem; /* アイコンサイズを増加 */
+    font-size: 1.5rem;
 }
 
+/* SNS別のカラースタイル */
 .social-share__button--facebook {
     background-color: #3b5998;
 }
@@ -44,7 +46,7 @@
 .social-share__button--facebook:hover,
 .social-share__button--facebook:focus {
     background-color: #2d4373;
-    transform: translateY(-2px); /* ホバー時に少し浮かせる */
+    transform: translateY(-2px);
 }
 
 .social-share__button--twitter {
@@ -67,28 +69,28 @@
     transform: translateY(-2px);
 }
 
-/* Tablet and Above */
+/* タブレット以上のレスポンシブ対応 */
 @media (min-width: 768px) {
     .social-share__buttons {
-        flex-direction: row; /* 横並びに変更 */
-        flex-wrap: wrap; /* ボタンが多い場合に折り返す */
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 25px; /* ボタン間のギャップを増加 */
+        gap: 25px;
     }
 }
 
-/* Desktop and Above */
+/* デスクトップ以上のレスポンシブ対応 */
 @media (min-width: 1024px) {
     .social-share__section {
         margin-top: 60px;
     }
 
     .social-share__button {
-        padding: 14px 24px; /* パディングを増加 */
-        font-size: 1.1rem; /* フォントサイズを増加 */
+        padding: 14px 24px;
+        font-size: 1.1rem;
     }
 
     .social-share__icon {
-        font-size: 1.5rem; /* アイコンサイズを維持 */
+        font-size: 1.5rem;
     }
 }

@@ -7,25 +7,59 @@ import FooterNote from '../../components/common/FooterNote/FooterNote';
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
+    email: '', 
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('フォームが送信されました！');
-    // ここにフォーム送信のロジックを追加できます（例: APIへのPOSTリクエスト）
-    // フォーム送信後、フォームデータをリセットする場合は以下を追加
-    setFormData({
-      name: '',
-      email: '',
-      message: '',
-    });
+
+    // 入力値の検証
+    if (!formData.name || !formData.email || !formData.message) {
+      alert('必須項目が入力されていません。');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://rw0jox92if.execute-api.ap-northeast-1.amazonaws.com/default/amamiaman', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || '送信に失敗しました');
+      }
+
+      setIsSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+      });
+    } catch (error) {
+      alert(error.message || 'エラーが発生しました。もう一度お試しください。');
+      console.error('送信エラー:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -36,63 +70,80 @@ const ContactPage = () => {
           お問い合わせ
         </h1>
 
-        {/* フォームセクション */}
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.formGroup}>
-            <label htmlFor="name" className={styles.label}>
-              お名前:
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className={styles.input}
-              aria-required="true"
-            />
+        {isSubmitted ? (
+          <div className={styles.successMessage}>
+            <p>フォームが送信されました！</p>
+            <p>お問い合わせありがとうございます。</p>
           </div>
+        ) : (
+          /* フォームセクション */
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <div className={styles.formGroup}>
+              <label htmlFor="name" className={styles.label}>
+                お名前
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className={styles.input}
+                aria-required="true"
+                placeholder="山田 太郎"
+                disabled={isSubmitting}
+              />
+            </div>
 
-          <div className={styles.formGroup}>
-            <label htmlFor="email" className={styles.label}>
-              メールアドレス:
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className={styles.input}
-              aria-required="true"
-            />
-          </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="email" className={styles.label}>
+                メールアドレス
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className={styles.input}
+                aria-required="true"
+                placeholder="example@email.com"
+                disabled={isSubmitting}
+              />
+            </div>
 
-          <div className={styles.formGroup}>
-            <label htmlFor="message" className={styles.label}>
-              メッセージ:
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              className={styles.textarea}
-              aria-required="true"
-            ></textarea>
-          </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="message" className={styles.label}>
+                メッセージ
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className={styles.textarea}
+                aria-required="true"
+                placeholder="お問い合わせ内容をご記入ください"
+                disabled={isSubmitting}
+              ></textarea>
+            </div>
 
-          <button type="submit" className={styles.button}>
-            送信
-          </button>
-        </form>
+            <button 
+              type="submit" 
+              className={styles.button}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? '送信中...' : '送信する'}
+            </button>
+          </form>
+        )}
 
         {/* フッターノート */}
-        <FooterNote text="表記価格は税込です。" />
+        <FooterNote text="お問い合わせいただいてから、2営業日以内にご返信いたします。" />
       </div>
       {/* ソーシャルシェア */}
       <SocialShare />

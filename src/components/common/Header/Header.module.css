@@ -1,12 +1,13 @@
-/* src/components/Header/Header.module.css */
+/* ヘッダーコンポーネントのスタイル */
 
-/* ベーススタイル（モバイルファースト） */
+/* ヘッダー全体のベースレイアウト */
 .header {
   background-color: var(--background-color);
   width: 100%;
   margin-bottom: 16px;
 }
 
+/* ヘッダー上部のロゴ・連絡先エリア */
 .topBar {
   display: flex;
   flex-direction: column;
@@ -24,6 +25,7 @@
   width: auto;
 }
 
+/* ハンバーガーメニューボタン */
 .menuIcon {
   background: none;
   border: none;
@@ -41,6 +43,7 @@
   color: var(--accent-color);
 }
 
+/* 電話番号表示エリア */
 .contact {
   display: flex;
   align-items: center;
@@ -64,6 +67,7 @@
   text-decoration: underline;
 }
 
+/* グローバルナビゲーション */
 .globalNav {
   max-height: 0;
   overflow: hidden;
@@ -71,10 +75,12 @@
   width: 100%;
 }
 
+/* メニュー展開時のスタイル */
 .open {
   max-height: 500px;
 }
 
+/* ナビゲーションメニューリスト */
 .navList {
   list-style: none;
   padding: 0;
@@ -86,6 +92,7 @@
   margin-bottom: 0.5rem;
 }
 
+/* ナビゲーションリンク */
 .navLink {
   text-decoration: none;
   border-bottom: 2px solid transparent;
@@ -103,7 +110,7 @@
   border-color: var(--accent-color);
 }
 
-/* タブレット以上のスタイル */
+/* タブレット向けレイアウト */
 @media (min-width: 768px) {
   .topBar {
     flex-direction: row;
@@ -146,7 +153,7 @@
   }
 }
 
-/* デスクトップ以上のスタイル */
+/* デスクトップ向けレイアウト */
 @media (min-width: 1024px) {
   .logoImage {
     height: 6rem;
