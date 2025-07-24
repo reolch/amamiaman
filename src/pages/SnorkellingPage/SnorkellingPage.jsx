@@ -30,22 +30,22 @@ const SnorkellingPage = () => {
           <img
             className={`${styles.image} ${styles.item1}`}
             src="/assets/images/IMG_0801.jpg"
-            alt="シュノーケリングスポット1"
+            alt="奄美大島の透明度抜群の海でシュノーケリング体験をする様子"
           />
           <img
             className={`${styles.image} ${styles.item2}`}
             src="/assets/images/IMG_0808.jpg"
-            alt="シュノーケリングスポット2"
+            alt="奄美大島のサンゴ礁と色とりどりの熱帯魚が見られるシュノーケリングポイント"
           />
           <img
             className={`${styles.image} ${styles.item3}`}
             src="/assets/images/IMG_0806.jpg"
-            alt="シュノーケリングスポット3"
+            alt="奄美大島の美しい海中世界を楽しむシュノーケリング体験の風景"
           />
           <img
             className={`${styles.image} ${styles.item4}`}
             src="/assets/images/IMG_0804.jpg"
-            alt="シュノーケリングスポット4"
+            alt="奄美大島のクリアブルーの海で楽しむシュノーケリングツアーの様子"
           />
         </div>
 

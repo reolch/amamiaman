@@ -9,36 +9,42 @@ const slides = [
     image: '/assets/images/pages/トップページ/スライドショー/slide1.jpg',
     catchphrase: '',
     description: '',
+    alt: '奄美大島の美しい海とマリンアクティビティの様子を紹介するあまみあまんのメイン画像',
   },
   {
     id: 2,
     image: '/assets/images/pages/トップページ/スライドショー/slide2.jpg',
     catchphrase: '',
     description: '',
+    alt: '奄美大島でのシュノーケリング体験とクリアブルーの海の絶景',
   },
   {
     id: 3,
     image: '/assets/images/pages/トップページ/スライドショー/slide3.jpg',
     catchphrase: '',
     description: '',
+    alt: '奄美大島のシーカヤック体験と透明度の高い美しい海',
   },
   {
     id: 4,
     image: '/assets/images/pages/トップページ/スライドショー/slide4.jpg',
     catchphrase: '',
     description: '',
+    alt: '奄美大島のグラスボート体験で見る珊瑚礁と熱帯魚の世界',
   },
   {
     id: 5,
     image: '/assets/images/pages/トップページ/スライドショー/slide5.jpg',
     catchphrase: '',
     description: '',
+    alt: '奄美大島の夕焼けとマリンアクティビティを楽しむ観光客',
   },
   {
     id: 6,
     image: '/assets/images/pages/トップページ/スライドショー/slide6.jpg',
     catchphrase: '',
     description: '',
+    alt: '奄美大島あまみあまんの宿泊施設と美しい自然環境',
   }
 ];
 
@@ -77,7 +83,7 @@ const HeroSection = ({ animationType = 'fade' }) => {
           >
             <img
               src={slide.image}
-              alt={slide.catchphrase}
+              alt={slide.alt}
               className={styles['hero-section__slide-image']}
               loading="lazy"
             />

@@ -17,7 +17,7 @@ const GlassBoatPage = () => {
           <figure className={styles.imageContainer}>
             <img
               src="/assets/images/pages/グラスボート/top.jpg"
-              alt="グラスボートで奄美の海を楽しむ様子"
+              alt="奄美大島のグラスボート体験で珊瑚礁と熱帯魚を観察する観光客の様子"
               loading="lazy"
               className={styles.image}
             />

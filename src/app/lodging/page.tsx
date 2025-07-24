@@ -1,10 +1,32 @@
-import { Metadata } from 'next';
 import LodgingPage from '@/pages/LodgingPage/LodgingPage';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: '宿泊施設 | あまみあまん - 奄美大島',
-  description: '奄美大島での滞在に最適な素泊まり宿。和室・洋室完備、WiFi・洗濯機・冷蔵庫など設備充実。低価格でご利用いただける快適な宿泊施設です。',
-  keywords: '奄美大島, 宿泊施設, 素泊まり, 和室, 洋室, WiFi, 洗濯機, 冷蔵庫, 低価格, 民宿, あまみあまん',
+  description: '奄美大島の海を満喫できる宿泊施設をご提供しています。マリンアクティビティと合わせて快適にお過ごしいただけます。',
+  keywords: '奄美大島, 宿泊施設, 宿泊, あまみあまん, 民宿, ホテル',
+  openGraph: {
+    title: '宿泊施設 | あまみあまん - 奄美大島',
+    description: '奄美大島の海を満喫できる宿泊施設をご提供しています。マリンアクティビティと合わせて快適にお過ごしいただけます。',
+    url: 'https://amamiaman.com/lodging',
+    siteName: 'あまみあまん',
+    images: [
+      {
+        url: '/assets/images/LodgingGridItem1.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'あまみあまんの宿泊施設の様子',
+      },
+    ],
+    locale: 'ja_JP',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '宿泊施設 | あまみあまん - 奄美大島',
+    description: '奄美大島の海を満喫できる宿泊施設をご提供しています。マリンアクティビティと合わせて快適にお過ごしいただけます。',
+    images: ['/assets/images/LodgingGridItem1.jpg'],
+  },
 };
 
 export default function Lodging() {

@@ -1,10 +1,32 @@
-import { Metadata } from 'next';
 import OtherFacilitiesPage from '@/pages/OtherFacilities/OtherFacilitiesPage';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'その他の施設 | あまみあまん - 奄美大島',  
-  description: 'マリンアクティビティ体験後にご利用いただけるシャワー室やロビーなど、快適にお過ごしいただくための施設をご紹介します。',
-  keywords: '奄美大島, 施設紹介, シャワー室, ロビー, アクティビティ後, 快適, 設備, あまみあまん',
+  title: 'その他の施設 | あまみあまん - 奄美大島',
+  description: 'あまみあまんではマリンアクティビティ以外にも様々な施設やサービスをご用意しています。シャワー室やロビーなどの施設紹介です。',
+  keywords: '奄美大島, その他施設, 施設案内, あまみあまん, シャワー室, ロビー, 設備',
+  openGraph: {
+    title: 'その他の施設 | あまみあまん - 奄美大島',
+    description: 'あまみあまんではマリンアクティビティ以外にも様々な施設やサービスをご用意しています。シャワー室やロビーなどの施設紹介です。',
+    url: 'https://amamiaman.com/other',
+    siteName: 'あまみあまん',
+    images: [
+      {
+        url: '/assets/images/pages/施設紹介/ロビー.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'あまみあまんの施設の様子',
+      },
+    ],
+    locale: 'ja_JP',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'その他の施設 | あまみあまん - 奄美大島',
+    description: 'あまみあまんではマリンアクティビティ以外にも様々な施設やサービスをご用意しています。シャワー室やロビーなどの施設紹介です。',
+    images: ['/assets/images/pages/施設紹介/ロビー.jpg'],
+  },
 };
 
 export default function Other() {

@@ -17,7 +17,7 @@ const NewsItem = ({ id, title, date, description, imageUrl }) => {
   return (
     <article className={styles.newsItem} aria-labelledby={`news-title-${id}`}>
       {imageUrl && (
-        <img src={imageUrl} alt={title} className={styles.newsImage} loading="lazy" />
+        <img src={imageUrl} alt={`奄美大島あまみあまんのニュース記事「${title}」の関連画像`} className={styles.newsImage} loading="lazy" />
       )}
       <div className={styles.newsDate}>{formattedDate}</div>
       <h3 id={`news-title-${id}`} className={styles.newsTitle}>
@@ -45,15 +45,30 @@ const NewsSection = () => {
     const fetchNews = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`/data/news.json`);
+        const response = await fetch('/news.json', {
+          cache: 'no-cache',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        
         if (!response.ok) {
-          throw new Error('ニュースの取得に失敗しました');
+          throw new Error(`HTTP ${response.status}: ニュースの取得に失敗しました`);
         }
+        
         const data = await response.json();
+        
+        if (!data || !Array.isArray(data.news)) {
+          throw new Error('ニュースデータの形式が正しくありません');
+        }
+        
         setNewsData(data.news);
+        setError(null);
       } catch (err) {
         setError(err.message);
         console.error('Error fetching news:', err);
+        // フォールバックデータを設定
+        setNewsData([]);
       } finally {
         setIsLoading(false);
       }

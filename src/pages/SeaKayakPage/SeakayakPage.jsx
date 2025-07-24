@@ -17,7 +17,7 @@ const SeaKayakPage = () => {
           <figure className={styles.imageContainer}>
             <img
               src="/assets/images/pages/シーカヤック/top.JPG"
-              alt="シーカヤックで奄美の海を楽しむ様子"
+              alt="奄美大島の透明度抜群の海でシーカヤック体験を楽しむ観光客の様子"
               loading="lazy"
               className={styles.image}
             />

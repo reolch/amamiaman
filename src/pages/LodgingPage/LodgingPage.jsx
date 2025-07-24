@@ -25,7 +25,7 @@ const LodgingPage = () => {
           <img
             className={`${styles.image} ${styles.item2}`}
             src="/assets/images/LodgingGridItem2.jpg"
-            alt="客室2の写真"
+            alt="奄美大島あまみあまんの宿泊施設の快適な和室客室の様子"
           />
         </div>
 

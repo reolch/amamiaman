@@ -10,13 +10,21 @@ const iconMap = {
   lodging: '/assets/icons/lodging.svg',
 };
 
+const altMap = {
+  snorkelling: '奄美大島シュノーケリング体験アクティビティアイコン',
+  seakayak: '奄美大島シーカヤック体験アクティビティアイコン',
+  glassboat: '奄美大島グラスボート体験アクティビティアイコン',
+  lodging: 'あまみあまん宿泊施設サービスアイコン',
+};
+
 const ServiceCard = ({ type, title, description, link }) => {
   const iconSrc = iconMap[type];
+  const iconAlt = altMap[type];
   
   return (
     <div className={styles.card}>
       <div className={styles.iconWrapper}>
-        <img src={iconSrc} alt={title} className={styles.icon} />
+        <img src={iconSrc} alt={iconAlt} className={styles.icon} />
       </div>
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.description}>{description}</p>
