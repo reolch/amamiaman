@@ -1,0 +1,145 @@
+/* src/components/NewsSection/NewsSection.module.css */
+
+.newsSection {
+  padding: 40px;
+  background-color: #f8f9fa;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+.container {
+  width: 100%;
+}
+
+.swiper {
+  padding-bottom: 40px;
+}
+
+.swiperSlide {
+  display: flex;
+  justify-content: center;
+}
+
+.newsItem {
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.newsDate {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.newsTitle {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.newsDescription {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.newsImage {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+/* Swiperのナビゲーションとページネーション */
+.swiper :global(.swiper-button-next),
+.swiper :global(.swiper-button-prev) {
+  color: #4a90e2;
+}
+
+.swiper :global(.swiper-pagination-bullet) {
+  background-color: #4a90e2;
+  opacity: 0.5;
+}
+
+.swiper :global(.swiper-pagination-bullet-active) {
+  background-color: #4a90e2;
+  opacity: 1;
+}
+
+/* レスポンシブスタイル */
+
+/* Tablet and Above */
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
+
+  .newsItem {
+    padding: 20px;
+  }
+
+  .newsDate {
+    font-size: 1rem;
+  }
+
+  .newsTitle {
+    font-size: 1.3rem;
+  }
+
+  .newsDescription {
+    font-size: 1.1rem;
+  }
+}
+
+/* Desktop and Above */
+@media (min-width: 1024px) {
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  .newsItem {
+    padding: 25px;
+  }
+
+  .newsDate {
+    font-size: 1.1rem;
+  }
+
+  .newsTitle {
+    font-size: 1.4rem;
+  }
+
+  .newsDescription {
+    font-size: 1.2rem;
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error {
+  text-align: center;
+  padding: 2rem;
+  color: #ff6b6b;
+  font-size: 1.2rem;
+}

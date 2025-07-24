@@ -1,0 +1,92 @@
+/* src/components/OtherFacilitiesPage/OtherFacilitiesPage.module.css */
+
+.section {
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    font-weight: 600;
+  }
+  
+  .descriptionContainer {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #2c3e50;
+    text-align: center;
+  }
+  
+  .imageGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .imageItem {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 16 / 9;
+  }
+  
+  .imageItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .imageItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .imageItem:hover img {
+    transform: scale(1.05);
+  }
+  
+  /* レスポンシブスタイル */
+  @media (min-width: 768px) {
+    .section {
+      padding: 60px 30px;
+    }
+  
+    .description {
+      font-size: 1.1rem;
+    }
+  
+    .imageGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .title {
+      font-size: 2.5rem;
+    }
+  
+    .description {
+      font-size: 1.15rem;
+    max-width: 800px;
+      margin: 0 auto 40px;
+    }
+  }

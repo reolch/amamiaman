@@ -1,0 +1,77 @@
+.socialShareSection {
+    margin-top: 50px;
+}
+
+.socialShareContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.socialShareButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.socialShareButton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+}
+
+.socialShareIcon {
+    font-size: 1.5rem;
+}
+
+.socialShareButtonInstagram {
+    background-color: #E4405F;
+}
+
+.socialShareButtonX {
+    background-color: #000000;
+}
+
+.socialShareButtonLine {
+    background-color: #00c300;
+}
+
+.socialShareButtonLine:hover,
+.socialShareButtonLine:focus {
+    background-color: #009a00;
+    transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+    .socialShareButtons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .socialShareSection {
+        margin-top: 60px;
+    }
+
+    .socialShareButton {
+        padding: 14px 24px;
+        font-size: 1.1rem;
+    }
+
+    .socialShareIcon {
+        font-size: 1.5rem;
+    }
+}

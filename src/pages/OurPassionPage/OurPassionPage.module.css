@@ -1,0 +1,93 @@
+.section {
+  padding: 40px 15px;
+  background-color: var(--background-color);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.passionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--white-color);
+  border: 1px solid var(--border-color);
+  transition: background-color var(--transition-duration) ease;
+}
+
+.passionBlock:hover {
+  background-color: var(--hover-background-color);
+}
+
+.reverse {
+  flex-direction: column-reverse;
+}
+
+.textColumn {
+  width: 100%;
+}
+
+.imageColumn {
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-height: 350px;
+  object-fit: cover;
+}
+
+.heading {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.paragraph {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--secondary-color);
+  text-align: justify;
+}
+
+@media (min-width: 768px) {
+  .passionBlock {
+    flex-direction: row;
+  }
+
+  .reverse {
+    flex-direction: row-reverse;
+  }
+
+  .textColumn,
+  .imageColumn {
+    width: 50%;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .paragraph {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading {
+    font-size: 2.2rem;
+  }
+
+  .paragraph {
+    font-size: 1.25rem;
+  }
+}

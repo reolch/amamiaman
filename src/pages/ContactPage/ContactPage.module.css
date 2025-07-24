@@ -1,0 +1,111 @@
+.section {
+  padding: 24px 16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.description {
+  color: #666;
+  text-align: center;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.input,
+.textarea {
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  background: #fff;
+  transition: border 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #000;
+  outline: none;
+}
+
+.textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.button {
+  width: 100%;
+  padding: 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: #333;
+}
+
+/* タブレット以上のサイズ */
+@media (min-width: 768px) {
+  .section {
+    padding: 40px 24px;
+  }
+  
+  .container {
+    max-width: 520px;
+  }
+  
+  .title {
+    font-size: 2.25rem;
+    margin-bottom: 24px;
+  }
+  
+  .description {
+    margin-bottom: 40px;
+  }
+  
+  .form {
+    gap: 24px;
+  }
+  
+  .input,
+  .textarea {
+    padding: 18px;
+  }
+  
+  .button {
+    padding: 18px;
+  }
+}

@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Rampart+One&display=swap');
+
+.rampart_one_regular {
+  font-family: "Rampart One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  color: #000;
+}
+
+/* ヘッダー全体のベースレイアウト */
+.header {
+  background-color: #ffffff; /* --background-color */
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* ヘッダー上部のロゴ・連絡先エリア */
+.topBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+}
+
+.logo {
+  margin-bottom: 1rem;
+}
+
+.logoImage {
+  height: 4rem;
+  width: auto;
+}
+
+/* ハンバーガーメニューボタン */
+.menuButtonContainer {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001; /* 他の要素より前面に表示 */
+}
+
+.menuIcon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #333333; /* --text-color */
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuToggleIcon {
+  pointer-events: none; /* アイコン自体のクリックイベントを無効化 */
+}
+
+.menuIcon:hover,
+.menuIcon:focus {
+  outline: none;
+  color: #ff6b6b; /* --accent-color */
+}
+
+/* 電話番号表示エリア */
+.contact {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.phoneIcon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: #333333; /* --text-color */
+}
+
+.phoneNumber {
+  font-size: 1rem;
+  color: #333333; /* --text-color */
+  text-decoration: none;
+}
+
+.phoneNumber:hover,
+.phoneNumber:focus {
+  text-decoration: underline;
+}
+
+/* グローバルナビゲーション */
+.globalNav {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  width: 100%;
+}
+
+/* メニュー展開時のスタイル */
+.open {
+  max-height: 500px;
+}
+
+/* ナビゲーションメニューリスト */
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.navItem {
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+/* ナビゲーションリンク */
+.navLink {
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  color: #333333; /* --text-color */
+  line-height: 2;
+  font-size: 1rem;
+  display: block;
+  transition: color 0.3s, border-color 0.3s;
+  text-align: center;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+.navLink:hover,
+.navLink:focus {
+  color: #ff6b6b; /* --accent-color */
+  border-color: #ff6b6b; /* --accent-color */
+}
+
+/* タブレット向けレイアウト */
+@media (min-width: 768px) {
+  .topBar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    margin-bottom: 0;
+  }
+
+  .globalNav {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .navList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navItem {
+    margin: 0 1rem;
+  }
+
+  .contact {
+    margin-top: 0;
+  }
+
+  .phoneIcon,
+  .phoneNumber {
+    font-size: 1.5rem;
+  }
+
+  .menuButtonContainer,
+  .menuIcon {
+    display: none;
+  }
+
+  .navLink {
+    display: inline-block;
+    width: auto;
+    padding: 0;
+  }
+}
+
+/* デスクトップ向けレイアウト */
+@media (min-width: 1024px) {
+  .logoImage {
+    height: 6rem;
+  }
+
+  .navItem {
+    margin: 0 1.5rem;
+  }
+
+  .navLink {
+    font-size: 1rem;
+  }
+
+  .phoneIcon,
+  .phoneNumber {
+    font-size: 1.8rem;
+  }
+}
+
+/* ドロップダウンコンテナ */
+.dropdownContainer {
+  position: relative;
+}
+
+/* ドロップダウンボタン（Link） */
+.dropdownButton {
+  width: 100%;
+  text-decoration: none;
+  color: #333333; /* --text-color */
+  font-size: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: inherit;
+  border-bottom: 2px solid transparent;
+}
+
+/* ドロップダウンメニュー（モバイル） */
+.dropdownMenu {
+  position: static;
+  background-color: rgba(0, 0, 0, 0.02);
+  margin: 0.5rem 1rem;
+  border-radius: 8px;
+  display: none;
+  list-style: none;
+}
+
+.dropdownMenu.show {
+  display: block;
+}
+
+/* ドロップダウンリンク */
+.dropdownLink {
+  display: block;
+  padding: 0.8rem 1rem;
+  color: #333333; /* --text-color */
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.dropdownLink:hover,
+.dropdownLink:focus {
+  color: #ff6b6b; /* --accent-color */
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* タブレット以上のスタイル */
+@media (min-width: 769px) {
+  .dropdownButton {
+    width: auto;
+    font-size: 1.2rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    display: block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.2s ease;
+    list-style: none;
+  }
+
+  .dropdownContainer:hover .dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .dropdownContainer:hover .dropdownButton {
+    color: #ff6b6b; /* --accent-color */
+    border-color: #ff6b6b; /* --accent-color */
+  }
+}
+
+/* モスクトップサイズのスタイル */
+@media (min-width: 1024px) {
+  .dropdownButton {
+    font-size: 1rem;
+  }
+
+  .dropdownLink {
+    padding: 0.8rem 1.5rem;
+  }
+}

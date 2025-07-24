@@ -1,0 +1,154 @@
+/* src/components/SeaKayakPage/SeaKayakPage.module.css */
+
+.section {
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 30px;
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 600px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.imageCaption {
+  margin-top: 8px;
+  font-size: 0.875rem;
+  color: #7f8c8d;
+  text-align: center;
+}
+
+.descriptionContainer {
+  width: 100%;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #2c3e50;
+}
+
+/* テーブルスタイル */
+.pricingTable,
+.detailsTable {
+  width: 100%;
+  margin-bottom: 40px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.table th,
+.table td {
+  padding: 14px 16px;
+  border: 1px solid #e0e0e0;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.table td {
+  color: #555;
+}
+
+.headerRow th {
+  background-color: #e9ecef;
+  text-align: center;
+  font-weight: 600;
+}
+
+.label {
+  font-weight: 600;
+  background-color: #f8f9fa;
+  width: 30%;
+}
+
+.value {
+  color: #555;
+}
+
+/* レスポンシブスタイル */
+@media (min-width: 768px) {
+  .section {
+    padding: 60px 30px;
+  }
+
+  .content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .imageContainer {
+    width: 50%;
+  }
+
+  .descriptionContainer {
+    width: 50%;
+    padding-left: 30px;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    text-align: left;
+  }
+
+  .table th,
+  .table td {
+    padding: 16px 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .image {
+    max-height: 350px;
+  }
+
+  .description {
+    font-size: 1.15rem;
+  }
+}
