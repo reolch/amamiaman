@@ -1,12 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Rampart+One&display=swap');
-
-.rampart_one_regular {
-  font-family: "Rampart One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  text-decoration: none;
-  color: #000;
-}
 
 /* ヘッダー全体のベースレイアウト */
 .header {

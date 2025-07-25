@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './Header.module.css';
 import Link from 'next/link';
 import { FaPhone, FaBars, FaTimes } from 'react-icons/fa';
+import { rampartOne } from '@/app/fonts';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,7 +38,7 @@ const Header = () => {
         
         <div className={styles.logo}>
           <h1>
-            <a href="/" className={styles.rampart_one_regular}>
+            <a href="/" className={rampartOne.className}>
               ヤマハタマリンサービスあまん
             </a>
           </h1>
