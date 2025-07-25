@@ -1,65 +1,20 @@
 .pageWrapper {
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 0 auto;
   padding: 0;
   min-height: calc(100vh - 200px);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 24px;
-  box-shadow: 
-    0 20px 60px rgba(44, 82, 130, 0.15),
-    0 8px 32px rgba(45, 127, 127, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  overflow: hidden;
+  background: #ffffff;
   position: relative;
-}
-
-.pageWrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(45, 127, 127, 0.3), 
-    transparent
-  );
-}
-
-.pageWrapper::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -50%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(45deg, 
-    transparent 30%, 
-    rgba(45, 127, 127, 0.03) 50%, 
-    transparent 70%
-  );
-  pointer-events: none;
-  animation: shimmer 3s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
 }
 
 .pageWrapper > * {
-  padding: 20px;
+  padding: 24px;
   position: relative;
-  z-index: 1;
 }
 
 @media (max-width: 767px) {
   .pageWrapper {
-    margin: 1rem;
-    border-radius: 16px;
+    margin: 0 16px;
   }
   
   .pageWrapper > * {
@@ -69,21 +24,22 @@
 
 @media (min-width: 768px) {
   .pageWrapper {
-    margin: 2rem auto;
+    margin: 0 auto;
+    padding: 0 32px;
   }
   
   .pageWrapper > * {
-    padding: 40px 32px;
+    padding: 32px 0;
   }
 }
 
 @media (min-width: 1024px) {
   .pageWrapper {
-    margin: 3rem auto;
-    border-radius: 32px;
+    margin: 0 auto;
+    padding: 0 48px;
   }
   
   .pageWrapper > * {
-    padding: 60px 48px;
+    padding: 48px 0;
   }
 }
