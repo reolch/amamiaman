@@ -1,13 +1,14 @@
 // src/components/StoreInformationPage/StoreInformationPage.jsx
 import styles from './StoreInformationPage.module.css';
+import commonStyles from '../../styles/PageLayout.module.css';
 
 import SocialShare from '../../components/common/SocialShare/SocialShare';
 import FooterNote from '../../components/common/FooterNote/FooterNote';
 
 const StoreInformationPage = () => {
   return (
-    <main className={styles.section} aria-labelledby="store-information-heading">
-      <div className={styles.container}>
+    <main className={commonStyles.section} aria-labelledby="store-information-heading">
+      <div className={commonStyles.container}>
 
         <section className={styles.mapSection}>
           <h2 className={styles.mapTitle}>MAP</h2>

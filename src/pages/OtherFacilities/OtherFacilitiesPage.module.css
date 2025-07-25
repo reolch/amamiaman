@@ -1,15 +1,11 @@
 /* src/components/OtherFacilitiesPage/OtherFacilitiesPage.module.css */
 
 .section {
-    padding: 40px 20px;
-    background-color: #f8f9fa;
-    min-height: 100vh;
+    position: relative;
   }
   
   .container {
     width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
   }
   
   .title {
@@ -66,10 +62,6 @@
   
   /* レスポンシブスタイル */
   @media (min-width: 768px) {
-    .section {
-      padding: 60px 30px;
-    }
-  
     .description {
       font-size: 1.1rem;
     }

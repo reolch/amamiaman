@@ -1,4 +1,12 @@
 :root {
+  /* 背景色の統一 */
+  --background-color: #ffffff;
+  --white-color: #ffffff;
+  --primary-color: #333333;
+  --accent-color: #1abc9c;
+  --hover-background-color: #f8f9fa;
+  --transition-duration: 0.3s;
+  
   /* フォント関連の変数 */
   --font-family-base: 'Noto Sans JP', sans-serif;
   --font-family-heading: 'Noto Sans JP', sans-serif;

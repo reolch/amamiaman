@@ -1,4 +1,3 @@
-"use client";
 import styles from './SocialShare.module.css';
 import { FaInstagram, FaLine } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';

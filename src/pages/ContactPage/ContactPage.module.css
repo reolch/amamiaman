@@ -1,5 +1,4 @@
 .section {
-  padding: 24px 16px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -79,9 +78,6 @@
 
 /* タブレット以上のサイズ */
 @media (min-width: 768px) {
-  .section {
-    padding: 40px 24px;
-  }
   
   .container {
     max-width: 520px;

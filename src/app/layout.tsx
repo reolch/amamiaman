@@ -5,6 +5,7 @@ import "./App.css";
 import "./styles/global.css";
 import Header from "@/components/common/Header/Header";
 import Footer from "@/components/common/Footer/Footer";
+import PageWrapper from "@/components/common/PageWrapper/PageWrapper";
 import { LocalBusinessStructuredData, TouristAttractionStructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
@@ -78,7 +79,9 @@ export default function RootLayout({
         <div className="app">
           <Header />
           <main>
-            {children}
+            <PageWrapper>
+              {children}
+            </PageWrapper>
           </main>
           <Footer />
         </div>

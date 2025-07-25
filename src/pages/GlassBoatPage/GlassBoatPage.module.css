@@ -1,15 +1,11 @@
 /* src/components/GlassBoatPage/GlassBoatPage.module.css */
 
 .section {
-  padding: 40px 20px;
-  background-color: #f8f9fa;
-  min-height: 100vh;
+  position: relative;
 }
 
 .container {
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 .title {
@@ -61,7 +57,7 @@
   display: none;
 }
 
-/* テーブルスタイルの修正 */
+/* テーブルスタイル */
 .pricingTable,
 .detailsTable {
   width: 100%;
@@ -115,7 +111,7 @@
 /* レスポンシブスタイル */
 @media (min-width: 768px) {
   .section {
-    padding: 60px 30px;
+    padding: 80px 40px;
   }
 
   .desktopOnly {

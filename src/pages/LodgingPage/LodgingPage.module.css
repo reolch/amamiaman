@@ -1,15 +1,11 @@
 /* src/components/LodgingPage/LodgingPage.module.css */
 
 .section {
-    padding: 40px 20px;
-    background-color: #f8f9fa;
-    min-height: 100vh;
+    position: relative;
   }
   
   .container {
     width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
   }
   
   .title {
@@ -32,19 +28,25 @@
     text-align: center;
   }
   
-  /* グリッドレイアウト */
+  /* 中央寄せ画像レイアウト */
   .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
+    display: flex;
+    justify-content: center;
     margin-bottom: 40px;
   }
   
   .image {
+    max-width: 600px;
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+  }
+
+  .image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
   }
   
   /* 詳細セクション */
@@ -126,16 +128,13 @@
   
   /* レスポンシブスタイル */
   @media (min-width: 768px) {
-    .section {
-      padding: 60px 30px;
-    }
-  
     .description {
       font-size: 1.1rem;
     }
-  
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
+
+    .image {
+      max-width: 700px;
+      border-radius: 16px;
     }
   
     .detailsTitle {
@@ -156,15 +155,9 @@
     .description {
       font-size: 1.15rem;
     }
-  
-    .grid {
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      height: 500px;
-    }
-  
-    .item2 {
-      grid-column: span 2;
-      grid-row: span 2;
+
+    .image {
+      max-width: 800px;
+      border-radius: 20px;
     }
   }

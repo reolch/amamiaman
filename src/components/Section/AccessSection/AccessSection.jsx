@@ -1,4 +1,3 @@
-"use client";
 import styles from './AccessSection.module.css';
 import {
   FaPhone,
