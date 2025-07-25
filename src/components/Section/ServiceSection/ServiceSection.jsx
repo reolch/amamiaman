@@ -54,7 +54,7 @@ const ServiceSection = () => {
       type: 'seakayak',
       title: 'シーカヤック',
       description: '手つかずの自然を探検しよう',
-      link: '/seakayak',
+      link: '/seaKayak',
     },
     {
       type: 'glassboat',
