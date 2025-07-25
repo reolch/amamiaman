@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '私たちの想い | あまみあまん - 奄美大島',
     description: '奄美大島の美しい自然を大切にし、お客様に最高のマリン体験をお届けしたいという私たちの想いをご紹介します。',
-    url: 'https://amamiaman.com/passion',
+    url: 'https://www.marine-services-aman.com/passion',
     siteName: 'あまみあまん',
     images: [
       {

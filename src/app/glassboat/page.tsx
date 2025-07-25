@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'グラスボート観光 | あまみあまん - 奄美大島',
     description: '奄美大島の美しい海中世界をグラスボートで観光できます。濡れることなく海中の美しいサンゴや魚たちを観察いただけます。',
-    url: 'https://amamiaman.com/glassboat',
+    url: 'https://www.marine-services-aman.com/glassboat',
     siteName: 'あまみあまん',
     images: [
       {

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'その他の施設 | あまみあまん - 奄美大島',
     description: 'あまみあまんではマリンアクティビティ以外にも様々な施設やサービスをご用意しています。シャワー室やロビーなどの施設紹介です。',
-    url: 'https://amamiaman.com/other',
+    url: 'https://www.marine-services-aman.com/other',
     siteName: 'あまみあまん',
     images: [
       {

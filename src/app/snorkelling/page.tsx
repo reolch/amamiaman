@@ -3,12 +3,12 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'シュノーケリング体験 | あまみあまん - 奄美大島',
-  description: '奄美大島の美しい海でシュノーケリング体験を楽しめます。初心者から上級者まで安心してお楽しみいただけるガイド付きツアーです。',
+  description: 'あまんで奄美大島シュノーケル体験を楽しめます。奄美大島南部の美しい海で初心者から上級者まで安心のガイド付きツアーです。',
   keywords: '奄美大島, シュノーケリング, 体験, マリンアクティビティ, あまみあまん, 海',
   openGraph: {
     title: 'シュノーケリング体験 | あまみあまん - 奄美大島',
-    description: '奄美大島の美しい海でシュノーケリング体験を楽しめます。初心者から上級者まで安心してお楽しみいただけるガイド付きツアーです。',
-    url: 'https://amamiaman.com/snorkelling',
+    description: 'あまんで奄美大島シュノーケル体験を楽しめます。奄美大島南部の美しい海で初心者から上級者まで安心のガイド付きツアーです。',
+    url: 'https://www.marine-services-aman.com/snorkelling',
     siteName: 'あまみあまん',
     images: [
       {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'シュノーケリング体験 | あまみあまん - 奄美大島',
-    description: '奄美大島の美しい海でシュノーケリング体験を楽しめます。初心者から上級者まで安心してお楽しみいただけるガイド付きツアーです。',
+    description: 'あまんで奄美大島シュノーケル体験を楽しめます。奄美大島南部の美しい海で初心者から上級者まで安心のガイド付きツアーです。',
     images: ['/assets/images/pages/トップページ/スライドショー/slide2.jpg'],
   },
 };

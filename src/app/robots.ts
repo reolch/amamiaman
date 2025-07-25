@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://amamiaman.com/sitemap.xml',
+    sitemap: 'https://www.marine-services-aman.com/sitemap.xml',
   }
 }

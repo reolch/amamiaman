@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'アクセス・店舗情報 | あまみあまん - 奄美大島',
     description: '奄美大島のヤマハタマリンサービスあまんへのアクセス方法、営業時間、お問い合わせ先をご確認いただけます。',
-    url: 'https://amamiaman.com/access',
+    url: 'https://www.marine-services-aman.com/access',
     siteName: 'あまみあまん',
     images: [
       {

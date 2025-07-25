@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'お問い合わせ | あまみあまん - 奄美大島',
     description: 'あまみあまんへのお問い合わせ、ご予約はこちらからお気軽にどうぞ。マリンアクティビティや宿泊に関するご質問にお答えします。',
-    url: 'https://amamiaman.com/contact',
+    url: 'https://www.marine-services-aman.com/contact',
     siteName: 'あまみあまん',
     images: [
       {

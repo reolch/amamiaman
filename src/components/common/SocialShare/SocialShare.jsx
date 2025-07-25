@@ -18,7 +18,7 @@ const SocialShare = () => {
                         Instagram
                     </a>
                     <a 
-                        href="https://x.com/share?url=https://www.amamiaman.com/shop&text=店舗案内" 
+                        href="https://x.com/share?url=https://www.marine-services-aman.com/shop&text=店舗案内" 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className={`${styles.socialShareButton} ${styles.socialShareButtonX}`}
@@ -28,7 +28,7 @@ const SocialShare = () => {
                         X
                     </a>
                     <a 
-                        href="https://line.me/R/share?url=https://www.amamiaman.com/shop" 
+                        href="https://line.me/R/share?url=https://www.marine-services-aman.com/shop" 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className={`${styles.socialShareButton} ${styles.socialShareButtonLine}`}

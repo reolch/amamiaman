@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '宿泊施設 | あまみあまん - 奄美大島',
     description: '奄美大島の海を満喫できる宿泊施設をご提供しています。マリンアクティビティと合わせて快適にお過ごしいただけます。',
-    url: 'https://amamiaman.com/lodging',
+    url: 'https://www.marine-services-aman.com/lodging',
     siteName: 'あまみあまん',
     images: [
       {

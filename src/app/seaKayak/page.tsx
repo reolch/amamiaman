@@ -3,12 +3,12 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'シーカヤック体験 | あまみあまん - 奄美大島',
-  description: '奄美大島の透明度抜群の海でシーカヤック体験を楽しめます。マングローブや美しい海岸線を巡るツアーをご用意しています。',
-  keywords: '奄美大島, シーカヤック, 体験, マリンアクティビティ, あまみあまん, マングローブ',
+  description: 'あまんで加計呂麻島カヤック体験を楽しめます。奄美大島からアクセスし、透明度抜群の海でマングローブや美しい海岸線を巡るツアーをご用意しています。',
+  keywords: '加計呂麻島 カヤック, 奄美大島, シーカヤック, 体験, マリンアクティビティ, あまん, マングローブ',
   openGraph: {
     title: 'シーカヤック体験 | あまみあまん - 奄美大島',
-    description: '奄美大島の透明度抜群の海でシーカヤック体験を楽しめます。マングローブや美しい海岸線を巡るツアーをご用意しています。',
-    url: 'https://amamiaman.com/seaKayak',
+    description: 'あまんで加計呂麻島カヤック体験を楽しめます。奄美大島からアクセスし、透明度抜群の海でマングローブや美しい海岸線を巡るツアーをご用意しています。',
+    url: 'https://www.marine-services-aman.com/seaKayak',
     siteName: 'あまみあまん',
     images: [
       {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'シーカヤック体験 | あまみあまん - 奄美大島',
-    description: '奄美大島の透明度抜群の海でシーカヤック体験を楽しめます。マングローブや美しい海岸線を巡るツアーをご用意しています。',
+    description: 'あまんで加計呂麻島カヤック体験を楽しめます。奄美大島からアクセスし、透明度抜群の海でマングローブや美しい海岸線を巡るツアーをご用意しています。',
     images: ['/assets/images/pages/シーカヤック/top.JPG'],
   },
 };
