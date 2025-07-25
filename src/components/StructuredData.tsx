@@ -51,7 +51,7 @@ export function LocalBusinessStructuredData({
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "マリンアクティビティサービス",
-      "itemListElement": services.map((service, index) => ({
+      "itemListElement": services.map((service) => ({
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",

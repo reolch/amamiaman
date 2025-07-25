@@ -7,8 +7,10 @@ import Header from "@/components/common/Header/Header";
 import Footer from "@/components/common/Footer/Footer";
 import PageWrapper from "@/components/common/PageWrapper/PageWrapper";
 import { LocalBusinessStructuredData, TouristAttractionStructuredData } from "@/components/StructuredData";
+import { inter } from "./fonts";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://amamiaman.com"),
   title: "あまみあまん | ヤマハタマリンサービス - 奄美大島のマリンスポーツ・宿泊施設",
   description: "あまみあまん（ヤマハタマリンサービス）は奄美大島でシュノーケリング、シーカヤック、グラスボートのマリンアクティビティと宿泊施設を提供。美しい奄美の海を満喫できる総合マリンリゾートです。",
   keywords: "あまみあまん, ヤマハタマリンサービス, やまはたまりんさーびす, マリンサービスあまん, まりんさーびすあまん, 奄美大島, マリンスポーツ, 宿泊施設, シュノーケリング, シーカヤック, グラスボート, 奄美, 海, リゾート, 体験ダイビング, 民宿, ペンション",
@@ -69,15 +71,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
+      <body className={inter.className}>
         <LocalBusinessStructuredData
           name="あまみあまん（ヤマハタマリンサービス）"
           description="奄美大島で最高のマリンスポーツ体験と宿泊を提供するあまみあまん。ヤマハタマリンサービスが運営するシュノーケリング、シーカヤック、グラスボートの総合マリンリゾート施設です。"
