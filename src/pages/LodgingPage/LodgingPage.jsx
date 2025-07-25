@@ -8,16 +8,16 @@ const LodgingPage = () => {
       <div className={styles.container}>
         {/* ページタイトル */}
         <h1 id="lodging-page-heading" className={styles.title}>
-          宿泊施設
+          あまみあまん 奄美大島宿泊施設 | ヤマハタマリンサービス民宿
         </h1>
         <div className={styles.descriptionContainer}>
           <p className={styles.description}>
-            当店は、低価格でご利用いただくために、素泊まり宿をご提供しています。
+            <strong>あまみあまん（ヤマハタマリンサービス）</strong>の奄美大島宿泊施設は、マリンスポーツと宿泊を組み合わせた総合リゾートです。低価格でご利用いただくために、素泊まり民宿をご提供しています。
             <br />
-            お部屋は、和室と洋室をご用意しています。
+            奄美大島の美しい海に近い立地で、和室と洋室をご用意しています。
             <br />
-            洗濯機、冷蔵庫やタオルなどはご自由にお使いください。
-            WiFi設備も充実しています。
+            マリンスポーツ愛好家のための設備も充実。洗濯機、冷蔵庫、タオルなどはご自由にお使いください。
+            WiFi設備も完備しており、奄美大島旅行の拠点として最適です。
           </p>
         </div>
 
@@ -31,7 +31,7 @@ const LodgingPage = () => {
 
         {/* Details Section */}
         <section className={styles.details}>
-          <h2 className={styles.detailsTitle}>民宿について</h2>
+          <h2 className={styles.detailsTitle}>あまみあまん 奄美大島民宿について</h2>
 
           {/* Pricing Table */}
           <div className={styles.pricingContainer}>

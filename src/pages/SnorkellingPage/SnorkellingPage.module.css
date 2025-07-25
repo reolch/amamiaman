@@ -12,8 +12,9 @@
   font-size: 2rem;
   text-align: center;
   margin-bottom: 40px;
-  color: #2c3e50;
+  color: var(--primary-blue);
   font-weight: 600;
+  text-shadow: 0 2px 4px rgba(44, 82, 130, 0.1);
 }
 
 .descriptionContainer {
@@ -24,7 +25,7 @@
 .description {
   font-size: 1rem;
   line-height: 1.8;
-  color: #2c3e50;
+  color: var(--neutral-700);
   margin-bottom: 15px;
 }
 
@@ -41,14 +42,16 @@
   width: 100%;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(44, 82, 130, 0.15);
   transition: all 0.3s ease;
   overflow: hidden;
+  border: 2px solid rgba(45, 127, 127, 0.1);
 }
 
 .image:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 12px 32px rgba(44, 82, 130, 0.25);
+  border-color: var(--secondary-teal);
 }
 
 /* 画像のアクセシビリティとフォーカス対応 */

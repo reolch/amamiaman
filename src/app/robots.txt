@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# SEO重要ページの優先クロール
+Allow: /snorkelling
+Allow: /seaKayak  
+Allow: /glassboat
+Allow: /lodging
+Allow: /access
+Allow: /contact
+
+# サイトマップの場所
+Sitemap: https://amamiaman.com/sitemap.xml
+
+# クロール頻度の調整
+Crawl-delay: 1
+
+# 特定の検索エンジンボット向け設定
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

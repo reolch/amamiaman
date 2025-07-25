@@ -8,21 +8,21 @@ const SnorkellingPage = () => {
     <main className={styles.section} aria-labelledby="snorkelling-heading">
       <div className={styles.container}>
         <h1 id="snorkelling-heading" className={styles.title}>
-          シュノーケリングツアー
+          あまみあまん シュノーケリングツアー | ヤマハタマリンサービス
         </h1>
 
         <div className={styles.descriptionContainer}>
           <p className={styles.description}>
-            奄美の海でたくさんの魚にふれあえます！
+            <strong>あまみあまん（ヤマハタマリンサービス）</strong>の奄美大島シュノーケリングツアーで、美しい奄美の海でたくさんの魚にふれあえます！
           </p>
           <p className={styles.description}>
-            サンゴ礁や魚をたくさん見ることができます。
+            奄美大島の透明度抜群の海で、色とりどりのサンゴ礁や熱帯魚をたくさん見ることができる本格的なマリンスポーツ体験です。
           </p>
           <p className={styles.description}>
-            モーターボートでポイントへ移動し、シュノーケリングをたっぷり満喫したい方のための1日コースと、時間を有効に使いたい方のための半日コースを２名様からご案内しています。
+            モーターボートで奄美大島の絶景ポイントへ移動し、シュノーケリングをたっぷり満喫したい方のための1日コースと、時間を有効に使いたい方のための半日コースを２名様からご案内。ヤマハタマリンサービスの経験豊富なガイドが安全にサポートします。
           </p>
           <p className={styles.description}>
-            （ご希望によりSUPも追加）
+            ご希望により奄美大島で人気のSUP体験も追加可能です。あまみあまんで最高のマリンスポーツ体験をお楽しみください。
           </p>
         </div>
 

@@ -9,13 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: baseUrl,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/passion`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/snorkelling`,
@@ -39,25 +33,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/lodging`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/other`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/access`,
       lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/passion`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
     },
   ]
 }
