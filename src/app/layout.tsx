@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://amamiaman.com"),
   title: "あまみあまん | ヤマハタマリンサービス - 奄美大島のマリンスポーツ・宿泊施設",
   description: "あまみあまん（ヤマハタマリンサービス）は奄美大島でシュノーケリング、シーカヤック、グラスボートのマリンアクティビティと宿泊施設を提供。美しい奄美の海を満喫できる総合マリンリゾートです。",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo.png", sizes: "32x32", type: "image/png" }
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/logo.png",
+  },
   keywords: "あまみあまん, ヤマハタマリンサービス, やまはたまりんさーびす, マリンサービスあまん, まりんさーびすあまん, 奄美大島, マリンスポーツ, 宿泊施設, シュノーケリング, シーカヤック, グラスボート, 奄美, 海, リゾート, 体験ダイビング, 民宿, ペンション",
   authors: [{ name: "あまみあまん（ヤマハタマリンサービス）" }],
   creator: "あまみあまん",
