@@ -1,66 +1,134 @@
 .section {
     position: relative;
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
-    background-color: #ffffff;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f0f9ff 100%);
     overflow: hidden;
-}
-
-.content {
     opacity: 0;
-    transform: translateY(20%);
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-    animation: slideInWhenVisible 1s ease-in-out forwards;
-    animation-timeline: view();
-    animation-range: entry 0% entry 30%;
+    transform: translateY(50px);
+    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.contentAnimate {
+.sectionVisible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Fallback for browsers that don't support view-timeline */
-@supports not (animation-timeline: view()) {
-    .content {
-        animation: slideInOnLoad 1s ease-in-out 0.5s forwards;
-    }
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+    transform: translateY(calc(var(--parallax-offset, 0) * 0.2));
+    z-index: 0;
+    pointer-events: none;
 }
 
-@keyframes slideInWhenVisible {
-    from {
+.section > * {
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.contentVisible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: #1e293b;
+    font-weight: 800;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.titleVisible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.titleLine {
+    display: block;
+    opacity: 0;
+    transform: translateX(-50px) rotateX(45deg);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    perspective: 1000px;
+}
+
+.titleVisible .titleLine:nth-child(1) {
+    animation: titleLineSlideIn 0.8s ease-out 0.2s both;
+}
+
+.titleVisible .titleLine:nth-child(2) {
+    animation: titleLineSlideIn 0.8s ease-out 0.4s both;
+}
+
+@keyframes titleLineSlideIn {
+    0% {
         opacity: 0;
-        transform: translateY(20%);
+        transform: translateX(-50px) rotateX(45deg);
     }
-    to {
+    100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0) rotateX(0deg);
     }
 }
 
-@keyframes slideInOnLoad {
-    from {
+.textContainer {
+    margin-top: 20px;
+}
+
+.textLine {
+    font-size: 1.1rem;
+    line-height: 2;
+    margin-bottom: 8px;
+    color: #475569;
+    opacity: 0;
+    transform: translateY(30px) rotateX(30deg);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    perspective: 1000px;
+    font-weight: 500;
+}
+
+.textLineVisible {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+    animation: textLineSlideIn 0.6s ease-out calc(0.6s + var(--line-index, 0) * 0.1s) both;
+}
+
+@keyframes textLineSlideIn {
+    0% {
         opacity: 0;
-        transform: translateY(20%);
+        transform: translateY(30px) rotateX(30deg) scale(0.95);
     }
-    to {
+    60% {
+        opacity: 0.8;
+        transform: translateY(5px) rotateX(5deg) scale(0.98);
+    }
+    100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) rotateX(0deg) scale(1);
     }
-}
-
-.content h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333333;
-    font-weight: bold;
-}
-
-.content p {
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 30px;
-    color: #333333;
 }
 
 .button {
@@ -82,44 +150,34 @@
 
 @media (min-width: 768px) {
     .section {
-        padding: 80px 40px;
+        padding: 100px 40px;
     }
 
-    .content h2 {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
+    .title {
+        font-size: 2.8rem;
+        margin-bottom: 50px;
+        gap: 15px;
     }
 
-    .content p {
-        font-size: 1.2rem;
-        line-height: 2;
-        margin-bottom: 40px;
-    }
-
-    .button {
-        padding: 14px 30px;
-        font-size: 1.1rem;
+    .textLine {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
     }
 }
 
 @media (min-width: 1024px) {
     .section {
-        padding: 100px 60px;
+        padding: 120px 60px;
     }
 
-    .content h2 {
-        font-size: 3rem;
-        margin-bottom: 40px;
+    .title {
+        font-size: 3.2rem;
+        margin-bottom: 60px;
+        gap: 20px;
     }
 
-    .content p {
-        font-size: 1.4rem;
-        line-height: 2.2;
-        margin-bottom: 50px;
-    }
-
-    .button {
-        padding: 16px 35px;
-        font-size: 1.2rem;
+    .textLine {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
     }
 }

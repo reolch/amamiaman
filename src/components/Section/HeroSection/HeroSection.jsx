@@ -2,6 +2,8 @@
 // src/components/Section/HeroSection/HeroSection.jsx
 import { useState, useEffect } from 'react';
 import styles from './HeroSection.module.css'; // CSS Module をインポート
+import useParallax from '../../../hooks/useParallax';
+import useIntersectionObserver from '../../../hooks/useIntersectionObserver';
 
 const slides = [
   {
@@ -51,18 +53,35 @@ const slides = [
 
 const HeroSection = ({ animationType = 'fade' }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
   const slideInterval = 5000;
+  
+  const [heroRef, , hasHeroIntersected] = useIntersectionObserver();
+  const [parallaxRef, parallaxOffset] = useParallax(0.5);
 
   const nextSlide = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
     setCurrentSlide((prevSlide) =>
       prevSlide === slides.length - 1 ? 0 : prevSlide + 1
     );
+    setTimeout(() => setIsAnimating(false), 1200);
   };
 
   const prevSlide = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
     setCurrentSlide((prevSlide) =>
       prevSlide === 0 ? slides.length - 1 : prevSlide - 1
     );
+    setTimeout(() => setIsAnimating(false), 1200);
+  };
+
+  const goToSlide = (index) => {
+    if (isAnimating || index === currentSlide) return;
+    setIsAnimating(true);
+    setCurrentSlide(index);
+    setTimeout(() => setIsAnimating(false), 1200);
   };
 
   useEffect(() => {
@@ -71,24 +90,40 @@ const HeroSection = ({ animationType = 'fade' }) => {
   }, []);
 
   return (
-    <section className={styles['hero-section']}>
+    <section 
+      ref={(el) => {
+        heroRef.current = el;
+        parallaxRef.current = el;
+      }}
+      className={`${styles['hero-section']} ${hasHeroIntersected ? styles['hero-section--visible'] : ''}`}
+      style={{
+        '--parallax-offset': `${parallaxOffset}px`
+      }}
+    >
       <div className={`${styles['hero-section__slideshow']} ${styles[`hero-section__slideshow--${animationType}`]}`}>
         {slides.map((slide, index) => (
           <div
             key={slide.id}
             className={`${styles['hero-section__slide']} ${
               index === currentSlide ? styles['hero-section__slide--active'] : ''
-            }`}
+            } ${styles[`hero-section__slide--${index < currentSlide ? 'prev' : index > currentSlide ? 'next' : 'current'}`]}`}
             aria-hidden={index !== currentSlide}
+            style={{
+              '--slide-index': index,
+              '--current-index': currentSlide,
+              '--parallax-speed': `${0.3 + (index * 0.1)}`,
+            }}
           >
-            <img
-              src={slide.image}
-              alt={slide.alt}
-              className={styles['hero-section__slide-image']}
-              loading="lazy"
-            />
+            <div className={styles['hero-section__image-wrapper']}>
+              <img
+                src={slide.image}
+                alt={slide.alt}
+                className={styles['hero-section__slide-image']}
+                loading="lazy"
+              />
+            </div>
             {index === currentSlide && (
-              <div className={styles['hero-section__catchphrase']}>
+              <div className={`${styles['hero-section__catchphrase']} ${styles['hero-section__catchphrase--animated']}`}>
                 <h1 className={styles['hero-section__title']}>{slide.catchphrase}</h1>
                 <p className={styles['hero-section__description']}>{slide.description}</p>
               </div>
@@ -96,18 +131,20 @@ const HeroSection = ({ animationType = 'fade' }) => {
           </div>
         ))}
         <button
-          className={`${styles['hero-section__nav-button']} ${styles['hero-section__nav-button--prev']}`}
+          className={`${styles['hero-section__nav-button']} ${styles['hero-section__nav-button--prev']} ${isAnimating ? styles['hero-section__nav-button--disabled'] : ''}`}
           onClick={prevSlide}
+          disabled={isAnimating}
           aria-label="前のスライド"
         >
-          ❮
+          <span className={styles['hero-section__nav-arrow']}>❮</span>
         </button>
         <button
-          className={`${styles['hero-section__nav-button']} ${styles['hero-section__nav-button--next']}`}
+          className={`${styles['hero-section__nav-button']} ${styles['hero-section__nav-button--next']} ${isAnimating ? styles['hero-section__nav-button--disabled'] : ''}`}
           onClick={nextSlide}
+          disabled={isAnimating}
           aria-label="次のスライド"
         >
-          ❯
+          <span className={styles['hero-section__nav-arrow']}>❯</span>
         </button>
         <div className={styles['hero-section__indicators']}>
           {slides.map((_, index) => (
@@ -116,9 +153,12 @@ const HeroSection = ({ animationType = 'fade' }) => {
               className={`${styles['hero-section__indicator']} ${
                 index === currentSlide ? styles['hero-section__indicator--active'] : ''
               }`}
-              onClick={() => setCurrentSlide(index)}
+              onClick={() => goToSlide(index)}
+              disabled={isAnimating}
               aria-label={`スライド${index + 1}`}
-            ></button>
+            >
+              <span className={styles['hero-section__indicator-ripple']}></span>
+            </button>
           ))}
         </div>
       </div>
