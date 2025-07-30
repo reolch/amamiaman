@@ -1,7 +1,11 @@
+'use client';
+
 // src/components/Section/ServiceSection/ServiceSection.jsx
 import Link from 'next/link';
 import styles from './ServiceSection.module.css';
 import PropTypes from 'prop-types';
+import useParallax from '../../../hooks/useParallax';
+import useIntersectionObserver from '../../../hooks/useIntersectionObserver';
 
 const iconMap = {
   snorkelling: '/assets/icons/Snorkelling.svg',
@@ -17,12 +21,24 @@ const altMap = {
   lodging: 'あまみあまん宿泊施設サービスアイコン',
 };
 
-const ServiceCard = ({ type, title, description, link }) => {
+const ServiceCard = ({ type, title, description, link, index }) => {
   const iconSrc = iconMap[type];
   const iconAlt = altMap[type];
+  const [cardRef, isIntersecting, hasIntersected] = useIntersectionObserver();
+  const [parallaxRef, parallaxOffset] = useParallax(0.3);
   
   return (
-    <div className={styles.card}>
+    <div 
+      ref={(el) => {
+        cardRef.current = el;
+        parallaxRef.current = el;
+      }}
+      className={`${styles.card} ${hasIntersected ? styles.cardVisible : styles.cardHidden}`}
+      style={{
+        '--parallax-offset': `${parallaxOffset}px`,
+        '--animation-delay': `${index * 0.1}s`
+      }}
+    >
       <div className={styles.iconWrapper}>
         <img src={iconSrc} alt={iconAlt} className={styles.icon} />
       </div>
@@ -40,9 +56,13 @@ ServiceCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 const ServiceSection = () => {
+  const [sectionRef, , hasSectionIntersected] = useIntersectionObserver();
+  const [backgroundRef, backgroundOffset] = useParallax(0.5);
+  
   const services = [
     {
       type: 'snorkelling',
@@ -71,12 +91,23 @@ const ServiceSection = () => {
   ];
 
   return (
-    <section className={styles.section}>
+    <section 
+      ref={(el) => {
+        sectionRef.current = el;
+        backgroundRef.current = el;
+      }}
+      className={styles.section}
+      style={{
+        '--background-offset': `${backgroundOffset}px`
+      }}
+    >
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>サービス</h2>
+        <h2 className={`${styles.sectionTitle} ${hasSectionIntersected ? styles.titleVisible : styles.titleHidden}`}>
+          サービス
+        </h2>
         <div className={styles.cardGrid}>
-          {services.map((service) => (
-            <ServiceCard key={service.type} {...service} />
+          {services.map((service, index) => (
+            <ServiceCard key={service.type} {...service} index={index} />
           ))}
         </div>
       </div>
