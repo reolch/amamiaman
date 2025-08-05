@@ -3,8 +3,25 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// デバッグ用のGETメソッド
+export async function GET() {
+  return NextResponse.json({ 
+    message: 'Contact API is working',
+    timestamp: new Date().toISOString()
+  });
+}
+
 export async function POST(request) {
   try {
+    // Resend API キーの確認
+    if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is not set');
+      return NextResponse.json(
+        { error: 'メール設定に問題があります' },
+        { status: 500 }
+      );
+    }
+
     const { name, email, phone, message } = await request.json();
 
     // 入力検証
@@ -82,8 +99,12 @@ ${message}
     });
   } catch (error) {
     console.error('Form submission error:', error);
+    console.error('Error details:', error.message);
     return NextResponse.json(
-      { error: 'メール送信に失敗しました' },
+      { 
+        error: 'メール送信に失敗しました',
+        details: process.env.NODE_ENV === 'development' ? error.message : undefined
+      },
       { status: 500 }
     );
   }
