@@ -15,8 +15,17 @@ export async function POST(request) {
       );
     }
 
+    // CC/BCCアドレスの処理
+    const parseEmailList = (emailString) => {
+      if (!emailString) return [];
+      return emailString.split(',').map(email => email.trim()).filter(email => email);
+    };
+
+    const ccEmails = parseEmailList(process.env.CC_EMAIL);
+    const bccEmails = parseEmailList(process.env.BCC_EMAIL);
+
     // メール送信
-    const data = await resend.emails.send({
+    const emailData = {
       from: process.env.FROM_EMAIL || 'contact@marine-services-aman.com',
       to: [process.env.TO_EMAIL || 'info@marine-services-aman.com'],
       subject: 'ヤマハタマリンサービスあまん お問い合わせ',
@@ -45,9 +54,32 @@ ${message}
           </div>
         </div>
       `,
-    });
+    };
 
-    return NextResponse.json({ success: true, id: data.id });
+    // CC/BCCを追加（存在する場合のみ）
+    if (ccEmails.length > 0) {
+      emailData.cc = ccEmails;
+    }
+    if (bccEmails.length > 0) {
+      emailData.bcc = bccEmails;
+    }
+
+    // デバッグ用ログ（本番環境では削除推奨）
+    console.log('Sending email to:', emailData.to);
+    if (emailData.cc) console.log('CC:', emailData.cc);
+    if (emailData.bcc) console.log('BCC:', emailData.bcc);
+
+    const data = await resend.emails.send(emailData);
+
+    return NextResponse.json({ 
+      success: true, 
+      id: data.id,
+      recipients: {
+        to: emailData.to,
+        cc: emailData.cc || [],
+        bcc: emailData.bcc || []
+      }
+    });
   } catch (error) {
     console.error('Form submission error:', error);
     return NextResponse.json(

@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import styles from './ContactPage.module.css';
 import SocialShare from '../../components/common/SocialShare/SocialShare';
