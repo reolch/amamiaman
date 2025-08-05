@@ -15,14 +15,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem 1rem;
+  justify-content: center;
+  padding: 1rem;
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
+  min-height: 80px;
 }
 
 .logo {
   margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 4rem; /* 左右にハンバーガーメニュー分の余白 */
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.6rem; /* モバイルでも読みやすいサイズに調整 */
+  line-height: 1.4;
+  text-align: center;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.logo h1 a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .logoImage {
@@ -39,9 +60,13 @@
 /* ハンバーガーメニューボタン */
 .menuButtonContainer {
   position: absolute;
-  top: 1rem;
+  top: 50%;
   right: 1rem;
-  z-index: 1001; /* 他の要素より前面に表示 */
+  transform: translateY(-50%);
+  z-index: 1002;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
 }
 
 .menuIcon {
@@ -71,9 +96,10 @@
 .contact {
   display: flex;
   align-items: center;
-  margin-top: 0.75rem;
+  justify-content: center;
+  margin-top: 0.5rem;
   background: transparent;
-  padding: 0.75rem 1.25rem;
+  padding: 0.5rem 1rem;
   transition: opacity 0.2s ease;
 }
 
@@ -161,6 +187,14 @@
 
   .logo {
     margin-bottom: 0;
+    padding: 0; /* タブレット以上では余白リセット */
+    width: auto;
+    justify-content: flex-start;
+  }
+  
+  .logo h1 {
+    font-size: 1.8rem; /* タブレット以上でのフォントサイズ */
+    text-align: left;
   }
 
   .globalNav {
@@ -206,6 +240,10 @@
 @media (min-width: 1024px) {
   .logoImage {
     height: 5rem;
+  }
+  
+  .logo h1 {
+    font-size: 2rem; /* デスクトップでのフォントサイズ */
   }
 
   .navItem {
@@ -318,7 +356,39 @@
   }
 }
 
-/* モスクトップサイズのスタイル */
+/* 中程度のモバイル向けの調整 */
+@media (min-width: 481px) and (max-width: 767px) {
+  .logo h1 {
+    font-size: 1.7rem;
+  }
+  
+  .topBar {
+    min-height: 85px;
+  }
+}
+
+/* 小さなモバイル向けの調整 */
+@media (max-width: 480px) {
+  .logo h1 {
+    font-size: 1.4rem; /* 読みやすいサイズに維持 */
+    line-height: 1.3;
+  }
+  
+  .logo {
+    padding: 0 3.5rem; /* 左右の余白を調整 */
+  }
+  
+  .menuButtonContainer {
+    right: 0.5rem;
+  }
+  
+  .topBar {
+    padding: 0.75rem 0.5rem;
+    min-height: 70px;
+  }
+}
+
+/* デスクトップサイズのスタイル */
 @media (min-width: 1024px) {
   .dropdownButton {
     font-size: 1rem;
