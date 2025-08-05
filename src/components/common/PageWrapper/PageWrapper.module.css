@@ -12,6 +12,10 @@
   position: relative;
 }
 
+.pageWrapper > section[class*="hero-section"] {
+  padding: 0;
+}
+
 @media (max-width: 767px) {
   .pageWrapper {
     margin: 0 16px;
@@ -19,6 +23,10 @@
   
   .pageWrapper > * {
     padding: 16px;
+  }
+  
+  .pageWrapper > section[class*="hero-section"] {
+    padding: 0;
   }
 }
 
@@ -31,6 +39,10 @@
   .pageWrapper > * {
     padding: 32px 0;
   }
+  
+  .pageWrapper > section[class*="hero-section"] {
+    padding: 0;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -41,5 +53,9 @@
   
   .pageWrapper > * {
     padding: 48px 0;
+  }
+  
+  .pageWrapper > section[class*="hero-section"] {
+    padding: 0;
   }
 }
