@@ -130,37 +130,6 @@ const HeroSection = ({ animationType = 'fade' }) => {
             )}
           </div>
         ))}
-        <button
-          className={`${styles['hero-section__nav-button']} ${styles['hero-section__nav-button--prev']} ${isAnimating ? styles['hero-section__nav-button--disabled'] : ''}`}
-          onClick={prevSlide}
-          disabled={isAnimating}
-          aria-label="前のスライド"
-        >
-          <span className={styles['hero-section__nav-arrow']}>❮</span>
-        </button>
-        <button
-          className={`${styles['hero-section__nav-button']} ${styles['hero-section__nav-button--next']} ${isAnimating ? styles['hero-section__nav-button--disabled'] : ''}`}
-          onClick={nextSlide}
-          disabled={isAnimating}
-          aria-label="次のスライド"
-        >
-          <span className={styles['hero-section__nav-arrow']}>❯</span>
-        </button>
-        <div className={styles['hero-section__indicators']}>
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              className={`${styles['hero-section__indicator']} ${
-                index === currentSlide ? styles['hero-section__indicator--active'] : ''
-              }`}
-              onClick={() => goToSlide(index)}
-              disabled={isAnimating}
-              aria-label={`スライド${index + 1}`}
-            >
-              <span className={styles['hero-section__indicator-ripple']}></span>
-            </button>
-          ))}
-        </div>
       </div>
     </section>
   );
