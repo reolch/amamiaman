@@ -38,13 +38,21 @@ export async function POST(request) {
       return emailString.split(',').map(email => email.trim()).filter(email => email);
     };
 
+    const toEmails = parseEmailList(process.env.TO_EMAIL);
     const ccEmails = parseEmailList(process.env.CC_EMAIL);
     const bccEmails = parseEmailList(process.env.BCC_EMAIL);
+
+    console.log('TO_EMAIL from env:', process.env.TO_EMAIL);
+    console.log('Parsed TO Emails:', toEmails);
+    console.log('CC_EMAIL from env:', process.env.CC_EMAIL);
+    console.log('BCC_EMAIL from env:', process.env.BCC_EMAIL);
+    console.log('Parsed CC Emails:', ccEmails);
+    console.log('Parsed BCC Emails:', bccEmails);
 
     // メール送信
     const emailData = {
       from: process.env.FROM_EMAIL || 'contact@marine-services-aman.com',
-      to: [process.env.TO_EMAIL || 'info@marine-services-aman.com'],
+      to: toEmails.length > 0 ? toEmails : ['info@marine-services-aman.com'],
       subject: 'ヤマハタマリンサービスあまん お問い合わせ',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
