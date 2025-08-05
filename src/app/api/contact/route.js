@@ -22,25 +22,48 @@ export async function POST(request) {
       );
     }
 
-    const { name, email, phone, message } = await request.json();
+    const { name, email, phone, category, message, recaptchaToken } = await request.json();
+
+    // reCAPTCHAの検証
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    if (recaptchaSecret) {
+      const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaToken}`;
+      try {
+        const recaptchaResponse = await fetch(verificationUrl, { method: 'POST' });
+        const recaptchaData = await recaptchaResponse.json();
+        if (!recaptchaData.success || recaptchaData.score < 0.5) {
+          return NextResponse.json({ error: 'reCAPTCHAの検証に失敗しました' }, { status: 400 });
+        }
+      } catch (error) {
+        console.error('reCAPTCHA verification error:', error);
+        return NextResponse.json({ error: 'reCAPTCHAの検証中にエラーが発生しました' }, { status: 500 });
+      }
+    }
 
     // 入力検証
-    if (!name || !email || !message) {
+    if (!name || !email || !category || !phone || !message) {
       return NextResponse.json(
         { error: '必須項目が入力されていません' },
         { status: 400 }
       );
     }
 
+    // お問い合わせ項目のバリデーション
+    const allowedCategories = ['宿泊について', 'マリンアクティビティについて', 'その他'];
+    if (!allowedCategories.includes(category)) {
+      return NextResponse.json(
+        { error: 'お問い合わせ項目が正しくありません' },
+        { status: 400 }
+      );
+    }
+
     // 携帯電話番号のバリデーション
-    if (phone) {
-      const phoneRegex = /^(\d{10,11}|\d{3}-\d{3,4}-\d{4})$/;
-      if (!phoneRegex.test(phone)) {
-        return NextResponse.json(
-          { error: '携帯電話番号の形式が正しくありません' },
-          { status: 400 }
-        );
-      }
+    const phoneRegex = /^(\d{10,11}|\d{3}-\d{3,4}-\d{4})$/;
+    if (!phoneRegex.test(phone)) {
+      return NextResponse.json(
+        { error: '携帯電話番号の形式が正しくありません' },
+        { status: 400 }
+      );
     }
 
     // CC/BCCアドレスの処理
@@ -72,6 +95,7 @@ export async function POST(request) {
           </h2>
           
           <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <p><strong>お問い合わせ項目:</strong> ${category}</p>
             <p><strong>お名前:</strong> ${name}</p>
             <p><strong>メールアドレス:</strong> ${email}</p>
             ${phone ? `<p><strong>携帯電話番号:</strong> ${phone}</p>` : ''}
@@ -116,6 +140,7 @@ ${message}
             title: 'ウェブサイトから新しいお問い合わせがありました',
             color: 3447003, // Blue
             fields: [
+              { name: 'お問い合わせ項目', value: '```' + category + '```', inline: false },
               { name: 'お名前', value: '```' + name + '```', inline: false },
               { name: 'メールアドレス', value: '```' + email + '```', inline: false },
               { name: '携帯電話番号', value: '```' + (phone || '未入力') + '```', inline: false },

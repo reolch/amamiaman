@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import styles from './ContactPage.module.css';
 import SocialShare from '../../components/common/SocialShare/SocialShare';
 
@@ -9,10 +10,17 @@ const ContactPage = () => {
     name: '',
     email: '',
     phone: '',
+    category: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [recaptchaToken, setRecaptchaToken] = useState('');
+  const recaptchaRef = useRef(null);
+
+  const handleRecaptchaChange = (token) => {
+    setRecaptchaToken(token);
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -32,14 +40,16 @@ const ContactPage = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, recaptchaToken }),
       });
 
       const result = await response.json();
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', phone: '', message: '' });
+        setFormData({ name: '', email: '', phone: '', category: '', message: '' });
+        recaptchaRef.current.reset();
+        setRecaptchaToken('');
       } else {
         setSubmitStatus('error');
         console.error('Form submission error:', result.error);
@@ -79,6 +89,24 @@ const ContactPage = () => {
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
+            <select
+              id="category"
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+              required
+              className={styles.input}
+              aria-required="true"
+              disabled={isSubmitting}
+            >
+              <option value="" disabled>お問い合わせ項目を選択してください</option>
+              <option value="宿泊について">宿泊について</option>
+              <option value="マリンアクティビティについて">マリンアクティビティについて</option>
+              <option value="その他">その他</option>
+            </select>
+          </div>
+
+          <div className={styles.formGroup}>
             <input
               type="text"
               id="name"
@@ -116,7 +144,9 @@ const ContactPage = () => {
               value={formData.phone}
               onChange={handleChange}
               className={styles.input}
-              placeholder="携帯電話番号（任意）"
+              placeholder="携帯電話番号"
+              required
+              aria-required="true"
               pattern="^\d{10,11}$|^\d{3}-\d{3,4}-\d{4}$"
               title="ハイフンなしの10桁または11桁、あるいはハイフンありの形式で入力してください。"
               disabled={isSubmitting}
@@ -142,10 +172,18 @@ const ContactPage = () => {
             type="submit" 
             className={styles.button}
             aria-label="フォームを送信する"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !recaptchaToken}
           >
             {isSubmitting ? '送信中...' : '送信する'}
           </button>
+
+          <div className={styles.recaptchaContainer}>
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              onChange={handleRecaptchaChange}
+            />
+          </div>
         </form>
       </div>
       <SocialShare />
