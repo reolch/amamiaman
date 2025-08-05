@@ -11,42 +11,42 @@ const slides = [
     image: '/assets/images/pages/トップページ/スライドショー/slide1.webp',
     catchphrase: '',
     description: '',
-    alt: '奄美大島の美しい海とマリンアクティビティの様子を紹介するあまみあまんのメイン画像',
+    alt: 'ヤマハタマリンサービスあまん 奄美大島シーカヤックと美しい海のメイン画像',
   },
   {
     id: 2,
     image: '/assets/images/pages/トップページ/スライドショー/slide2.webp',
     catchphrase: '',
     description: '',
-    alt: '奄美大島でのシュノーケリング体験とクリアブルーの海の絶景',
+    alt: 'あまん 奄美大島シュノーケリング体験とクリアブルーの海の絶景',
   },
   {
     id: 3,
     image: '/assets/images/pages/トップページ/スライドショー/slide3.webp',
     catchphrase: '',
     description: '',
-    alt: '奄美大島のシーカヤック体験と透明度の高い美しい海',
+    alt: 'ヤマハタマリンサービスあまん 奄美大島シーカヤック体験と透明度の高い美しい海',
   },
   {
     id: 4,
     image: '/assets/images/pages/トップページ/スライドショー/slide4.webp',
     catchphrase: '',
     description: '',
-    alt: '奄美大島のグラスボート体験で見る珊瑚礁と熱帯魚の世界',
+    alt: 'あまん 奄美大島グラスボート体験で見る珊瑚礁と熱帯魚の世界',
   },
   {
     id: 5,
     image: '/assets/images/pages/トップページ/スライドショー/slide5.webp',
     catchphrase: '',
     description: '',
-    alt: '奄美大島の夕焼けとマリンアクティビティを楽しむ観光客',
+    alt: '加計呂麻島カヤックツアー 奄美大島の夕焼けとマリンアクティビティ',
   },
   {
     id: 6,
     image: '/assets/images/pages/トップページ/スライドショー/slide6.webp',
     catchphrase: '',
     description: '',
-    alt: '奄美大島あまみあまんの宿泊施設と美しい自然環境',
+    alt: 'ヤマハタマリンサービスあまん 奄美大島南部ダイビング・奄美大島ダイビングショップ宿泊施設と美しい自然環境',
   }
 ];
 
