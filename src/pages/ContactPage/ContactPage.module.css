@@ -76,6 +76,49 @@
   background-color: #333;
 }
 
+.button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  background-color: #d1fae5;
+  border: 1px solid #10b981;
+  color: #065f46;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.successMessage p {
+  margin: 0;
+}
+
+.successMessage p:first-child {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.errorMessage {
+  background-color: #fef2f2;
+  border: 1px solid #f87171;
+  color: #991b1b;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.errorMessage p {
+  margin: 0;
+}
+
+.errorMessage p:first-child {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
 /* タブレット以上のサイズ */
 @media (min-width: 768px) {
   
