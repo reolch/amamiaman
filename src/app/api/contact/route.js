@@ -89,21 +89,64 @@ ${message}
       emailData.bcc = bccEmails;
     }
 
-    // デバッグ用ログ（本番環境では削除推奨）
-    console.log('Sending email to:', emailData.to);
-    if (emailData.cc) console.log('CC:', emailData.cc);
-    if (emailData.bcc) console.log('BCC:', emailData.bcc);
+    // Discord Webhookへの通知
+    const sendToDiscord = async () => {
+      const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+      if (!webhookUrl) {
+        console.log('DISCORD_WEBHOOK_URL is not set. Skipping Discord notification.');
+        return;
+      }
 
-    const data = await resend.emails.send(emailData);
+      const discordPayload = {
+        embeds: [
+          {
+            title: '新しいお問い合わせ',
+            color: 3447003, // Blue
+            fields: [
+              { name: 'お名前', value: name, inline: true },
+              { name: 'メールアドレス', value: email, inline: true },
+              { name: '電話番号', value: phone || '未入力', inline: true },
+              { name: 'メッセージ', value: message },
+            ],
+            timestamp: new Date().toISOString(),
+          },
+        ],
+      };
 
-    return NextResponse.json({ 
-      success: true, 
-      id: data.id,
+      try {
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(discordPayload),
+        });
+        if (!response.ok) {
+          console.error('Failed to send to Discord:', response.status, await response.text());
+        }
+      } catch (error) {
+        console.error('Error sending to Discord:', error);
+      }
+    };
+
+    // メール送信とDiscord通知を並行して実行
+    const [emailResult, discordResult] = await Promise.allSettled([
+      resend.emails.send(emailData),
+      sendToDiscord(),
+    ]);
+
+    if (emailResult.status === 'rejected') {
+      console.error('Email sending failed:', emailResult.reason);
+      // Discordへの通知が成功していても、メール送信の失敗をクライアントに通知する
+      throw emailResult.reason;
+    }
+
+    return NextResponse.json({
+      success: true,
+      id: emailResult.value.id,
       recipients: {
         to: emailData.to,
         cc: emailData.cc || [],
-        bcc: emailData.bcc || []
-      }
+        bcc: emailData.bcc || [],
+      },
     });
   } catch (error) {
     console.error('Form submission error:', error);
