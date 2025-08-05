@@ -9,6 +9,10 @@
   transform: translateY(50px);
   opacity: 0;
   transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
 }
 
 .hero-section--visible {
@@ -42,10 +46,9 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-  transform: scale(1.1) rotateY(15deg);
+  transform: scale(1.05);
   transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  perspective: 1000px;
-  transform-style: preserve-3d;
+  will-change: transform, opacity;
 }
 
 .hero-section__image-wrapper {
@@ -59,22 +62,22 @@
 
 .hero-section__slide--active {
   opacity: 1;
-  transform: scale(1) rotateY(0deg);
+  transform: scale(1);
   z-index: 2;
 }
 
 .hero-section__slide--prev {
-  transform: scale(0.9) translateX(-100%) rotateY(-30deg);
+  transform: scale(0.95) translateX(-10%);
   opacity: 0;
 }
 
 .hero-section__slide--next {
-  transform: scale(0.9) translateX(100%) rotateY(30deg);
+  transform: scale(0.95) translateX(10%);
   opacity: 0;
 }
 
 .hero-section__slide--current {
-  transform: scale(1) rotateY(0deg);
+  transform: scale(1);
 }
 
 .hero-section__slide-image {
@@ -85,8 +88,9 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 8s ease-out, filter 1s ease;
+  transition: filter 1s ease;
   filter: brightness(0.9) contrast(1.1);
+  will-change: filter;
 }
 
 .hero-section__slide--active .hero-section__slide-image {
@@ -135,7 +139,23 @@
 }
 
 .hero-section__nav-button {
-  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
 }
 
 .hero-section__nav-arrow {
@@ -149,11 +169,11 @@
 }
 
 .hero-section__nav-button--prev {
-  left: 1rem;
+  left: 0.5rem;
 }
 
 .hero-section__nav-button--next {
-  right: 1rem;
+  right: 0.5rem;
 }
 
 .hero-section__nav-button:hover:not(:disabled),
@@ -169,7 +189,13 @@
 }
 
 .hero-section__indicators {
-  display: none;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
 }
 
 .hero-section__indicator {
@@ -229,15 +255,15 @@
 @keyframes fadeIn3D {
   0% {
     opacity: 0;
-    transform: scale(0.8) rotateY(45deg) translateZ(-100px);
+    transform: scale(0.9);
   }
   50% {
     opacity: 0.8;
-    transform: scale(0.95) rotateY(15deg) translateZ(-20px);
+    transform: scale(0.98);
   }
   100% {
     opacity: 1;
-    transform: scale(1) rotateY(0deg) translateZ(0);
+    transform: scale(1);
   }
 }
 
@@ -305,6 +331,44 @@
     transform: scale(1) rotate(0deg) translateY(0);
     opacity: 1;
     filter: blur(0px);
+  }
+}
+
+/* Mobile-Specific Optimizations */
+@media (max-width: 767px) {
+  .hero-section__slide {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .hero-section__slideshow--fade .hero-section__slide--active {
+    animation: fadeInMobile 0.8s ease-out;
+  }
+  
+  @keyframes fadeInMobile {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .hero-section__nav-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .hero-section__indicators {
+    bottom: 0.5rem;
+    gap: 0.3rem;
+  }
+  
+  .hero-section__indicator {
+    width: 10px;
+    height: 10px;
   }
 }
 
