@@ -98,16 +98,21 @@ ${message}
       }
 
       const discordPayload = {
+        username: 'あまみあまん お問い合わせ通知',
+        avatar_url: 'https://www.marine-services-aman.com/logo.png',
         embeds: [
           {
-            title: '新しいお問い合わせ',
+            title: 'ウェブサイトから新しいお問い合わせがありました',
             color: 3447003, // Blue
             fields: [
-              { name: 'お名前', value: name, inline: true },
-              { name: 'メールアドレス', value: email, inline: true },
-              { name: '電話番号', value: phone || '未入力', inline: true },
-              { name: 'メッセージ', value: message },
+              { name: 'お名前', value: '```' + name + '```', inline: false },
+              { name: 'メールアドレス', value: '```' + email + '```', inline: false },
+              { name: '電話番号', value: '```' + (phone || '未入力') + '```', inline: false },
+              { name: 'メッセージ内容', value: '```' + message + '```', inline: false },
             ],
+            footer: {
+              text: 'あまみあまん公式サイト',
+            },
             timestamp: new Date().toISOString(),
           },
         ],
