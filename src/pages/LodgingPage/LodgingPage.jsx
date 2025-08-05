@@ -97,6 +97,8 @@ const LodgingPage = () => {
             tabIndex="0"
             title="Google Map"
             className={styles.iframe}
+            allow="accelerometer 'none'; gyroscope 'none'"
+            loading="lazy"
           ></iframe>
         </div>
 
