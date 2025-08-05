@@ -68,26 +68,23 @@ const HeroSection = ({ animationType = 'fade' }) => {
     setTimeout(() => setIsAnimating(false), 1200);
   };
 
-  const prevSlide = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setCurrentSlide((prevSlide) =>
-      prevSlide === 0 ? slides.length - 1 : prevSlide - 1
-    );
-    setTimeout(() => setIsAnimating(false), 1200);
-  };
-
-  const goToSlide = (index) => {
-    if (isAnimating || index === currentSlide) return;
-    setIsAnimating(true);
-    setCurrentSlide(index);
-    setTimeout(() => setIsAnimating(false), 1200);
-  };
 
   useEffect(() => {
     const interval = setInterval(nextSlide, slideInterval);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    // Preload next few images
+    const preloadImages = () => {
+      for (let i = 1; i <= 2; i++) {
+        const nextIndex = (currentSlide + i) % slides.length;
+        const img = new Image();
+        img.src = slides[nextIndex].image;
+      }
+    };
+    preloadImages();
+  }, [currentSlide]);
 
   return (
     <section 
@@ -119,7 +116,8 @@ const HeroSection = ({ animationType = 'fade' }) => {
                 src={slide.image}
                 alt={slide.alt}
                 className={styles['hero-section__slide-image']}
-                loading="lazy"
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "low"}
               />
             </div>
             {index === currentSlide && (
