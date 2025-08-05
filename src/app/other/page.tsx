@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     siteName: 'あまみあまん',
     images: [
       {
-        url: '/assets/images/pages/施設紹介/ロビー.jpg',
+        url: '/assets/images/pages/施設紹介/ロビー.webp',
         width: 1200,
         height: 630,
         alt: 'あまみあまんの施設の様子',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'その他の施設 | あまみあまん - 奄美大島',
     description: 'あまみあまんではマリンアクティビティ以外にも様々な施設やサービスをご用意しています。シャワー室やロビーなどの施設紹介です。',
-    images: ['/assets/images/pages/施設紹介/ロビー.jpg'],
+    images: ['/assets/images/pages/施設紹介/ロビー.webp'],
   },
 };
 

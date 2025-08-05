@@ -11,12 +11,16 @@ import { inter } from "./fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.marine-services-aman.com"),
-  title: "あまみあまん | ヤマハタマリンサービス - 奄美大島のマリンスポーツ・宿泊施設",
-  description: "あまみあまん（ヤマハタマリンサービス）は奄美大島でシュノーケリング、シーカヤック、グラスボートのマリンアクティビティと宿泊施設を提供。美しい奄美の海を満喫できる総合マリンリゾートです。",
-  icons: "/logo.png",
+  title: "ヤマハタマリンサービス - 奄美大島のマリンスポーツ・宿泊施設",
+  description: "ヤマハタマリンサービスは奄美大島でシュノーケリング、シーカヤック、グラスボートのマリンアクティビティと宿泊施設を提供。あまみあまん・マリンサービスあまんとしても知られ、美しい奄美の海を満喫できる総合マリンリゾートです。",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+    shortcut: "/logo.png",
+  },
   keywords: "あまん, 加計呂麻島 カヤック, 奄美大島 南部 ダイビング, 奄美大島シュノーケル, あまみあまん, ヤマハタマリンサービス, やまはたまりんさーびす, マリンサービスあまん, まりんさーびすあまん, 奄美大島, マリンスポーツ, 宿泊施設, シュノーケリング, シーカヤック, グラスボート, 奄美, 海, リゾート, 体験ダイビング, 民宿, ペンション",
-  authors: [{ name: "あまみあまん（ヤマハタマリンサービス）" }],
-  creator: "あまみあまん",
+  authors: [{ name: "ヤマハタマリンサービス" }],
+  creator: "ヤマハタマリンサービス",
   publisher: "ヤマハタマリンサービス",
   formatDetection: {
     email: false,
@@ -36,18 +40,20 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "your-google-verification-code",
+    yandex: "your-yandex-verification-code",
+    yahoo: "your-yahoo-verification-code",
   },
   openGraph: {
-    title: "あまみあまん | ヤマハタマリンサービス - 奄美大島のマリンスポーツ・宿泊施設",
-    description: "あまみあまん（ヤマハタマリンサービス）で奄美大島の美しい海を満喫。シュノーケリング、シーカヤック、グラスボート体験と宿泊をワンストップでご提供。",
+    title: "ヤマハタマリンサービス - 奄美大島のマリンスポーツ・宿泊施設",
+    description: "ヤマハタマリンサービスで奄美大島の美しい海を満喫。シュノーケリング、シーカヤック、グラスボート体験と宿泊をワンストップでご提供。あまみあまん・マリンサービスあまんとしても知られています。",
     url: "https://www.marine-services-aman.com",
-    siteName: "あまみあまん - ヤマハタマリンサービス",
+    siteName: "ヤマハタマリンサービス",
     images: [
       {
-        url: "/assets/images/pages/トップページ/スライドショー/slide1.jpg",
+        url: "/assets/images/pages/トップページ/スライドショー/slide1.webp",
         width: 1200,
         height: 630,
-        alt: "あまみあまん 奄美大島のマリンスポーツと宿泊施設 ヤマハタマリンサービス",
+        alt: "ヤマハタマリンサービス 奄美大島のマリンスポーツと宿泊施設",
       },
     ],
     locale: "ja_JP",
@@ -55,9 +61,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "あまみあまん | ヤマハタマリンサービス - 奄美大島のマリンスポーツ・宿泊施設",
-    description: "あまみあまん（ヤマハタマリンサービス）で奄美大島の美しい海を満喫。シュノーケリング、シーカヤック、グラスボート体験と宿泊をワンストップでご提供。",
-    images: ["/assets/images/pages/トップページ/スライドショー/slide1.jpg"],
+    title: "ヤマハタマリンサービス - 奄美大島のマリンスポーツ・宿泊施設",
+    description: "ヤマハタマリンサービスで奄美大島の美しい海を満喫。シュノーケリング、シーカヤック、グラスボート体験と宿泊をワンストップでご提供。",
+    images: ["/assets/images/pages/トップページ/スライドショー/slide1.webp"],
     creator: "@amamiaman",
   },
   alternates: {
@@ -74,8 +80,8 @@ export default function RootLayout({
     <html lang="ja">
       <body className={inter.className}>
         <LocalBusinessStructuredData
-          name="あまん（ヤマハタマリンサービス）"
-          description="あまんは奄美大島シュノーケル、加計呂麻島カヤック、奄美大島南部ダイビング体験を提供するヤマハタマリンサービスの総合マリンリゾート施設です。"
+          name="ヤマハタマリンサービス"
+          description="ヤマハタマリンサービスは奄美大島シュノーケル、加計呂麻島カヤック、奄美大島南部ダイビング体験を提供する総合マリンリゾート施設です。あまみあまん・マリンサービスあまんとしても知られています。"
           address={{
             streetAddress: "奄美大島",
             addressLocality: "奄美市",
@@ -98,9 +104,9 @@ export default function RootLayout({
           ]}
         />
         <TouristAttractionStructuredData
-          name="あまん（ヤマハタマリンサービス）- 奄美大島マリンリゾート"
-          description="あまんは奄美大島シュノーケル、加計呂麻島カヤック、奄美大島南部ダイビング体験を提供する総合リゾート施設。ヤマハタマリンサービスが運営し、宿泊とマリンアクティビティを一体で楽しめます。"
-          image="/assets/images/pages/トップページ/スライドショー/slide1.jpg"
+          name="ヤマハタマリンサービス - 奄美大島マリンリゾート"
+          description="ヤマハタマリンサービスは奄美大島シュノーケル、加計呂麻島カヤック、奄美大島南部ダイビング体験を提供する総合リゾート施設。あまみあまん・マリンサービスあまんとしても知られ、宿泊とマリンアクティビティを一体で楽しめます。"
+          image="/assets/images/pages/トップページ/スライドショー/slide1.webp"
           url="https://www.marine-services-aman.com"
           activities={[
             "奄美大島シュノーケル体験",

@@ -4,7 +4,7 @@ import './FAQSection.css';
 const FAQSection = () => {
     return (
         <Parallax
-            bgImage="/parallax_bg001.jpg"
+            bgImage="/parallax_bg001.webp"
             strength={300}
             className="faq-section"
         >

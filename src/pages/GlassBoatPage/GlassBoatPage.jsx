@@ -1,4 +1,5 @@
 // src/components/GlassBoatPage/GlassBoatPage.jsx
+import Image from 'next/image';
 import styles from './GlassBoatPage.module.css';
 import SocialShare from '../../components/common/SocialShare/SocialShare';
 import FooterNote from '../../components/common/FooterNote/FooterNote';
@@ -15,10 +16,12 @@ const GlassBoatPage = () => {
         {/* コンテンツブロック */}
         <section className={styles.content}>
           <figure className={styles.imageContainer}>
-            <img
-              src="/assets/images/pages/グラスボート/top.jpg"
+            <Image
+              src="/assets/images/pages/グラスボート/top.webp"
               alt="奄美大島のグラスボート体験で珊瑚礁と熱帯魚を観察する観光客の様子"
-              loading="lazy"
+              width={800}
+              height={600}
+              priority={false}
               className={styles.image}
             />
             <figcaption className={styles.imageCaption}>グラスボート</figcaption>

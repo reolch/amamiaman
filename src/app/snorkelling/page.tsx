@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     siteName: 'あまみあまん',
     images: [
       {
-        url: '/assets/images/pages/トップページ/スライドショー/slide2.jpg',
+        url: '/assets/images/pages/トップページ/スライドショー/slide2.webp',
         width: 1200,
         height: 630,
         alt: '奄美大島でのシュノーケリング体験の様子',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'シュノーケリング体験 | あまみあまん - 奄美大島',
     description: 'あまんで奄美大島シュノーケル体験を楽しめます。奄美大島南部の美しい海で初心者から上級者まで安心のガイド付きツアーです。',
-    images: ['/assets/images/pages/トップページ/スライドショー/slide2.jpg'],
+    images: ['/assets/images/pages/トップページ/スライドショー/slide2.webp'],
   },
 };
 

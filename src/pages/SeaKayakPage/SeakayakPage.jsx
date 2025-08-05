@@ -1,4 +1,5 @@
 // src/components/SeaKayakPage/SeaKayakPage.jsx
+import Image from 'next/image';
 import styles from './SeaKayakPage.module.css';
 import SocialShare from '../../components/common/SocialShare/SocialShare';
 import FooterNote from '../../components/common/FooterNote/FooterNote';
@@ -15,10 +16,12 @@ const SeaKayakPage = () => {
         {/* コンテンツブロック */}
         <section className={styles.content}>
           <figure className={styles.imageContainer}>
-            <img
-              src="/assets/images/pages/シーカヤック/top.JPG"
+            <Image
+              src="/assets/images/pages/シーカヤック/top.webp"
               alt="奄美大島の透明度抜群の海でシーカヤック体験を楽しむ観光客の様子"
-              loading="lazy"
+              width={800}
+              height={600}
+              priority={false}
               className={styles.image}
             />
             <figcaption className={styles.imageCaption}>シーカヤックで奄美の海を楽しむ様子</figcaption>

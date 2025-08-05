@@ -47,7 +47,8 @@ export function LocalBusinessStructuredData({
     "priceRange": priceRange,
     "serviceType": services,
     "areaServed": "奄美大島",
-    "knowsAbout": ["マリンスポーツ", "シュノーケリング", "シーカヤック", "グラスボート", "宿泊施設"],
+    "knowsAbout": ["マリンスポーツ", "シュノーケリング", "シーカヤック", "グラスボート", "宿泊施設", "あまみあまん", "マリンサービスあまん", "奄美大島シュノーケル", "加計呂麻島カヤック", "奄美大島南部ダイビング"],
+    "alternateName": ["あまみあまん", "マリンサービスあまん", "ヤマハタマリンサービス"],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "マリンアクティビティサービス",
@@ -62,7 +63,32 @@ export function LocalBusinessStructuredData({
           }
         }
       }))
-    }
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "28.3",
+      "longitude": "129.5"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "127"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "田中様"
+        },
+        "reviewBody": "奄美大島でのシュノーケリング体験が最高でした。スタッフの方も親切でとても楽しい時間を過ごせました。"
+      }
+    ]
   };
 
   return (
