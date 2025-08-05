@@ -116,7 +116,9 @@ const ContactPage = () => {
               value={formData.phone}
               onChange={handleChange}
               className={styles.input}
-              placeholder="電話番号（任意）"
+              placeholder="携帯電話番号（任意）"
+              pattern="^\d{10,11}$|^\d{3}-\d{3,4}-\d{4}$"
+              title="ハイフンなしの10桁または11桁、あるいはハイフンありの形式で入力してください。"
               disabled={isSubmitting}
             />
           </div>

@@ -32,6 +32,17 @@ export async function POST(request) {
       );
     }
 
+    // 携帯電話番号のバリデーション
+    if (phone) {
+      const phoneRegex = /^(\d{10,11}|\d{3}-\d{3,4}-\d{4})$/;
+      if (!phoneRegex.test(phone)) {
+        return NextResponse.json(
+          { error: '携帯電話番号の形式が正しくありません' },
+          { status: 400 }
+        );
+      }
+    }
+
     // CC/BCCアドレスの処理
     const parseEmailList = (emailString) => {
       if (!emailString) return [];
@@ -63,7 +74,7 @@ export async function POST(request) {
           <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p><strong>お名前:</strong> ${name}</p>
             <p><strong>メールアドレス:</strong> ${email}</p>
-            ${phone ? `<p><strong>電話番号:</strong> ${phone}</p>` : ''}
+            ${phone ? `<p><strong>携帯電話番号:</strong> ${phone}</p>` : ''}
             <p><strong>送信日時:</strong> ${new Date().toLocaleString('ja-JP')}</p>
           </div>
           
@@ -107,7 +118,7 @@ ${message}
             fields: [
               { name: 'お名前', value: '```' + name + '```', inline: false },
               { name: 'メールアドレス', value: '```' + email + '```', inline: false },
-              { name: '電話番号', value: '```' + (phone || '未入力') + '```', inline: false },
+              { name: '携帯電話番号', value: '```' + (phone || '未入力') + '```', inline: false },
               { name: 'メッセージ内容', value: '```' + message + '```', inline: false },
             ],
             footer: {
