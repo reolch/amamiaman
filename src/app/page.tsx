@@ -6,7 +6,7 @@ import AccessSection from '@/components/Section/AccessSection/AccessSection';
 import NewsSection from '@/components/Section/NewsSection/NewsSection';
 
 export const metadata: Metadata = {
-  title: 'ホーム | あまみあまん（ヤマハタマリンサービス） - 奄美大島のマリンスポーツ・宿泊施設',
+  title: 'ホーム | ヤマハタマリンサービス - 奄美大島南部のマリンスポーツ・宿泊施設',
   description: 'あまんは奄美大島シュノーケル、加計呂麻島カヤック、奄美大島南部ダイビング体験を提供するヤマハタマリンサービスの総合マリンリゾートです。',
   keywords: 'あまみあまん, ヤマハタマリンサービス, やまはたまりんさーびす, マリンサービスあまん, まりんさーびすあまん, 奄美大島, マリンスポーツ, 宿泊施設, ホーム',
 }
