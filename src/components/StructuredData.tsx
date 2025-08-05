@@ -15,7 +15,7 @@ interface LocalBusinessProps {
   url: string;
   openingHours: string[];
   priceRange: string;
-  services: string[];
+  services: { name: string; url: string }[];
 }
 
 export function LocalBusinessStructuredData({
@@ -45,7 +45,7 @@ export function LocalBusinessStructuredData({
     "url": url,
     "openingHours": openingHours,
     "priceRange": priceRange,
-    "serviceType": services,
+    "serviceType": services.map(service => service.name),
     "areaServed": "奄美大島",
     "knowsAbout": ["マリンスポーツ", "シュノーケリング", "シーカヤック", "グラスボート", "宿泊施設", "あまみあまん", "マリンサービスあまん", "奄美大島シュノーケル", "加計呂麻島カヤック", "奄美大島南部ダイビング"],
     "alternateName": ["あまみあまん", "マリンサービスあまん", "ヤマハタマリンサービス"],
@@ -56,7 +56,8 @@ export function LocalBusinessStructuredData({
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": service,
+          "name": service.name,
+          "url": service.url,
           "provider": {
             "@type": "LocalBusiness",
             "name": name
@@ -87,6 +88,19 @@ export function LocalBusinessStructuredData({
           "name": "田中様"
         },
         "reviewBody": "奄美大島でのシュノーケリング体験が最高でした。スタッフの方も親切でとても楽しい時間を過ごせました。"
+      },
+      {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "佐藤様"
+        },
+        "reviewBody": "シーカヤックでマングローブの森を探検。自然の雄大さに感動しました。"
       }
     ]
   };
@@ -107,7 +121,7 @@ interface TouristAttractionProps {
   description: string;
   image: string;
   url: string;
-  activities: string[];
+  activities: { name: string; url: string }[];
 }
 
 export function TouristAttractionStructuredData({
@@ -130,15 +144,12 @@ export function TouristAttractionStructuredData({
     "publicAccess": true,
     "hasMap": url + "/access",
     "potentialAction": activities.map(activity => ({
-      "@type": "ConsumeAction",
+      "@type": "Action",
+      "name": activity.name,
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": url,
+        "urlTemplate": activity.url,
         "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
-      },
-      "expectsAcceptanceOf": {
-        "@type": "Offer",
-        "category": activity
       }
     }))
   };
@@ -146,6 +157,44 @@ export function TouristAttractionStructuredData({
   return (
     <Script
       id="tourist-attraction-structured-data"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(structuredData)
+      }}
+    />
+  );
+}
+
+interface ServiceProps {
+  name: string;
+  description: string;
+  providerName: string;
+  offers: {
+    price: string;
+    priceCurrency: string;
+  }[];
+}
+
+export function ServiceStructuredData({ name, description, providerName, offers }: ServiceProps) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": name,
+    "description": description,
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": providerName
+    },
+    "offers": offers.map(offer => ({
+      "@type": "Offer",
+      "price": offer.price,
+      "priceCurrency": offer.priceCurrency
+    }))
+  };
+
+  return (
+    <Script
+      id={`${name}-service-structured-data`}
       type="application/ld+json"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(structuredData)

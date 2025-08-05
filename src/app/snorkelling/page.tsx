@@ -1,10 +1,10 @@
 import SnorkellingPage from '@/pages/SnorkellingPage/SnorkellingPage';
 import { Metadata } from 'next';
+import { ServiceStructuredData } from '@/components/StructuredData';
 
 export const metadata: Metadata = {
   title: 'シュノーケリング体験 | あまみあまん - 奄美大島',
   description: 'あまんで奄美大島シュノーケル体験を楽しめます。奄美大島南部の美しい海で初心者から上級者まで安心のガイド付きツアーです。',
-  keywords: '奄美大島, シュノーケリング, 体験, マリンアクティビティ, あまみあまん, 海',
   openGraph: {
     title: 'シュノーケリング体験 | あまみあまん - 奄美大島',
     description: 'あまんで奄美大島シュノーケル体験を楽しめます。奄美大島南部の美しい海で初心者から上級者まで安心のガイド付きツアーです。',
@@ -30,5 +30,17 @@ export const metadata: Metadata = {
 };
 
 export default function Snorkelling() {
-  return <SnorkellingPage />;
+  return (
+    <>
+      <SnorkellingPage />
+      <ServiceStructuredData
+        name="シュノーケリング体験"
+        description="奄美大島南部の美しい海で、初心者から上級者まで楽しめるガイド付きシュノーケリングツアーです。"
+        providerName="あまみあまん"
+        offers={[
+          { price: '8000', priceCurrency: 'JPY' },
+        ]}
+      />
+    </>
+  );
 }

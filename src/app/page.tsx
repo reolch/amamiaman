@@ -6,20 +6,13 @@ import AccessSection from '@/components/Section/AccessSection/AccessSection';
 import NewsSection from '@/components/Section/NewsSection/NewsSection';
 
 export const metadata: Metadata = {
-  title: 'ホーム | ヤマハタマリンサービス - 奄美大島南部のマリンスポーツ・宿泊施設',
-  description: 'あまんは奄美大島シュノーケル、加計呂麻島カヤック、奄美大島南部ダイビング体験を提供するヤマハタマリンサービスの総合マリンリゾートです。',
-  keywords: 'あまみあまん, ヤマハタマリンサービス, やまはたまりんさーびす, マリンサービスあまん, まりんさーびすあまん, 奄美大島, マリンスポーツ, 宿泊施設, ホーム',
+  title: 'あまみあまん｜奄美大島南部のシュノーケル・カヤック・ダイビングと宿泊',
+  description: '奄美大島南部でシュノーケリング、シーカヤック、ダイビングなどのマリンスポーツと宿泊施設を提供する「あまみあまん」。美しい海と自然を満喫できるアクティビティをご案内します。',
 }
 
 export default function HomePage() {
   return (
     <>
-      {/* SEO用の隠しテキスト */}
-      <div style={{ position: 'absolute', left: '-9999px', top: '-9999px' }}>
-        <h1>あまん - 奄美大島シュノーケル・加計呂麻島カヤック・奄美大島南部ダイビング</h1>
-        <p>あまんで奄美大島シュノーケル体験、加計呂麻島カヤックツアー、奄美大島南部ダイビングをお楽しみいただけます。ヤマハタマリンサービスあまんで奄美の美しい海を満喜してください。</p>
-      </div>
-      
       <HeroSection />
       <AboutSection />
       <ServiceSection />

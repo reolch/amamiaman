@@ -94,14 +94,14 @@ export default function RootLayout({
           openingHours={["Mo-Su 08:00-18:00"]}
           priceRange="¥¥-¥¥¥"
           services={[
-            "奄美大島シーカヤック体験・レンタル",
-            "加計呂麻島カヤック体験・ツアー", 
-            "奄美大島南部ダイビング・体験ダイビング",
-            "奄美大島ダイビングショップ・体験ダイビング",
-            "奄美大島シュノーケル体験・レンタル",
-            "グラスボート観光・遊覧",
-            "奄美大島宿泊施設・民宿",
-            "マリンスポーツレンタル"
+            { name: "奄美大島シーカヤック体験・レンタル", url: "https://www.marine-services-aman.com/seaKayak" },
+            { name: "加計呂麻島カヤック体験・ツアー", url: "https://www.marine-services-aman.com/seaKayak" }, 
+            { name: "奄美大島南部ダイビング・体験ダイビング", url: "https://www.marine-services-aman.com/other" },
+            { name: "奄美大島ダイビングショップ・体験ダイビング", url: "https://www.marine-services-aman.com/other" },
+            { name: "奄美大島シュノーケル体験・レンタル", url: "https://www.marine-services-aman.com/snorkelling" },
+            { name: "グラスボート観光・遊覧", url: "https://www.marine-services-aman.com/glassboat" },
+            { name: "奄美大島宿泊施設・民宿", url: "https://www.marine-services-aman.com/lodging" },
+            { name: "マリンスポーツレンタル", url: "https://www.marine-services-aman.com" }
           ]}
         />
         <TouristAttractionStructuredData
@@ -110,14 +110,14 @@ export default function RootLayout({
           image="/assets/images/pages/トップページ/スライドショー/slide1.webp"
           url="https://www.marine-services-aman.com"
           activities={[
-            "奄美大島シーカヤック体験",
-            "加計呂麻島カヤックツアー", 
-            "奄美大島南部ダイビング・体験ダイビング",
-            "奄美大島ダイビングショップ・体験ダイビング",
-            "奄美大島シュノーケル体験",
-            "奄美大島グラスボート遊覧",
-            "奄美大島マリンスポーツ",
-            "奄美大島宿泊・民宿"
+            { name: "奄美大島シーカヤック体験", url: "https://www.marine-services-aman.com/seaKayak" },
+            { name: "加計呂麻島カヤックツアー", url: "https://www.marine-services-aman.com/seaKayak" }, 
+            { name: "奄美大島南部ダイビング・体験ダイビング", url: "https://www.marine-services-aman.com/other" },
+            { name: "奄美大島ダイビングショップ・体験ダイビング", url: "https://www.marine-services-aman.com/other" },
+            { name: "奄美大島シュノーケル体験", url: "https://www.marine-services-aman.com/snorkelling" },
+            { name: "奄美大島グラスボート遊覧", url: "https://www.marine-services-aman.com/glassboat" },
+            { name: "奄美大島マリンスポーツ", url: "https://www.marine-services-aman.com" },
+            { name: "奄美大島宿泊・民宿", url: "https://www.marine-services-aman.com/lodging" }
           ]}
         />
         <div className="app">

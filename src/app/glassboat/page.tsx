@@ -1,10 +1,10 @@
 import GlassBoatPage from '@/pages/GlassBoatPage/GlassBoatPage';
 import { Metadata } from 'next';
+import { ServiceStructuredData } from '@/components/StructuredData';
 
 export const metadata: Metadata = {
   title: 'グラスボート観光 | あまみあまん - 奄美大島',
   description: '奄美大島の美しい海中世界をグラスボートで観光できます。濡れることなく海中の美しいサンゴや魚たちを観察いただけます。',
-  keywords: '奄美大島, グラスボート, 観光, マリンアクティビティ, あまみあまん, サンゴ, 海中観察',
   openGraph: {
     title: 'グラスボート観光 | あまみあまん - 奄美大島',
     description: '奄美大島の美しい海中世界をグラスボートで観光できます。濡れることなく海中の美しいサンゴや魚たちを観察いただけます。',
@@ -30,5 +30,17 @@ export const metadata: Metadata = {
 };
 
 export default function GlassBoat() {
-  return <GlassBoatPage />;
+  return (
+    <>
+      <GlassBoatPage />
+      <ServiceStructuredData
+        name="グラスボート観光"
+        description="服のまま海中世界を楽しめるグラスボートツアー。サンゴ礁や熱帯魚を間近で観察できます。"
+        providerName="あまみあまん"
+        offers={[
+          { price: '2500', priceCurrency: 'JPY' },
+        ]}
+      />
+    </>
+  );
 }

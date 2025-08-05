@@ -1,10 +1,10 @@
 import SeaKayakPage from '@/pages/SeaKayakPage/SeakayakPage';
 import { Metadata } from 'next';
+import { ServiceStructuredData } from '@/components/StructuredData';
 
 export const metadata: Metadata = {
   title: 'シーカヤック体験 | あまみあまん - 奄美大島',
   description: 'あまんで加計呂麻島カヤック体験を楽しめます。奄美大島からアクセスし、透明度抜群の海でマングローブや美しい海岸線を巡るツアーをご用意しています。',
-  keywords: '加計呂麻島 カヤック, 奄美大島, シーカヤック, 体験, マリンアクティビティ, あまん, マングローブ',
   openGraph: {
     title: 'シーカヤック体験 | あまみあまん - 奄美大島',
     description: 'あまんで加計呂麻島カヤック体験を楽しめます。奄美大島からアクセスし、透明度抜群の海でマングローブや美しい海岸線を巡るツアーをご用意しています。',
@@ -30,5 +30,17 @@ export const metadata: Metadata = {
 };
 
 export default function SeaKayak() {
-  return <SeaKayakPage />;
+  return (
+    <>
+      <SeaKayakPage />
+      <ServiceStructuredData
+        name="シーカヤック体験"
+        description="加計呂麻島でのシーカヤックツアー。マングローブの森や美しい海岸線を巡ります。"
+        providerName="あまみあまん"
+        offers={[
+          { price: '10000', priceCurrency: 'JPY' },
+        ]}
+      />
+    </>
+  );
 }
