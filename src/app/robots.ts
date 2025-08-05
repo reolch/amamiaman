@@ -13,6 +13,8 @@ export default function robots(): MetadataRoute.Robots {
           '/seaKayak',
           '/glassboat',
           '/lodging',
+          '/other',
+          '/passion',
           '/access',
           '/contact'
         ],
