@@ -25,13 +25,13 @@ const LodgingPage = () => {
           <img
             className={`${styles.image} ${styles.item2}`}
             src="/assets/images/LodgingGridItem2.webp"
-            alt="奄美大島あまみあまんの宿泊施設の快適な和室客室の様子"
+            alt="ヤマハタマリンサービスの宿泊施設の快適な和室客室の様子"
           />
         </div>
 
         {/* Details Section */}
         <section className={styles.details}>
-          <h2 className={styles.detailsTitle}>あまみあまん 奄美大島民宿について</h2>
+          <h2 className={styles.detailsTitle}>ヤマハタマリンサービス（マリンサービスあまん） 奄美大島民宿について</h2>
 
           {/* Pricing Table */}
           <div className={styles.pricingContainer}>

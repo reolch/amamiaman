@@ -133,21 +133,27 @@ ${message}
       }
 
       const discordPayload = {
-        username: 'あまみあまん お問い合わせ通知',
+        username: 'ヤマハタマリンサービス お問い合わせ通知',
         avatar_url: 'https://www.marine-services-aman.com/logo.png',
+        content: `新しいお問い合わせがありました。
+**お名前:** ${name}
+**メールアドレス:** ${email}
+**電話番号:** ${phone}
+**お問い合わせ内容:**
+${message}`,
         embeds: [
           {
-            title: 'ウェブサイトから新しいお問い合わせがありました',
-            color: 3447003, // Blue
+            title: 'お問い合わせ詳細',
+            color: 3447003,
             fields: [
-              { name: 'お問い合わせ項目', value: '```' + category + '```', inline: false },
-              { name: 'お名前', value: '```' + name + '```', inline: false },
-              { name: 'メールアドレス', value: '```' + email + '```', inline: false },
-              { name: '携帯電話番号', value: '```' + (phone || '未入力') + '```', inline: false },
-              { name: 'メッセージ内容', value: '```' + message + '```', inline: false },
+              { name: 'お問い合わせ項目', value: category, inline: false },
+              { name: 'お名前', value: name, inline: false },
+              { name: 'メールアドレス', value: email, inline: false },
+              { name: '携帯電話番号', value: phone || '未入力', inline: false },
+              { name: 'お問い合わせ内容', value: message, inline: false }
             ],
             footer: {
-              text: 'あまみあまん公式サイト',
+              text: 'ヤマハタマリンサービス公式サイト',
             },
             timestamp: new Date().toISOString(),
           },

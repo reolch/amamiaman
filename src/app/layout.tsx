@@ -11,15 +11,13 @@ import { inter } from "./fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.marine-services-aman.com"),
-  title: "ヤマハタマリンサービスあまん - 奄美大島シーカヤック・加計呂麻島カヤック・奄美大島南部ダイビング体験",
-  description: "ヤマハタマリンサービスあまんは奄美大島シーカヤック、加計呂麻島カヤック、奄美大島南部ダイビング、奄美大島ダイビングショップとして人気。あまんでシュノーケリング、グラスボート体験と宿泊を提供する総合マリンリゾートです。",
+  title: "ヤマハタマリンサービス｜奄美大島瀬戸内町のダイビング・カヤック・宿泊",
+  description: "ヤマハタマリンサービスは、鹿児島県奄美大島の瀬戸内町でダイビング、シーカヤック、シュノーケリング等のマリンスポーツと宿泊施設を提供します。別名「マリンサービスあまん」としても親しまれています。",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
     shortcut: "/logo.png",
   },
-  keywords: "ヤマハタマリンサービスあまん, やまはたまりんさーびすあまん, 奄美大島 シーカヤック, 加計呂麻島 カヤック, 奄美大島 南部 ダイビング, あまん, 奄美大島 ダイビングショップ, 奄美大島シュノーケル, あまみあまん, ヤマハタマリンサービス, やまはたまりんさーびす, マリンサービスあまん, まりんさーびすあまん, 奄美大島, マリンスポーツ, 宿泊施設, シュノーケリング, シーカヤック, グラスボート, 奄美, 海, リゾート, 体験ダイビング, 民宿, ペンション",
-  authors: [{ name: "ヤマハタマリンサービス" }],
   creator: "ヤマハタマリンサービス",
   publisher: "ヤマハタマリンサービス",
   formatDetection: {
@@ -80,13 +78,13 @@ export default function RootLayout({
     <html lang="ja">
       <body className={inter.className}>
         <LocalBusinessStructuredData
-          name="ヤマハタマリンサービスあまん"
-          description="ヤマハタマリンサービスあまんは奄美大島シーカヤック、加計呂麻島カヤック、奄美大島南部ダイビング、奄美大島ダイビングショップとして人気。あまんで奄美大島シュノーケル体験を提供する総合マリンリゾート施設です。"
+          name="ヤマハタマリンサービス"
+          description="ヤマハタマリンサービスは、鹿児島県奄美大島の瀬戸内町でダイビング、シーカヤック、シュノーケリング等のマリンスポーツと宿泊施設を提供します。別名「あまみあまん」としても親しまれています。"
           address={{
-            streetAddress: "奄美大島",
-            addressLocality: "奄美市",
+            streetAddress: "清水 古仁屋平原375-1",
+            addressLocality: "瀬戸内町",
             addressRegion: "鹿児島県",
-            postalCode: "",
+            postalCode: "894-1521",
             addressCountry: "JP"
           }}
           telephone="0997-72-4584"
@@ -105,8 +103,8 @@ export default function RootLayout({
           ]}
         />
         <TouristAttractionStructuredData
-          name="ヤマハタマリンサービスあまん - 奄美大島マリンリゾート"
-          description="ヤマハタマリンサービスあまんは奄美大島シーカヤック、加計呂麻島カヤック、奄美大島南部ダイビング、奄美大島ダイビングショップとして人気。あまんで奄美大島シュノーケル体験を提供する総合リゾート施設で、宿泊とマリンアクティビティを一体で楽しめます。"
+          name="ヤマハタマリンサービス（マリンサービスあまん）"
+          description="ヤマハタマリンサービスは、鹿児島県奄美大島の瀬戸内町でダイビング、シーカヤック、シュノーケリング等のマリンスポーツと宿泊施設を提供します。別名「マリンサービスあまん」としても親しまれています。"
           image="/assets/images/pages/トップページ/スライドショー/slide1.webp"
           url="https://www.marine-services-aman.com"
           activities={[

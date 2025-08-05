@@ -9,6 +9,7 @@ const StoreInformationPage = () => {
   return (
     <main className={commonStyles.section} aria-labelledby="store-information-heading">
       <div className={commonStyles.container}>
+        <h1 id="store-information-heading" className={commonStyles.title}>アクセス・店舗情報</h1>
 
         <section className={styles.mapSection}>
           <h2 className={styles.mapTitle}>MAP</h2>
@@ -39,7 +40,7 @@ const StoreInformationPage = () => {
               <tbody>
                 <tr>
                   <th scope="row">店舗名</th>
-                  <td>マリンサービスあまん</td>
+                  <td>ヤマハタマリンサービス（マリンサービスあまん）</td>
                 </tr>
                 <tr>
                   <th scope="row">代表</th>

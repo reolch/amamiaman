@@ -47,8 +47,8 @@ export function LocalBusinessStructuredData({
     "priceRange": priceRange,
     "serviceType": services.map(service => service.name),
     "areaServed": "奄美大島",
-    "knowsAbout": ["マリンスポーツ", "シュノーケリング", "シーカヤック", "グラスボート", "宿泊施設", "あまみあまん", "マリンサービスあまん", "奄美大島シュノーケル", "加計呂麻島カヤック", "奄美大島南部ダイビング"],
-    "alternateName": ["あまみあまん", "マリンサービスあまん", "ヤマハタマリンサービス"],
+    "knowsAbout": ["マリンスポーツ", "シュノーケリング", "シーカヤック", "グラスボート", "宿泊施設", "マリンサービスあまん", "奄美大島シュノーケル", "加計呂麻島カヤック", "奄美大島南部ダイビング"],
+    "alternateName": ["マリンサービスあまん", "ヤマハタマリンサービス"],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "マリンアクティビティサービス",

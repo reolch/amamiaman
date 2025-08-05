@@ -17,7 +17,7 @@ const NewsItem = ({ id, title, date, description, imageUrl }) => {
   return (
     <article className={styles.newsItem} aria-labelledby={`news-title-${id}`}>
       {imageUrl && (
-        <img src={imageUrl} alt={`奄美大島あまみあまんのニュース記事「${title}」の関連画像`} className={styles.newsImage} loading="lazy" />
+        <img src={imageUrl} alt={`ヤマハタマリンサービスのニュース記事「${title}」の関連画像`} className={styles.newsImage} loading="lazy" />
       )}
       <div className={styles.newsDate}>{formattedDate}</div>
       <h3 id={`news-title-${id}`} className={styles.newsTitle}>

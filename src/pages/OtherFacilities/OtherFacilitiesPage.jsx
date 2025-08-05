@@ -17,10 +17,10 @@ const OtherFacilitiesPage = () => {
 
         <div className={styles.imageGrid}>
           <div className={styles.imageItem}>
-            <img src="/assets/images/pages/施設紹介/シャワー室.webp" alt="奄美大島あまみあまんのマリンアクティビティ体験後に利用できる清潔なシャワー室" />
+            <img src="/assets/images/pages/施設紹介/シャワー室.webp" alt="ヤマハタマリンサービスのマリンアクティビティ体験後に利用できる清潔なシャワー室" />
           </div>
           <div className={styles.imageItem}>
-            <img src="/assets/images/pages/施設紹介/ロビー.webp" alt="奄美大島あまみあまんの宿泊施設・くつろげるロビー空間" />
+            <img src="/assets/images/pages/施設紹介/ロビー.webp" alt="ヤマハタマリンサービスの宿泊施設・くつろげるロビー空間" />
           </div>
         </div>
 
