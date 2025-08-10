@@ -66,26 +66,26 @@ const ServiceSection = () => {
   const services = [
     {
       type: 'snorkelling',
-      title: 'シュノーケリング',
-      description: '透明度抜群の海で熱帯魚と泳ごう',
+      title: '奄美大島 シュノーケリング',
+      description: '透明度抜群の海で、色とりどりの熱帯魚とサンゴ礁を楽しもう。',
       link: '/snorkelling',
     },
     {
       type: 'seakayak',
-      title: 'シーカヤック',
-      description: '手つかずの自然を探検しよう',
+      title: '奄美大島 シーカヤック',
+      description: '加計呂麻島周辺の穏やかな海で、手つかずの自然を探検。',
       link: '/seaKayak',
     },
     {
       type: 'glassboat',
-      title: 'グラスボート',
-      description: '美しいサンゴ礁の世界へ',
+      title: '奄美大島 グラスボート',
+      description: '服を着たまま気軽に楽しめる、美しいサンゴ礁の水中世界へ。',
       link: '/glassboat',
     },
     {
       type: 'lodging',
       title: '宿泊施設',
-      description: 'ゆったりとくつろげる空間',
+      description: 'マリンスポーツの後は、ゆったりとくつろげる空間でリラックス。',
       link: '/lodging',
     },
   ];
@@ -103,7 +103,7 @@ const ServiceSection = () => {
     >
       <div className={styles.container}>
         <h2 className={`${styles.sectionTitle} ${hasSectionIntersected ? styles.titleVisible : styles.titleHidden}`}>
-          サービス
+          奄美大島で体験できるサービス
         </h2>
         <div className={styles.cardGrid}>
           {services.map((service, index) => (

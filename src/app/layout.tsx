@@ -11,8 +11,8 @@ import { inter } from "./fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.marine-services-aman.com"),
-  title: "ヤマハタマリンサービス｜奄美大島瀬戸内町のダイビング・カヤック・宿泊",
-  description: "ヤマハタマリンサービスは、鹿児島県奄美大島の瀬戸内町でダイビング、シーカヤック、シュノーケリング等のマリンスポーツと宿泊施設を提供します。別名「マリンサービスあまん」としても親しまれています。",
+  title: "ヤマハタマリンサービス｜奄美大島のシーカヤック・シュノーケル・宿泊",
+  description: "奄美大島瀬戸内町の「ヤマハタマリンサービス」（通称：あまん）。シーカヤック、シュノーケリング、グラスボートなどのマリンスポーツと宿泊施設を提供。加計呂麻島カヤックも人気です。",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     yahoo: "your-yahoo-verification-code",
   },
   openGraph: {
-    title: "ヤマハタマリンサービスあまん - 奄美大島シーカヤック・加計呂麻島カヤック・奄美大島南部ダイビング体験",
-    description: "ヤマハタマリンサービスあまんで奄美大島シーカヤック、加計呂麻島カヤック、奄美大島南部ダイビング体験。奄美大島ダイビングショップとしても人気のあまんでマリンスポーツと宿泊をワンストップでご提供。",
+    title: "ヤマハタマリンサービス｜奄美大島のシーカヤック・シュノーケル・宿泊",
+    description: "奄美大島瀬戸内町の「ヤマハタマリンサービス」（通称：あまん）。シーカヤック、シュノーケリング、グラスボートなどのマリンスポーツと宿泊施設を提供。加計呂麻島カヤックも人気です。",
     url: "https://www.marine-services-aman.com",
     siteName: "ヤマハタマリンサービス",
     images: [
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         url: "/assets/images/pages/トップページ/スライドショー/slide1.webp",
         width: 1200,
         height: 630,
-        alt: "ヤマハタマリンサービス 奄美大島のマリンスポーツと宿泊施設",
+        alt: "ヤマハタマリンサービスのサービス：シーカヤック、シュノーケル、グラスボート",
       },
     ],
     locale: "ja_JP",
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ヤマハタマリンサービスあまん - 奄美大島シーカヤック・加計呂麻島カヤック・奄美大島南部ダイビング体験",
-    description: "ヤマハタマリンサービスあまんで奄美大島シーカヤック、加計呂麻島カヤック、奄美大島南部ダイビング体験。奄美大島ダイビングショップとしても人気。",
+    title: "ヤマハタマリンサービス｜奄美大島のシーカヤック・シュノーケル・宿泊",
+    description: "奄美大島瀬戸内町の「ヤマハタマリンサービス」（通称：あまん）。シーカヤック、シュノーケリング、グラスボートなどのマリンスポーツと宿泊施設を提供。加計呂麻島カヤックも人気です。",
     images: ["/assets/images/pages/トップページ/スライドショー/slide1.webp"],
     creator: "@amamiaman",
   },
@@ -79,7 +79,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <LocalBusinessStructuredData
           name="ヤマハタマリンサービス"
-          description="ヤマハタマリンサービスは、鹿児島県奄美大島の瀬戸内町でダイビング、シーカヤック、シュノーケリング等のマリンスポーツと宿泊施設を提供します。別名「あまみあまん」としても親しまれています。"
+          alternateName="あまん"
+          description="奄美大島瀬戸内町の「ヤマハタマリンサービス」（通称：あまん）。シーカヤック、シュノーケリング、グラスボートなどのマリンスポーツと宿泊施設を提供。加計呂麻島カヤックも人気です。"
           address={{
             streetAddress: "清水 古仁屋平原375-1",
             addressLocality: "瀬戸内町",
@@ -92,30 +93,24 @@ export default function RootLayout({
           openingHours={["Mo-Su 08:00-18:00"]}
           priceRange="¥¥-¥¥¥"
           services={[
-            { name: "奄美大島シーカヤック体験・レンタル", url: "https://www.marine-services-aman.com/seaKayak" },
-            { name: "加計呂麻島カヤック体験・ツアー", url: "https://www.marine-services-aman.com/seaKayak" }, 
-            { name: "奄美大島南部ダイビング・体験ダイビング", url: "https://www.marine-services-aman.com/other" },
-            { name: "奄美大島ダイビングショップ・体験ダイビング", url: "https://www.marine-services-aman.com/other" },
-            { name: "奄美大島シュノーケル体験・レンタル", url: "https://www.marine-services-aman.com/snorkelling" },
-            { name: "グラスボート観光・遊覧", url: "https://www.marine-services-aman.com/glassboat" },
-            { name: "奄美大島宿泊施設・民宿", url: "https://www.marine-services-aman.com/lodging" },
-            { name: "マリンスポーツレンタル", url: "https://www.marine-services-aman.com" }
+            { name: "奄美大島 シーカヤック", url: "https://www.marine-services-aman.com/seaKayak" },
+            { name: "加計呂麻島 シーカヤック", url: "https://www.marine-services-aman.com/seaKayak" }, 
+            { name: "奄美大島 シュノーケル", url: "https://www.marine-services-aman.com/snorkelling" },
+            { name: "奄美大島 グラスボート", url: "https://www.marine-services-aman.com/glassboat" },
+            { name: "奄美大島 宿泊", url: "https://www.marine-services-aman.com/lodging" }
           ]}
         />
         <TouristAttractionStructuredData
-          name="ヤマハタマリンサービス（マリンサービスあまん）"
-          description="ヤマハタマリンサービスは、鹿児島県奄美大島の瀬戸内町でダイビング、シーカヤック、シュノーケリング等のマリンスポーツと宿泊施設を提供します。別名「マリンサービスあまん」としても親しまれています。"
+          name="ヤマハタマリンサービス"
+          description="奄美大島瀬戸内町の「ヤマハタマリンサービス」（通称：あまん）。シーカヤック、シュノーケリング、グラスボートなどのマリンスポーツと宿泊施設を提供。加計呂麻島カヤックも人気です。"
           image="/assets/images/pages/トップページ/スライドショー/slide1.webp"
           url="https://www.marine-services-aman.com"
           activities={[
-            { name: "奄美大島シーカヤック体験", url: "https://www.marine-services-aman.com/seaKayak" },
-            { name: "加計呂麻島カヤックツアー", url: "https://www.marine-services-aman.com/seaKayak" }, 
-            { name: "奄美大島南部ダイビング・体験ダイビング", url: "https://www.marine-services-aman.com/other" },
-            { name: "奄美大島ダイビングショップ・体験ダイビング", url: "https://www.marine-services-aman.com/other" },
-            { name: "奄美大島シュノーケル体験", url: "https://www.marine-services-aman.com/snorkelling" },
-            { name: "奄美大島グラスボート遊覧", url: "https://www.marine-services-aman.com/glassboat" },
-            { name: "奄美大島マリンスポーツ", url: "https://www.marine-services-aman.com" },
-            { name: "奄美大島宿泊・民宿", url: "https://www.marine-services-aman.com/lodging" }
+            { name: "奄美大島 シーカヤック", url: "https://www.marine-services-aman.com/seaKayak" },
+            { name: "加計呂麻島 シーカヤック", url: "https://www.marine-services-aman.com/seaKayak" }, 
+            { name: "奄美大島 シュノーケル", url: "https://www.marine-services-aman.com/snorkelling" },
+            { name: "奄美大島 グラスボート", url: "https://www.marine-services-aman.com/glassboat" },
+            { name: "奄美大島 宿泊", url: "https://www.marine-services-aman.com/lodging" }
           ]}
         />
         <div className="app">

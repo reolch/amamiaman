@@ -1,65 +1,62 @@
 import { MetadataRoute } from 'next'
-
-export const dynamic = 'force-static'
-
+ 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.marine-services-aman.com'
-  const currentDate = new Date().toISOString()
-
+ 
   return [
     {
       url: baseUrl,
-      lastModified: currentDate,
+      lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 1.0,
+      priority: 1,
     },
     {
-      url: `${baseUrl}/snorkelling`,
-      lastModified: currentDate,
+      url: `${baseUrl}/seaKayak`,
+      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/seaKayak`,
-      lastModified: currentDate,
+      url: `${baseUrl}/snorkelling`,
+      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/glassboat`,
-      lastModified: currentDate,
+      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/lodging`,
-      lastModified: currentDate,
+      lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/other`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/access`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/contact`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
+      url: `${baseUrl}/access`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/passion`,
-      lastModified: currentDate,
+      lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/other`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.4,
     },
   ]
 }
