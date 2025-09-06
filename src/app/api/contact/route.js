@@ -12,12 +12,21 @@ const sendErrorToDiscord = async (error, formData) => {
   }
 
   const errorMessage = error.message || 'An unknown error occurred';
+  const errorName = error.name || 'N/A';
+
+  // エラーオブジェクト全体を文字列化
+  let errorDetailsString;
+  try {
+    errorDetailsString = `
+${JSON.stringify(error, null, 2)}
+`;
+  } catch (e) {
+    errorDetailsString = 'Failed to stringify the error object.';
+  }
   
   // formDataがundefinedの場合のフォールバック
   const formDataString = formData ? `
-
 ${JSON.stringify(formData, null, 2)}
-
 ` : 'フォームデータを取得できませんでした。';
 
   const discordPayload = {
@@ -29,8 +38,9 @@ ${JSON.stringify(formData, null, 2)}
         title: 'エラー詳細',
         color: 15158332, // Red
         fields: [
-          { name: 'エラー種別', value: error.name || 'N/A', inline: true },
+          { name: 'エラー種別', value: errorName, inline: true },
           { name: 'エラーメッセージ', value: errorMessage, inline: false },
+          { name: 'エラーオブジェクト全体', value: errorDetailsString, inline: false },
           { name: 'フォーム入力内容', value: formDataString, inline: false },
         ],
         footer: {
