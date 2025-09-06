@@ -3,26 +3,77 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// エラー通知をDiscordに送信する関数
+const sendErrorToDiscord = async (error, formData) => {
+  const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+  if (!webhookUrl) {
+    console.log('DISCORD_WEBHOOK_URL is not set. Skipping error notification.');
+    return;
+  }
+
+  const errorMessage = error.message || 'An unknown error occurred';
+  
+  // formDataがundefinedの場合のフォールバック
+  const formDataString = formData ? `
+
+${JSON.stringify(formData, null, 2)}
+
+` : 'フォームデータを取得できませんでした。';
+
+  const discordPayload = {
+    username: 'エラー通知 - お問い合わせフォーム',
+    avatar_url: 'https://www.marine-services-aman.com/logo.png',
+    content: `**[警告] お問い合わせフォームでエラーが発生しました**`,
+    embeds: [
+      {
+        title: 'エラー詳細',
+        color: 15158332, // Red
+        fields: [
+          { name: 'エラー種別', value: error.name || 'N/A', inline: true },
+          { name: 'エラーメッセージ', value: errorMessage, inline: false },
+          { name: 'フォーム入力内容', value: formDataString, inline: false },
+        ],
+        footer: {
+          text: 'ヤマハタマリンサービス公式サイト',
+        },
+        timestamp: new Date().toISOString(),
+      },
+    ],
+  };
+
+  try {
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(discordPayload),
+    });
+    if (!response.ok) {
+      console.error('Failed to send error to Discord:', response.status, await response.text());
+    }
+  } catch (discordError) {
+    console.error('Error sending error notification to Discord:', discordError);
+  }
+};
+
 // デバッグ用のGETメソッド
 export async function GET() {
-  return NextResponse.json({ 
+  return NextResponse.json({
     message: 'Contact API is working',
     timestamp: new Date().toISOString()
   });
 }
 
 export async function POST(request) {
+  let formDataForErrorHandling;
+
   try {
+    const { name, email, phone, category, message, recaptchaToken } = await request.json();
+    formDataForErrorHandling = { name, email, phone, category, message };
+
     // Resend API キーの確認
     if (!process.env.RESEND_API_KEY) {
-      console.error('RESEND_API_KEY is not set');
-      return NextResponse.json(
-        { error: 'メール設定に問題があります' },
-        { status: 500 }
-      );
+      throw new Error('メール設定に問題があります: RESEND_API_KEY is not set');
     }
-
-    const { name, email, phone, category, message, recaptchaToken } = await request.json();
 
     // reCAPTCHAの検証
     const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
@@ -36,7 +87,7 @@ export async function POST(request) {
         }
       } catch (error) {
         console.error('reCAPTCHA verification error:', error);
-        return NextResponse.json({ error: 'reCAPTCHAの検証中にエラーが発生しました' }, { status: 500 });
+        throw new Error('reCAPTCHAの検証中にエラーが発生しました');
       }
     }
 
@@ -66,22 +117,16 @@ export async function POST(request) {
       );
     }
 
-    // CC/BCCアドレスの処理
+    // アドレスの処理
     const parseEmailList = (emailString) => {
       if (!emailString) return [];
       return emailString.split(',').map(email => email.trim()).filter(email => email);
     };
 
     const toEmails = parseEmailList(process.env.TO_EMAIL);
-    const ccEmails = parseEmailList(process.env.CC_EMAIL);
-    const bccEmails = parseEmailList(process.env.BCC_EMAIL);
 
     console.log('TO_EMAIL from env:', process.env.TO_EMAIL);
     console.log('Parsed TO Emails:', toEmails);
-    console.log('CC_EMAIL from env:', process.env.CC_EMAIL);
-    console.log('BCC_EMAIL from env:', process.env.BCC_EMAIL);
-    console.log('Parsed CC Emails:', ccEmails);
-    console.log('Parsed BCC Emails:', bccEmails);
 
     // メール送信
     const emailData = {
@@ -115,14 +160,6 @@ ${message}
         </div>
       `,
     };
-
-    // CC/BCCを追加（存在する場合のみ）
-    if (ccEmails.length > 0) {
-      emailData.cc = ccEmails;
-    }
-    if (bccEmails.length > 0) {
-      emailData.bcc = bccEmails;
-    }
 
     // Discord Webhookへの通知
     const sendToDiscord = async () => {
@@ -180,26 +217,33 @@ ${message}`,
       sendToDiscord(),
     ]);
 
-    if (emailResult.status === 'rejected') {
-      console.error('Email sending failed:', emailResult.reason);
-      // Discordへの通知が成功していても、メール送信の失敗をクライアントに通知する
+    // Resendの結果をチェック
+    if (emailResult.status === 'fulfilled') {
+      const { data, error } = emailResult.value;
+      if (error) {
+        // Resendからエラーが返された場合
+        throw error;
+      }
+      // 成功した場合
+      return NextResponse.json({
+        success: true,
+        id: data.id,
+        recipients: {
+          to: emailData.to,
+        },
+      });
+    } else {
+      // Promiseがrejectedされた場合（ネットワークエラーなど）
       throw emailResult.reason;
     }
-
-    return NextResponse.json({
-      success: true,
-      id: emailResult.value.id,
-      recipients: {
-        to: emailData.to,
-        cc: emailData.cc || [],
-        bcc: emailData.bcc || [],
-      },
-    });
   } catch (error) {
     console.error('Form submission error:', error);
-    console.error('Error details:', error.message);
+    
+    // Discordにエラーを通知
+    await sendErrorToDiscord(error, formDataForErrorHandling);
+
     return NextResponse.json(
-      { 
+      {
         error: 'メール送信に失敗しました',
         details: process.env.NODE_ENV === 'development' ? error.message : undefined
       },

@@ -79,7 +79,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <LocalBusinessStructuredData
           name="ヤマハタマリンサービス"
-          alternateName="あまん"
           description="奄美大島瀬戸内町の「ヤマハタマリンサービス」（通称：あまん）。シーカヤック、シュノーケリング、グラスボートなどのマリンスポーツと宿泊施設を提供。加計呂麻島カヤックも人気です。"
           address={{
             streetAddress: "清水 古仁屋平原375-1",
