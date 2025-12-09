@@ -67,9 +67,9 @@ export const metadata: Metadata = {
     images: ["/assets/images/pages/トップページ/スライドショー/slide1.webp"],
     creator: "@amamiaman",
   },
-  alternates: {
-    canonical: "https://www.marine-services-aman.com",
-  },
+  // alternates: {
+  //   canonical: "https://www.marine-services-aman.com",
+  // },
 };
 
 export default function RootLayout({
