@@ -1,5 +1,6 @@
 // src/components/Snorkelling/SnorkellingPage.jsx
 import styles from './SnorkellingPage.module.css';
+import Image from 'next/image';
 import SocialShare from '../../components/common/SocialShare/SocialShare';
 import FooterNote from '../../components/common/FooterNote/FooterNote';
 
@@ -27,26 +28,42 @@ const SnorkellingPage = () => {
         </div>
 
         <div className={styles.grid}>
-          <img
-            className={`${styles.image} ${styles.item1}`}
-            src="/assets/images/IMG_0801.webp"
-            alt="奄美大島の透明度抜群の海でシュノーケリング体験をする様子"
-          />
-          <img
-            className={`${styles.image} ${styles.item2}`}
-            src="/assets/images/IMG_0808.webp"
-            alt="奄美大島のサンゴ礁と色とりどりの熱帯魚が見られるシュノーケリングポイント"
-          />
-          <img
-            className={`${styles.image} ${styles.item3}`}
-            src="/assets/images/IMG_0806.webp"
-            alt="奄美大島の美しい海中世界を楽しむシュノーケリング体験の風景"
-          />
-          <img
-            className={`${styles.image} ${styles.item4}`}
-            src="/assets/images/IMG_0804.webp"
-            alt="奄美大島のクリアブルーの海で楽しむシュノーケリングツアーの様子"
-          />
+          <div className={`${styles.image} ${styles.item1}`}>
+            <Image
+              src="/assets/images/IMG_0801.webp"
+              alt="奄美大島の透明度抜群の海でシュノーケリング体験をする様子"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
+          <div className={`${styles.image} ${styles.item2}`}>
+            <Image
+              src="/assets/images/IMG_0808.webp"
+              alt="奄美大島のサンゴ礁と色とりどりの熱帯魚が見られるシュノーケリングポイント"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
+          <div className={`${styles.image} ${styles.item3}`}>
+            <Image
+              src="/assets/images/IMG_0806.webp"
+              alt="奄美大島の美しい海中世界を楽しむシュノーケリング体験の風景"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
+          <div className={`${styles.image} ${styles.item4}`}>
+            <Image
+              src="/assets/images/IMG_0804.webp"
+              alt="奄美大島のクリアブルーの海で楽しむシュノーケリングツアーの様子"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
         </div>
 
         {/* 価格情報テーブル */}

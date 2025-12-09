@@ -35,12 +35,12 @@ const Header = () => {
   return (
     <header className={styles.header} role="banner">
       <div className={styles.topBar}>
-        
+
         <div className={styles.logo}>
           <h1>
-            <a href="/" className={rampartOne.className}>
+            <Link href="/" className={rampartOne.className}>
               ヤマハタマリンサービスあまん
-            </a>
+            </Link>
           </h1>
         </div>
         <div className={styles.contact}>

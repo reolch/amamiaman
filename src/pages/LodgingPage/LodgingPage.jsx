@@ -1,4 +1,5 @@
 import styles from './LodgingPage.module.css'; // CSS Modulesをインポート
+import Image from 'next/image';
 import SocialShare from '../../components/common/SocialShare/SocialShare';
 import FooterNote from '../../components/common/FooterNote/FooterNote'; // FooterNoteをインポート
 
@@ -22,10 +23,13 @@ const LodgingPage = () => {
         </div>
 
         <div className={styles.grid}>
-          <img
-            className={`${styles.image} ${styles.item2}`}
+          <Image
             src="/assets/images/LodgingGridItem2.webp"
             alt="ヤマハタマリンサービスの宿泊施設の快適な和室客室の様子"
+            width={800}
+            height={600}
+            className={styles.image}
+            style={{ width: '100%', height: 'auto' }}
           />
         </div>
 

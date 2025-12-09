@@ -37,8 +37,11 @@ export const metadata: Metadata = {
     },
   },
   verification: {
+    // TODO: Add your Google verification code here
     google: "your-google-verification-code",
+    // TODO: Add your Yandex verification code here
     yandex: "your-yandex-verification-code",
+    // TODO: Add your Yahoo verification code here
     yahoo: "your-yahoo-verification-code",
   },
   openGraph: {
@@ -93,7 +96,7 @@ export default function RootLayout({
           priceRange="¥¥-¥¥¥"
           services={[
             { name: "奄美大島 シーカヤック", url: "https://www.marine-services-aman.com/seaKayak" },
-            { name: "加計呂麻島 シーカヤック", url: "https://www.marine-services-aman.com/seaKayak" }, 
+            { name: "加計呂麻島 シーカヤック", url: "https://www.marine-services-aman.com/seaKayak" },
             { name: "奄美大島 シュノーケル", url: "https://www.marine-services-aman.com/snorkelling" },
             { name: "奄美大島 グラスボート", url: "https://www.marine-services-aman.com/glassboat" },
             { name: "奄美大島 宿泊", url: "https://www.marine-services-aman.com/lodging" }
@@ -106,7 +109,7 @@ export default function RootLayout({
           url="https://www.marine-services-aman.com"
           activities={[
             { name: "奄美大島 シーカヤック", url: "https://www.marine-services-aman.com/seaKayak" },
-            { name: "加計呂麻島 シーカヤック", url: "https://www.marine-services-aman.com/seaKayak" }, 
+            { name: "加計呂麻島 シーカヤック", url: "https://www.marine-services-aman.com/seaKayak" },
             { name: "奄美大島 シュノーケル", url: "https://www.marine-services-aman.com/snorkelling" },
             { name: "奄美大島 グラスボート", url: "https://www.marine-services-aman.com/glassboat" },
             { name: "奄美大島 宿泊", url: "https://www.marine-services-aman.com/lodging" }

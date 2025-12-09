@@ -68,7 +68,7 @@ const ContactPage = () => {
         <h1 id="contact-page-heading" className={styles.title}>
           Contact
         </h1>
-        
+
         <p className={styles.description}>
           ご質問やご相談がございましたら、お気軽にお問い合わせください。
         </p>
@@ -168,8 +168,8 @@ const ContactPage = () => {
             ></textarea>
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className={styles.button}
             aria-label="フォームを送信する"
             disabled={isSubmitting || !recaptchaToken}
@@ -180,7 +180,7 @@ const ContactPage = () => {
           <div className={styles.recaptchaContainer}>
             <ReCAPTCHA
               ref={recaptchaRef}
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}
               onChange={handleRecaptchaChange}
             />
           </div>

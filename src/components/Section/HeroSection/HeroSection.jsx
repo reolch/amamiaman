@@ -1,6 +1,7 @@
 "use client";
 // src/components/Section/HeroSection/HeroSection.jsx
 import { useState, useEffect } from 'react';
+import NextImage from 'next/image';
 import styles from './HeroSection.module.css'; // CSS Module をインポート
 import useParallax from '../../../hooks/useParallax';
 import useIntersectionObserver from '../../../hooks/useIntersectionObserver';
@@ -55,7 +56,7 @@ const HeroSection = ({ animationType = 'fade' }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const slideInterval = 5000;
-  
+
   const [heroRef, , hasHeroIntersected] = useIntersectionObserver();
   const [parallaxRef, parallaxOffset] = useParallax(0.5);
 
@@ -87,7 +88,7 @@ const HeroSection = ({ animationType = 'fade' }) => {
   }, [currentSlide]);
 
   return (
-    <section 
+    <section
       ref={(el) => {
         heroRef.current = el;
         parallaxRef.current = el;
@@ -101,9 +102,8 @@ const HeroSection = ({ animationType = 'fade' }) => {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`${styles['hero-section__slide']} ${
-              index === currentSlide ? styles['hero-section__slide--active'] : ''
-            } ${styles[`hero-section__slide--${index < currentSlide ? 'prev' : index > currentSlide ? 'next' : 'current'}`]}`}
+            className={`${styles['hero-section__slide']} ${index === currentSlide ? styles['hero-section__slide--active'] : ''
+              } ${styles[`hero-section__slide--${index < currentSlide ? 'prev' : index > currentSlide ? 'next' : 'current'}`]}`}
             aria-hidden={index !== currentSlide}
             style={{
               '--slide-index': index,
@@ -112,12 +112,14 @@ const HeroSection = ({ animationType = 'fade' }) => {
             }}
           >
             <div className={styles['hero-section__image-wrapper']}>
-              <img
+              <NextImage
                 src={slide.image}
                 alt={slide.alt}
                 className={styles['hero-section__slide-image']}
-                loading={index === 0 ? "eager" : "lazy"}
-                fetchPriority={index === 0 ? "high" : "low"}
+                fill
+                priority={index === 0}
+                sizes="100vw"
+                style={{ objectFit: 'cover' }}
               />
             </div>
             {index === currentSlide && (
