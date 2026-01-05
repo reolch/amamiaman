@@ -43,17 +43,28 @@
 }
 
 .heading {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
   color: var(--primary-color);
-  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .paragraph {
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: 0.9375rem;
+  line-height: 1.7;
   color: var(--secondary-color);
   text-align: justify;
+}
+
+@media (min-width: 640px) {
+  .heading {
+    font-size: 1.375rem;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -71,20 +82,20 @@
   }
 
   .heading {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .paragraph {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
   }
 }
 
 @media (min-width: 1024px) {
   .heading {
-    font-size: 2.2rem;
+    font-size: 1.625rem;
   }
 
   .paragraph {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 }

@@ -9,11 +9,12 @@
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 2rem;
   color: #2c3e50;
   font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .content {
@@ -48,8 +49,8 @@
 }
 
 .description {
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: 0.9375rem;
+  line-height: 1.7;
   color: #2c3e50;
 }
 
@@ -72,24 +73,28 @@
   border: 1px solid #e0e0e0;
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 0.875rem;
 }
 
 .table th,
 .table td {
-  padding: 14px 16px;
+  padding: 0.75rem 1rem;
   border: 1px solid #e0e0e0;
   vertical-align: middle;
   text-align: left;
+  line-height: 1.6;
 }
 
 .table th {
   background-color: #f5f5f5;
   font-weight: 600;
   color: #2c3e50;
+  font-size: 0.8125rem;
 }
 
 .table td {
   color: #555;
+  font-size: 0.875rem;
 }
 
 .headerRow th {
@@ -108,7 +113,34 @@
   color: #555;
 }
 
-/* レスポンシブスタイル */
+/* レスポンシブスタイル - モバイルファースト */
+@media (min-width: 640px) {
+  .title {
+    font-size: 1.625rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .table {
+    font-size: 0.9375rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.875rem 1.25rem;
+  }
+
+  .table th {
+    font-size: 0.875rem;
+  }
+
+  .table td {
+    font-size: 0.9375rem;
+  }
+}
+
 @media (min-width: 768px) {
   .section {
     padding: 80px 40px;
@@ -132,20 +164,24 @@
     padding-left: 30px;
   }
 
+  .title {
+    font-size: 1.75rem;
+  }
+
   .description {
-    font-size: 1.1rem;
+    font-size: 1.0625rem;
     text-align: left;
   }
 
   .table th,
   .table td {
-    padding: 16px 20px;
+    padding: 1rem 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .image {
@@ -153,6 +189,23 @@
   }
 
   .description {
-    font-size: 1.15rem;
+    font-size: 1.125rem;
+  }
+
+  .table {
+    font-size: 1rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 1.125rem 1.75rem;
+  }
+
+  .table th {
+    font-size: 0.9375rem;
+  }
+
+  .table td {
+    font-size: 1rem;
   }
 }

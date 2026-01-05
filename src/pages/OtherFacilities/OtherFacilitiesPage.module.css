@@ -9,21 +9,22 @@
   }
   
   .title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 2rem;
     color: #2c3e50;
     font-weight: 600;
+    letter-spacing: 0.01em;
   }
   
   .descriptionContainer {
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 2rem;
   }
   
   .description {
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: 0.9375rem;
+    line-height: 1.7;
     color: #2c3e50;
     text-align: center;
   }
@@ -61,10 +62,20 @@
     transform: scale(1.05);
   }
   
-  /* レスポンシブスタイル */
+  /* レスポンシブスタイル - モバイルファースト */
+  @media (min-width: 640px) {
+    .title {
+      font-size: 1.625rem;
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+  }
+
   @media (min-width: 768px) {
     .description {
-      font-size: 1.1rem;
+      font-size: 1.0625rem;
     }
   
     .imageGrid {
@@ -74,12 +85,12 @@
   
   @media (min-width: 1024px) {
     .title {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
   
     .description {
-      font-size: 1.15rem;
-    max-width: 800px;
-      margin: 0 auto 40px;
+      font-size: 1.125rem;
+      max-width: 800px;
+      margin: 0 auto 2.5rem;
     }
   }
