@@ -48,7 +48,7 @@ const StoreInformationPage = () => {
                 </tr>
                 <tr>
                   <th scope="row">所在地</th>
-                  <td>〒894-1521 鹿児島県大島郡瀬戸内町清水375-1</td>
+                  <td>〒894-1521 鹿児島県大島郡瀬戸内町清水３７５−１</td>
                 </tr>
                 <tr>
                   <th scope="row">電話番号</th>
