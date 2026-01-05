@@ -2,30 +2,31 @@
 
 /* Google Maps セクション */
 .mapSection {
-  margin-bottom: 60px;
+  margin-bottom: 2.5rem;
 }
 
 .mapTitle {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
   color: #2c3e50;
   text-align: center;
   font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .mapContainer {
   width: 100%;
-  height: 400px;
-  border-radius: 20px;
+  height: 300px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
-  transition: all 0.4s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
 }
 
 .mapContainer:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .iframe {
@@ -37,25 +38,27 @@
 .mapDescription {
   text-align: center;
   color: #7f8c8d;
-  font-size: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 /* 店舗概要セクション */
 .details {
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
 .detailsTitle {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
   color: #2c3e50;
   text-align: center;
   font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .detailsContent {
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -66,24 +69,28 @@
   border: 1px solid #e0e0e0;
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 0.875rem;
 }
 
 .table th,
 .table td {
-  padding: 14px 16px;
+  padding: 0.75rem 1rem;
   border: 1px solid #e0e0e0;
   vertical-align: middle;
   text-align: left;
+  line-height: 1.6;
 }
 
 .table th {
   background-color: #f5f5f5;
   font-weight: 600;
   color: #2c3e50;
+  font-size: 0.8125rem;
 }
 
 .table td {
   color: #555;
+  font-size: 0.875rem;
 }
 
 .headerRow th {
@@ -113,30 +120,83 @@
   text-decoration: underline;
 }
 
-/* レスポンシブスタイル */
-@media (min-width: 768px) {
+/* レスポンシブスタイル - モバイルファースト */
+@media (min-width: 640px) {
+  .mapSection {
+    margin-bottom: 3rem;
+  }
+
   .mapTitle,
   .detailsTitle {
-    font-size: 2rem;
+    font-size: 1.375rem;
   }
 
   .mapContainer {
-    height: 450px;
+    height: 350px;
+    border-radius: 16px;
+  }
+
+  .table {
+    font-size: 0.9375rem;
   }
 
   .table th,
   .table td {
-    padding: 16px 20px;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .table th {
+    font-size: 0.875rem;
+  }
+
+  .table td {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .mapTitle,
+  .detailsTitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .mapContainer {
+    height: 400px;
+    border-radius: 20px;
+  }
+
+  .table th,
+  .table td {
+    padding: 1rem 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .mapTitle,
   .detailsTitle {
-    font-size: 2.2rem;
+    font-size: 1.625rem;
+    margin-bottom: 2rem;
   }
 
   .mapContainer {
-    height: 500px;
+    height: 450px;
+  }
+
+  .table {
+    font-size: 1rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 1.125rem 1.75rem;
+  }
+
+  .table th {
+    font-size: 0.9375rem;
+  }
+
+  .table td {
+    font-size: 1rem;
   }
 }
