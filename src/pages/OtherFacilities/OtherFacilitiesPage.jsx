@@ -20,7 +20,7 @@ const OtherFacilitiesPage = () => {
           <div className={styles.imageItem}>
             <Image
               src="/assets/images/pages/施設紹介/シャワー室.webp"
-              alt="ヤマハタマリンサービスのマリンアクティビティ体験後に利用できる清潔なシャワー室"
+              alt="ヤマハタマリンサービスあまんのマリンアクティビティ体験後に利用できる清潔なシャワー室"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: 'cover' }}
@@ -29,7 +29,7 @@ const OtherFacilitiesPage = () => {
           <div className={styles.imageItem}>
             <Image
               src="/assets/images/pages/施設紹介/ロビー.webp"
-              alt="ヤマハタマリンサービスの宿泊施設・くつろげるロビー空間"
+              alt="ヤマハタマリンサービスあまんの宿泊施設・くつろげるロビー空間"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: 'cover' }}

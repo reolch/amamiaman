@@ -25,7 +25,7 @@ const LodgingPage = () => {
         <div className={styles.grid}>
           <Image
             src="/assets/images/LodgingGridItem2.webp"
-            alt="ヤマハタマリンサービスの宿泊施設の快適な和室客室の様子"
+            alt="ヤマハタマリンサービスあまんの宿泊施設の快適な和室客室の様子"
             width={800}
             height={600}
             className={styles.image}
@@ -35,7 +35,7 @@ const LodgingPage = () => {
 
         {/* Details Section */}
         <section className={styles.details}>
-          <h2 className={styles.detailsTitle}>ヤマハタマリンサービス（マリンサービスあまん） 奄美大島民宿について</h2>
+          <h2 className={styles.detailsTitle}>ヤマハタマリンサービスあまん（マリンサービスあまん） 奄美大島民宿について</h2>
 
           {/* Pricing Table */}
           <div className={styles.pricingContainer}>

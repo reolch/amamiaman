@@ -44,7 +44,7 @@ ${JSON.stringify(formData, null, 2)}
           { name: 'フォーム入力内容', value: formDataString, inline: false },
         ],
         footer: {
-          text: 'ヤマハタマリンサービス公式サイト',
+          text: 'ヤマハタマリンサービスあまん公式サイト',
         },
         timestamp: new Date().toISOString(),
       },
@@ -180,7 +180,7 @@ ${message}
       }
 
       const discordPayload = {
-        username: 'ヤマハタマリンサービス お問い合わせ通知',
+        username: 'ヤマハタマリンサービスあまん お問い合わせ通知',
         avatar_url: 'https://www.marine-services-aman.com/logo.png',
         content: `新しいお問い合わせがありました。
 **お名前:** ${name}
@@ -200,7 +200,7 @@ ${message}`,
               { name: 'お問い合わせ内容', value: message, inline: false }
             ],
             footer: {
-              text: 'ヤマハタマリンサービス公式サイト',
+              text: 'ヤマハタマリンサービスあまん公式サイト',
             },
             timestamp: new Date().toISOString(),
           },

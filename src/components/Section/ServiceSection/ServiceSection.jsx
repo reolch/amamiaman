@@ -18,7 +18,7 @@ const altMap = {
   snorkelling: '奄美大島シュノーケリング体験アクティビティアイコン',
   seakayak: '奄美大島シーカヤック体験アクティビティアイコン',
   glassboat: '奄美大島グラスボート体験アクティビティアイコン',
-  lodging: 'ヤマハタマリンサービス宿泊施設サービスアイコン',
+  lodging: 'ヤマハタマリンサービスあまん宿泊施設サービスアイコン',
 };
 
 const ServiceCard = ({ type, title, description, link, index }) => {
