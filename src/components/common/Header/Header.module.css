@@ -31,7 +31,7 @@
   padding: 0 4rem; /* 左右にハンバーガーメニュー分の余白 */
 }
 
-.logo h1 {
+.logo p {
   margin: 0;
   font-size: 1.6rem; /* モバイルでも読みやすいサイズに調整 */
   line-height: 1.4;
@@ -40,7 +40,7 @@
   max-width: 100%;
 }
 
-.logo h1 a {
+.logo p a {
   text-decoration: none;
   color: inherit;
   display: block;
@@ -192,7 +192,7 @@
     justify-content: flex-start;
   }
   
-  .logo h1 {
+  .logo p {
     font-size: 1.8rem; /* タブレット以上でのフォントサイズ */
     text-align: left;
   }
@@ -242,7 +242,7 @@
     height: 5rem;
   }
   
-  .logo h1 {
+  .logo p {
     font-size: 2rem; /* デスクトップでのフォントサイズ */
   }
 
@@ -358,7 +358,7 @@
 
 /* 中程度のモバイル向けの調整 */
 @media (min-width: 481px) and (max-width: 767px) {
-  .logo h1 {
+  .logo p {
     font-size: 1.7rem;
   }
   
@@ -369,7 +369,7 @@
 
 /* 小さなモバイル向けの調整 */
 @media (max-width: 480px) {
-  .logo h1 {
+  .logo p {
     font-size: 1.4rem; /* 読みやすいサイズに維持 */
     line-height: 1.3;
   }

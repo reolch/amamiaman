@@ -124,7 +124,7 @@ const HeroSection = ({ animationType = 'fade' }) => {
             </div>
             {index === currentSlide && (
               <div className={`${styles['hero-section__catchphrase']} ${styles['hero-section__catchphrase--animated']}`}>
-                <h1 className={styles['hero-section__title']}>{slide.catchphrase}</h1>
+                <h2 className={styles['hero-section__title']}>{slide.catchphrase}</h2>
                 <p className={styles['hero-section__description']}>{slide.description}</p>
               </div>
             )}

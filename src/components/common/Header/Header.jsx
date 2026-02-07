@@ -37,11 +37,11 @@ const Header = () => {
       <div className={styles.topBar}>
 
         <div className={styles.logo}>
-          <h1>
+          <p>
             <Link href="/" className={rampartOne.className}>
               ヤマハタマリンサービスあまん
             </Link>
-          </h1>
+          </p>
         </div>
         <div className={styles.contact}>
           <FaPhone className={styles.phoneIcon} />

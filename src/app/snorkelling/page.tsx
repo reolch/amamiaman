@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     description: 'ヤマハタマリンサービスあまんで奄美大島シュノーケル体験を楽しめます。奄美大島南部の美しい海で初心者から上級者まで安心のガイド付きツアーです。',
     images: ['/assets/images/pages/トップページ/スライドショー/slide2.webp'],
   },
+  alternates: {
+    canonical: 'https://www.marine-services-aman.com/snorkelling',
+  },
 };
 
 export default function Snorkelling() {

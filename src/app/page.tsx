@@ -5,7 +5,11 @@ import ServiceSection from '@/components/Section/ServiceSection/ServiceSection';
 import AccessSection from '@/components/Section/AccessSection/AccessSection';
 import NewsSection from '@/components/Section/NewsSection/NewsSection';
 
-
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://www.marine-services-aman.com',
+  },
+};
 
 export default function HomePage() {
   return (

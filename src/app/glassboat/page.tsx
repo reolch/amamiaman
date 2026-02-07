@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     description: 'ヤマハタマリンサービスあまんで奄美大島の美しい海中世界をグラスボートで観光できます。濡れることなく海中の美しいサンゴや魚たちを観察いただけます。',
     images: ['/assets/images/pages/グラスボート/top.webp'],
   },
+  alternates: {
+    canonical: 'https://www.marine-services-aman.com/glassboat',
+  },
 };
 
 export default function GlassBoat() {

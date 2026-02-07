@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     description: 'ヤマハタマリンサービスあまんへのお問い合わせ、ご予約はこちらから。マリンアクティビティや宿泊に関するご質問にお答えします。',
     images: ['/assets/images/pages/お問い合わせ/top.webp'],
   },
+  alternates: {
+    canonical: 'https://www.marine-services-aman.com/contact',
+  },
 };
 
 export default function Contact() {

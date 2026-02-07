@@ -36,14 +36,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    // TODO: Add your Google verification code here
-    google: "your-google-verification-code",
-    // TODO: Add your Yandex verification code here
-    yandex: "your-yandex-verification-code",
-    // TODO: Add your Yahoo verification code here
-    yahoo: "your-yahoo-verification-code",
-  },
+  // verification: {
+  //   TODO: Google Search Console で取得した認証コードを設定してください
+  //   手順: https://search.google.com/search-console → プロパティ追加 → HTML タグ → content の値をコピー
+  //   google: "実際の認証コードをここに設定",
+  // },
   openGraph: {
     title: "ヤマハタマリンサービスあまん｜奄美大島のシーカヤック・シュノーケル・宿泊",
     description: "奄美大島瀬戸内町の「ヤマハタマリンサービスあまん」（通称：あまん）。シーカヤック、シュノーケリング、グラスボートなどのマリンスポーツと宿泊施設を提供。加計呂麻島カヤックも人気です。",
@@ -67,9 +64,9 @@ export const metadata: Metadata = {
     images: ["/assets/images/pages/トップページ/スライドショー/slide1.webp"],
     creator: "@amamiaman",
   },
-  // alternates: {
-  //   canonical: "https://www.marine-services-aman.com",
-  // },
+  alternates: {
+    canonical: "https://www.marine-services-aman.com",
+  },
 };
 
 export default function RootLayout({

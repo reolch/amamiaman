@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     description: 'ヤマハタマリンサービスあまんで加計呂麻島カヤック体験を楽しめます。奄美大島からアクセスし、透明度抜群の海でマングローブや美しい海岸線を巡るツアーをご用意しています。',
     images: ['/assets/images/pages/シーカヤック/top.webp'],
   },
+  alternates: {
+    canonical: 'https://www.marine-services-aman.com/seaKayak',
+  },
 };
 
 export default function SeaKayak() {

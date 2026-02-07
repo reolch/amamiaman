@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     description: 'ヤマハタマリンサービスあまんではマリンアクティビティ以外にも様々な施設やサービスをご用意しています。シャワー室やロビーなどの施設紹介です。',
     images: ['/assets/images/pages/施設紹介/ロビー.webp'],
   },
+  alternates: {
+    canonical: 'https://www.marine-services-aman.com/other',
+  },
 };
 
 export default function Other() {

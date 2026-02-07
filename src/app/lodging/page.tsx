@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     description: 'ヤマハタマリンサービスあまんが提供する、奄美大島の海を満喫できる宿泊施設。マリンアクティビティと合わせて快適にお過ごしいただけます。',
     images: ['/assets/images/LodgingGridItem1.webp'],
   },
+  alternates: {
+    canonical: 'https://www.marine-services-aman.com/lodging',
+  },
 };
 
 export default function Lodging() {
