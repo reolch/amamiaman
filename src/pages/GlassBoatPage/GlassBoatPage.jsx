@@ -55,7 +55,7 @@ const GlassBoatPage = () => {
             <thead>
               <tr className={styles.headerRow}>
                 <th scope="col">&nbsp;</th>
-                <th scope="col">1時間程度</th>
+                <th scope="col">料金</th>
               </tr>
             </thead>
             <tbody>
@@ -66,10 +66,13 @@ const GlassBoatPage = () => {
               <tr>
                 <td>案内時間</td>
                 <td>9:00～17:00の間</td>
-                <td>その日の潮位によって時間が変わります。</td>
               </tr>
             </tbody>
           </table>
+          <p className={styles.tableNote}>
+            ※ 所要時間は1時間程度です。<br />
+            ※ その日の潮位によって案内時間が変わります。
+          </p>
         </section>
 
         {/* 参加可能年齢テーブル */}
