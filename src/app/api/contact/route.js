@@ -31,7 +31,7 @@ ${JSON.stringify(formData, null, 2)}
 
   const discordPayload = {
     username: 'エラー通知 - お問い合わせフォーム',
-    avatar_url: 'https://www.marine-services-aman.com/logo.png',
+    avatar_url: 'https://marine-services-aman.com/logo.png',
     content: `**[警告] お問い合わせフォームでエラーが発生しました**`,
     embeds: [
       {
@@ -181,7 +181,7 @@ ${message}
 
       const discordPayload = {
         username: 'ヤマハタマリンサービスあまん お問い合わせ通知',
-        avatar_url: 'https://www.marine-services-aman.com/logo.png',
+        avatar_url: 'https://marine-services-aman.com/logo.png',
         content: `新しいお問い合わせがありました。
 **お名前:** ${name}
 **メールアドレス:** ${email}

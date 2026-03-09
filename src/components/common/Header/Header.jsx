@@ -4,18 +4,17 @@ import styles from './Header.module.css';
 import Link from 'next/link';
 import { FaPhone, FaBars, FaTimes } from 'react-icons/fa';
 import { rampartOne } from '@/app/fonts';
+import NAV_ITEMS from './navItems';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMarineDropdownOpen, setIsMarineDropdownOpen] = useState(false);
-  const [isLodgingDropdownOpen, setIsLodgingDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null); // 開いているドロップダウンのhref
 
   const handleClickOutside = (event) => {
     if (!event.target.closest(`.${styles.globalNav}`) && !event.target.closest(`.${styles.menuIcon}`)) {
       setIsMenuOpen(false);
       if (window.innerWidth <= 768) {
-        setIsMarineDropdownOpen(false);
-        setIsLodgingDropdownOpen(false);
+        setOpenDropdown(null);
       }
     }
   };
@@ -32,10 +31,16 @@ const Header = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
+  const handleDropdownClick = (e, href) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      setOpenDropdown((prev) => (prev === href ? null : href));
+    }
+  };
+
   return (
     <header className={styles.header} role="banner">
       <div className={styles.topBar}>
-
         <div className={styles.logo}>
           <p>
             <Link href="/" className={rampartOne.className}>
@@ -66,91 +71,44 @@ const Header = () => {
           </button>
         </div>
       </div>
+
       <nav
         className={`${styles.globalNav} ${isMenuOpen ? styles.open : ''}`}
         aria-label="メインナビゲーション"
         id="global-navigation"
       >
         <ul className={styles.navList}>
-          <li className={styles.navItem}>
-            <Link href="/" className={styles.navLink}>
-              HOME
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/passion" className={styles.navLink}>
-              あまんのこだわり
-            </Link>
-          </li>
-          <li className={`${styles.navItem} ${styles.dropdownContainer}`}>
-            <Link
-              href="/snorkelling"
-              className={styles.dropdownButton}
-              onClick={(e) => {
-                if (window.innerWidth <= 768) {
-                  e.preventDefault();
-                  setIsMarineDropdownOpen(!isMarineDropdownOpen);
-                }
-              }}
-              aria-expanded={isMarineDropdownOpen}
-            >
-              マリンアクティビティ ▼
-            </Link>
-            <ul className={`${styles.dropdownMenu} ${isMarineDropdownOpen ? styles.show : ''}`}>
-              <li>
-                <Link href="/snorkelling" className={styles.dropdownLink}>
-                  シュノーケリング
+          {NAV_ITEMS.map((item) =>
+            item.dropdown ? (
+              // ドロップダウンあり
+              <li key={item.href} className={`${styles.navItem} ${styles.dropdownContainer}`}>
+                <Link
+                  href={item.href}
+                  className={styles.dropdownButton}
+                  onClick={(e) => handleDropdownClick(e, item.href)}
+                  aria-expanded={openDropdown === item.href}
+                >
+                  {item.label} ▼
+                </Link>
+                <ul className={`${styles.dropdownMenu} ${openDropdown === item.href ? styles.show : ''}`}>
+                  {item.dropdown.map((sub) => (
+                    <li key={sub.href}>
+                      <Link href={sub.href} className={styles.dropdownLink}>
+                        {sub.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ) : (
+              // 通常リンク
+              <li key={item.href} className={styles.navItem}>
+                <Link href={item.href} className={styles.navLink}>
+                  {item.label}
                 </Link>
               </li>
-              <li>
-                <Link href="/seaKayak" className={styles.dropdownLink}>
-                  シーカヤック
-                </Link>
-              </li>
-              <li>
-                <Link href="/glassboat" className={styles.dropdownLink}>
-                  グラスボート
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li className={`${styles.navItem} ${styles.dropdownContainer}`}>
-            <Link
-              href="/lodging"
-              className={styles.dropdownButton}
-              onClick={(e) => {
-                if (window.innerWidth <= 768) {
-                  e.preventDefault();
-                  setIsLodgingDropdownOpen(!isLodgingDropdownOpen);
-                }
-              }}
-              aria-expanded={isLodgingDropdownOpen}
-            >
-              施設紹介 ▼
-            </Link>
-            <ul className={`${styles.dropdownMenu} ${isLodgingDropdownOpen ? styles.show : ''}`}>
-              <li>
-                <Link href="/lodging" className={styles.dropdownLink}>
-                  宿泊施設
-                </Link>
-              </li>
-              <li>
-                <Link href="/other" className={styles.dropdownLink}>
-                  その他の施設
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/access" className={styles.navLink}>
-              アクセス
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/contact" className={styles.navLink}>
-              お問い合わせ
-            </Link>
-          </li>
+            )
+          )}
         </ul>
       </nav>
     </header>

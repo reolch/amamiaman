@@ -1,8 +1,19 @@
-// src/components/Snorkelling/SnorkellingPage.jsx
+// src/pages/SnorkellingPage/SnorkellingPage.jsx
 import styles from './SnorkellingPage.module.css';
 import Image from 'next/image';
 import SocialShare from '../../components/common/SocialShare/SocialShare';
 import FooterNote from '../../components/common/FooterNote/FooterNote';
+import ReservationInfoTable from '../../components/common/ReservationInfoTable/ReservationInfoTable';
+
+const RESERVATION_ITEMS = [
+  '代表者名',
+  '連絡先',
+  '参加人数',
+  '男性○名、女性○名',
+  '参加者全員のフルネーム',
+  '参加者全員の年齢',
+  '経験歴',
+];
 
 const SnorkellingPage = () => {
   return (
@@ -91,7 +102,7 @@ const SnorkellingPage = () => {
               <tr>
                 <th scope="row">案内時間</th>
                 <td>
-                  午前の部  <br />
+                  午前の部 <br />
                   9:00～12:00
                 </td>
                 <td>
@@ -110,44 +121,11 @@ const SnorkellingPage = () => {
           </table>
         </section>
 
-        {/* 詳細情報テーブル */}
-        <section className={styles.detailsTable}>
-          <table className={styles.table}>
-            <tbody>
-              <tr>
-                <th className={styles.label} scope="row" rowSpan={7}>
-                  予約時にお伝えいただく内容
-                </th>
-                <td className={styles.value}>代表者名</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>連絡先</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>参加人数</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>男性○名、女性○名</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>参加者全員のフルネーム</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>参加者全員の年齢</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>経験歴</td>
-              </tr>
-              <tr>
-                <th className={styles.label} scope="row">備考</th>
-                <td className={styles.value}>
-                  水分補給など熱中症対策は十分に行ってください。
-                  ご予約はメールまたはお電話にて受け付けています。
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+        {/* 予約情報テーブル（共通コンポーネント） */}
+        <ReservationInfoTable
+          items={RESERVATION_ITEMS}
+          notes={'水分補給など熱中症対策は十分に行ってください。\nご予約はメールまたはお電話にて受け付けています。'}
+        />
 
         {/* フッターノート */}
         <FooterNote text="表記価格は税込です。" />

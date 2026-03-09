@@ -1,36 +1,17 @@
 import LodgingPage from '@/pages/LodgingPage/LodgingPage';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { ServiceStructuredData } from '@/components/StructuredData';
+import { createPageMetadata } from '@/lib/createPageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: '宿泊施設 | ヤマハタマリンサービスあまん - 奄美大島',
-  description: 'ヤマハタマリンサービスが提供する、奄美大島の海を満喫できる宿泊施設。マリンアクティビティと合わせて快適にお過ごしいただけます。',
-  openGraph: {
-    title: '宿泊施設 | ヤマハタマリンサービスあまん - 奄美大島',
-    description: 'ヤマハタマリンサービスあまんが提供する、奄美大島の海を満喫できる宿泊施設。マリンアクティビティと合わせて快適にお過ごしいただけます。',
-    url: 'https://www.marine-services-aman.com/lodging',
-    siteName: 'ヤマハタマリンサービスあまん',
-    images: [
-      {
-        url: '/assets/images/LodgingGridItem1.webp',
-        width: 1200,
-        height: 630,
-        alt: 'ヤマハタマリンサービスあまんの宿泊施設の様子',
-      },
-    ],
-    locale: 'ja_JP',
-    type: 'website',
+  description: 'ヤマハタマリンサービスあまんが提供する、奄美大島の海を満喫できる宿泊施設。マリンアクティビティと合わせて快適にお過ごしいただけます。',
+  path: '/lodging',
+  image: {
+    url: '/assets/images/LodgingGridItem1.webp',
+    alt: 'ヤマハタマリンサービスあまんの宿泊施設の様子',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: '宿泊施設 | ヤマハタマリンサービスあまん - 奄美大島',
-    description: 'ヤマハタマリンサービスあまんが提供する、奄美大島の海を満喫できる宿泊施設。マリンアクティビティと合わせて快適にお過ごしいただけます。',
-    images: ['/assets/images/LodgingGridItem1.webp'],
-  },
-  alternates: {
-    canonical: 'https://www.marine-services-aman.com/lodging',
-  },
-};
+});
 
 export default function Lodging() {
   return (

@@ -1,36 +1,17 @@
 import GlassBoatPage from '@/pages/GlassBoatPage/GlassBoatPage';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { ServiceStructuredData } from '@/components/StructuredData';
+import { createPageMetadata } from '@/lib/createPageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: 'グラスボート観光 | ヤマハタマリンサービスあまん - 奄美大島',
   description: 'ヤマハタマリンサービスあまんで奄美大島の美しい海中世界をグラスボートで観光できます。濡れることなく海中の美しいサンゴや魚たちを観察いただけます。',
-  openGraph: {
-    title: 'グラスボート観光 | ヤマハタマリンサービスあまん - 奄美大島',
-    description: 'ヤマハタマリンサービスあまんで奄美大島の美しい海中世界をグラスボートで観光できます。濡れることなく海中の美しいサンゴや魚たちを観察いただけます。',
-    url: 'https://www.marine-services-aman.com/glassboat',
-    siteName: 'ヤマハタマリンサービスあまん',
-    images: [
-      {
-        url: '/assets/images/pages/グラスボート/top.webp',
-        width: 1200,
-        height: 630,
-        alt: '奄美大島でのグラスボート観光の様子',
-      },
-    ],
-    locale: 'ja_JP',
-    type: 'website',
+  path: '/glassboat',
+  image: {
+    url: '/assets/images/pages/グラスボート/top.webp',
+    alt: '奄美大島でのグラスボート観光の様子',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'グラスボート観光 | ヤマハタマリンサービスあまん - 奄美大島',
-    description: 'ヤマハタマリンサービスあまんで奄美大島の美しい海中世界をグラスボートで観光できます。濡れることなく海中の美しいサンゴや魚たちを観察いただけます。',
-    images: ['/assets/images/pages/グラスボート/top.webp'],
-  },
-  alternates: {
-    canonical: 'https://www.marine-services-aman.com/glassboat',
-  },
-};
+});
 
 export default function GlassBoat() {
   return (
