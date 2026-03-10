@@ -1,335 +1,148 @@
 /* src/components/Section/HeroSection/HeroSection.module.css */
 
-/* Base Styles (Mobile First) */
-.hero-section {
+/* ─── ヒーローセクション全体 ─────────────────────────────────────────── */
+.heroSection {
   position: relative;
-  width: 100vw; /* ビューポート全幅 */
-  aspect-ratio: 16 / 9; /* モバイルで16:9比率を適用 */
-  max-height: 420px; /* 最大高さを制限 */
+  width: 100%;          /* 100vw をやめて overflow を防ぐ */
   overflow: hidden;
-  transform: translateY(50px);
-  opacity: 0;
-  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
+  /* 入場アニメーションなし：ページ最上部なので最初から見えている状態にする */
+  background: #000;     /* 画像ロード前の背景色 */
 }
 
-.hero-section--visible {
-  transform: translateY(0);
-  opacity: 1;
+/* モバイル: 16:9 固定比率 */
+@media (max-width: 767px) {
+  .heroSection {
+    aspect-ratio: 16 / 9;
+    min-height: 200px;
+    max-height: 420px;
+  }
 }
 
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+/* タブレット */
+@media (min-width: 768px) {
+  .heroSection {
+    height: 500px;
+  }
+}
+
+/* デスクトップ */
+@media (min-width: 1024px) {
+  .heroSection {
+    height: 600px;
+  }
+}
+
+/* ─── スライドショーコンテナ ─────────────────────────────────────────── */
+.slideshow {
+  position: relative;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgba(0,0,0,0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);
-  transform: translateY(calc(var(--parallax-offset, 0) * 0.3));
+}
+
+/* ─── 各スライド ─────────────────────────────────────────────────────── */
+.slide {
+  position: absolute;
+  inset: 0;
+  /* opacity のみで制御。transform を使わないことでチラつきを防ぐ */
+  opacity: 0;
+  transition: opacity 1s ease;
+  will-change: opacity;
   z-index: 1;
-  pointer-events: none;
 }
 
-.hero-section__slideshow {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-section__slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transform: scale(1.05);
-  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform, opacity;
-}
-
-.hero-section__image-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.hero-section__slide--active {
+/* 表示中スライド */
+.slideActive {
   opacity: 1;
-  transform: scale(1);
   z-index: 2;
 }
 
-.hero-section__slide--prev {
-  transform: scale(0.95) translateX(-10%);
+/* 非表示スライド */
+.slideHidden {
   opacity: 0;
+  z-index: 1;
 }
 
-.hero-section__slide--next {
-  transform: scale(0.95) translateX(10%);
-  opacity: 0;
-}
-
-.hero-section__slide--current {
-  transform: scale(1);
-}
-
-.hero-section__slide-image {
+/* ─── 画像ラッパー ───────────────────────────────────────────────────── */
+.imageWrapper {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: filter 1s ease;
-  filter: brightness(0.9) contrast(1.1);
-  will-change: filter;
+  inset: 0;
+  overflow: hidden;
 }
 
-.hero-section__slide--active .hero-section__slide-image {
-  filter: brightness(1) contrast(1);
-}
-
-.hero-section__catchphrase {
+/* ─── キャッチフレーズ ───────────────────────────────────────────────── */
+.catchphrase {
   position: absolute;
-  top: 50%;
-  left: 10%;
-  transform: translateY(-50%);
-  color: #fff;
-  text-align: left;
-  padding: 0 1rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  bottom: 15%;
+  left: 8%;
   z-index: 3;
-  opacity: 0;
-  transform: translateY(-50%) translateX(-50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+  /* フェードイン + 左からスライドイン */
+  animation: catchphraseIn 0.8s ease-out 0.3s both;
 }
 
-.hero-section__catchphrase--animated {
-  opacity: 1;
-  transform: translateY(-50%) translateX(0);
-  animation: catchphraseSlideIn 1s ease-out 0.5s both;
-}
-
-@keyframes catchphraseSlideIn {
-  0% {
+@keyframes catchphraseIn {
+  from {
     opacity: 0;
-    transform: translateY(-50%) translateX(-50px) rotateX(30deg);
+    transform: translateX(-24px);
   }
-  100% {
+  to {
     opacity: 1;
-    transform: translateY(-50%) translateX(0) rotateX(0deg);
+    transform: translateX(0);
   }
 }
 
-.hero-section__title {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+.catchphraseTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.03em;
 }
 
-.hero-section__description {
-  font-size: 1rem;
+.catchphraseDesc {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.9;
 }
 
-
-/* Animation Types */
-
-/* Fade Animation with 3D */
-.hero-section__slideshow--fade .hero-section__slide {
-  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.hero-section__slideshow--fade .hero-section__slide--active {
-  animation: fadeIn3D 1.2s ease-out;
-}
-
-@keyframes fadeIn3D {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(0.98);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Slide Horizontal Animation */
-.hero-section__slideshow--slide-horizontal .hero-section__slide {
-  transition: transform 1s ease, opacity 1s ease;
-  transform: translateX(100%);
-  opacity: 0;
-}
-
-.hero-section__slideshow--slide-horizontal .hero-section__slide--active {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.hero-section__slideshow--slide-horizontal .hero-section__slide:not(.hero-section__slide--active) {
-  transform: translateX(-100%);
-  opacity: 0;
-}
-
-/* Slide Vertical Animation */
-.hero-section__slideshow--slide-vertical .hero-section__slide {
-  transition: transform 1s ease, opacity 1s ease;
-  transform: translateY(100%);
-  opacity: 0;
-}
-
-.hero-section__slideshow--slide-vertical .hero-section__slide--active {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.hero-section__slideshow--slide-vertical .hero-section__slide:not(.hero-section__slide--active) {
-  transform: translateY(-100%);
-  opacity: 0;
-}
-
-/* Enhanced Zoom Animation with Parallax */
-.hero-section__slideshow--zoom .hero-section__slide {
-  transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform: scale(1.3) rotate(5deg);
-  opacity: 0;
-  filter: blur(2px);
-}
-
-.hero-section__slideshow--zoom .hero-section__slide--active {
-  transform: scale(1) rotate(0deg);
-  opacity: 1;
-  filter: blur(0px);
-  animation: zoomInParallax 1.5s ease-out;
-}
-
-@keyframes zoomInParallax {
-  0% {
-    transform: scale(1.3) rotate(5deg) translateY(50px);
-    opacity: 0;
-    filter: blur(3px);
-  }
-  60% {
-    transform: scale(1.05) rotate(1deg) translateY(10px);
-    opacity: 0.9;
-    filter: blur(1px);
-  }
-  100% {
-    transform: scale(1) rotate(0deg) translateY(0);
-    opacity: 1;
-    filter: blur(0px);
-  }
-}
-
-/* Mobile-Specific Optimizations */
-@media (max-width: 767px) {
-  .hero-section {
-    height: 56.25vw; /* Fallback: 16:9比率計算 (9/16 = 0.5625 = 56.25%) */
-    aspect-ratio: 16 / 9; /* モダンブラウザ用16:9比率 */
-    min-height: 220px; /* 最小高さを確保 */
-    max-height: 420px; /* 最大高さを制限 */
-    transform: none; /* エントランスアニメーション無効化 */
-    opacity: 1; /* デフォルトで表示 */
-    transition: none; /* トランジション無効化 */
-  }
-  
-  /* aspect-ratioサポートブラウザ向け */
-  @supports (aspect-ratio: 16 / 9) {
-    .hero-section {
-      height: auto; /* aspect-ratioに従って高さを自動調整 */
-    }
-  }
-  
-  .hero-section__slide {
-    transition: none; /* モバイルでアニメーション無効化 */
-  }
-  
-  .hero-section__slide-image {
-    object-fit: cover;
-    object-position: center center; /* モバイルでは中央フォーカス */
-    transition: none; /* 画像のアニメーションも無効化 */
-  }
-  
-  .hero-section__slideshow--fade .hero-section__slide--active {
-    animation: none; /* フェードアニメーション無効化 */
-  }
-  
-  
-  /* モバイル向けキャッチフレーズも非表示（必要に応じて） */
-  .hero-section__catchphrase {
-    display: none;
-  }
-}
-
-/* Responsive Styles */
-
-/* Tablet and Above */
+/* タブレット以上 */
 @media (min-width: 768px) {
-  .hero-section {
-    height: 500px;
-    aspect-ratio: auto; /* タブレット以上では16:9制限を解除 */
-    max-height: none; /* 最大高さ制限を解除 */
-    width: 100%; /* タブレット以上では通常幅に戻す */
+  .catchphrase {
+    bottom: 20%;
+    left: 12%;
   }
-  
-  /* タブレット以上ではアニメーションを復活 */
-  
-  .hero-section__slide {
-    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* アニメーション復活 */
+
+  .catchphraseTitle {
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
   }
-  
-  .hero-section__slide-image {
-    transition: filter 1s ease; /* 画像アニメーション復活 */
+
+  .catchphraseDesc {
+    font-size: 1.1rem;
   }
-  
-  .hero-section__catchphrase {
-    display: block; /* タブレット以上でキャッチフレーズを表示 */
+}
+
+/* デスクトップ */
+@media (min-width: 1024px) {
+  .catchphrase {
     left: 15%;
   }
 
-  .hero-section__title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  .catchphraseTitle {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
   }
 
-  .hero-section__description {
-    font-size: 1.2rem;
+  .catchphraseDesc {
+    font-size: 1.25rem;
   }
-
 }
 
-/* Desktop and Above */
-@media (min-width: 1024px) {
-  .hero-section {
-    height: 600px;
-    aspect-ratio: auto; /* デスクトップでは16:9制限を解除 */
-    width: 100%; /* デスクトップでは通常幅 */
+/* モバイルではキャッチフレーズを非表示 */
+@media (max-width: 767px) {
+  .catchphrase {
+    display: none;
   }
-  
-
-  .hero-section__catchphrase {
-    left: 20%;
-  }
-
-  .hero-section__title {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-section__description {
-    font-size: 1.5rem;
-  }
-
 }
