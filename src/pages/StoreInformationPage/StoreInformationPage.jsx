@@ -1,15 +1,20 @@
 // src/components/StoreInformationPage/StoreInformationPage.jsx
-import styles from './StoreInformationPage.module.css';
-import commonStyles from '../../styles/PageLayout.module.css';
+import styles from "./StoreInformationPage.module.css";
+import commonStyles from "../../styles/PageLayout.module.css";
 
-import SocialShare from '../../components/common/SocialShare/SocialShare';
-import FooterNote from '../../components/common/FooterNote/FooterNote';
+import SocialShare from "../../components/common/SocialShare/SocialShare";
+import FooterNote from "../../components/common/FooterNote/FooterNote";
 
 const StoreInformationPage = () => {
   return (
-    <main className={commonStyles.section} aria-labelledby="store-information-heading">
+    <main
+      className={commonStyles.section}
+      aria-labelledby="store-information-heading"
+    >
       <div className={commonStyles.container}>
-        <h1 id="store-information-heading" className={commonStyles.title}>アクセス・店舗情報</h1>
+        <h1 id="store-information-heading" className={commonStyles.title}>
+          アクセス・店舗情報
+        </h1>
 
         <section className={styles.mapSection}>
           <h2 className={styles.mapTitle}>MAP</h2>
@@ -65,14 +70,17 @@ const StoreInformationPage = () => {
                 <tr>
                   <th scope="row">メールアドレス</th>
                   <td>
-                    <a href="mailto:aman36623@yahoo.co.jp" className={styles.link}>
+                    <a
+                      href="mailto:aman36623@yahoo.co.jp"
+                      className={styles.link}
+                    >
                       aman36623@yahoo.co.jp
                     </a>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">営業時間</th>
-                  <td>9:00～17:00</td>
+                  <td>8:00～17:00</td>
                 </tr>
                 <tr>
                   <th scope="row">定休日</th>
