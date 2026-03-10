@@ -23,8 +23,11 @@
   
   --ocean-blue: #1e3a8a;
   --ocean-green: #065f46;
-  --sand-beige: #f6f1eb;
-  --coral-accent: #dc2626;
+  --sand-beige: #f0f7f7;
+  --coral-accent: #2d7f7f;
+  --accent: #2d7f7f;
+  --accent-dark: #1a5555;
+  --accent-light: #e0f0f0;
   
   /* プロフェッショナルタイポグラフィ */
   --font-family-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -53,7 +56,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, var(--sand-beige) 0%, var(--neutral-50) 50%, #ffffff 100%);
+  background: #ffffff;
   color: var(--neutral-700);
   font-family: var(--font-family-body);
   font-weight: var(--font-weight-normal);

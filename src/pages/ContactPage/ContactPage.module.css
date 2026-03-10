@@ -52,8 +52,9 @@
 
 .input:focus,
 .textarea:focus {
-  border-color: #000;
+  border-color: #2d7f7f;
   outline: none;
+  box-shadow: 0 0 0 3px rgba(45, 127, 127, 0.12);
 }
 
 .textarea {
@@ -64,7 +65,7 @@
 .button {
   width: 100%;
   padding: 0.875rem 1rem;
-  background-color: #000;
+  background-color: #2d7f7f;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -72,10 +73,13 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
+  letter-spacing: 0.025em;
 }
 
 .button:hover {
-  background-color: #333;
+  background-color: #1a5555;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(45, 127, 127, 0.3);
 }
 
 .button:disabled {
