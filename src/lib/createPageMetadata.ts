@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import { SITE_URL, SITE_NAME } from '@/constants/site';
+import { SITE_URL, SITE_NAME, SITE_TWITTER_CREATOR } from '@/constants/site';
 
 interface PageMetadataOptions {
-  /** ページタイトル（<title> タグ、OG、Twitter に共通で使われる） */
+  /** ページタイトル（<title>、OG、Twitter に共通で使われる） */
   title: string;
   /** ページの説明文（meta description、OG、Twitter に共通で使われる） */
   description: string;
@@ -15,9 +15,20 @@ interface PageMetadataOptions {
     height?: number;
     alt: string;
   };
-  /** ページ固有の追加 Metadata（上書き用）*/
+  /** ページ固有のキーワード（サイト共通 keywords に追加されます） */
+  keywords?: string[];
+  /** ページ固有の追加 Metadata（上書き用） */
   extra?: Partial<Metadata>;
 }
+
+/** サイト全ページ共通のキーワード */
+const BASE_KEYWORDS = [
+  '奄美大島',
+  'マリンスポーツ',
+  '瀬戸内町',
+  'ヤマハタマリンサービスあまん',
+  'マリンサービスあまん',
+];
 
 /**
  * ページごとの Metadata を生成するヘルパー。
@@ -29,14 +40,17 @@ export function createPageMetadata({
   description,
   path,
   image,
+  keywords = [],
   extra = {},
 }: PageMetadataOptions): Metadata {
   const canonicalUrl = `${SITE_URL}${path}`;
-  const imageUrl = image.url;
+  // 画像 URL が相対パスの場合は絶対 URL に変換
+  const imageUrl = image.url.startsWith('http') ? image.url : `${SITE_URL}${image.url}`;
 
   return {
     title,
     description,
+    keywords: [...BASE_KEYWORDS, ...keywords],
     openGraph: {
       title,
       description,
@@ -58,6 +72,8 @@ export function createPageMetadata({
       title,
       description,
       images: [imageUrl],
+      creator: SITE_TWITTER_CREATOR,
+      site: SITE_TWITTER_CREATOR,
     },
     alternates: {
       canonical: canonicalUrl,

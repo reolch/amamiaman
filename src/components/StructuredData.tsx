@@ -65,44 +65,16 @@ export function LocalBusinessStructuredData({
         }
       }))
     },
+    // 瀬戸内町古仁屋（清水）の座標
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "28.3",
-      "longitude": "129.5"
+      "latitude": "28.2287",
+      "longitude": "129.3247"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "127"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "田中様"
-        },
-        "reviewBody": "奄美大島でのシュノーケリング体験が最高でした。スタッフの方も親切でとても楽しい時間を過ごせました。"
-      },
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "佐藤様"
-        },
-        "reviewBody": "シーカヤックでマングローブの森を探検。自然の雄大さに感動しました。"
-      }
-    ]
+    // SNS や外部サイトのプロフィール URL を追加してください
+    // 例: "https://www.instagram.com/amamiaman/"
+    // ※ aggregateRating / review は実際のデータのみ設定してください（架空データは Google ペナルティの原因）
+    "sameAs": []
   };
 
   return (
