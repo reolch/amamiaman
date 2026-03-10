@@ -5,7 +5,7 @@
   position: relative;
   width: 100vw; /* ビューポート全幅 */
   aspect-ratio: 16 / 9; /* モバイルで16:9比率を適用 */
-  max-height: 300px; /* 最大高さを制限 */
+  max-height: 420px; /* 最大高さを制限 */
   overflow: hidden;
   transform: translateY(50px);
   opacity: 0;
@@ -238,8 +238,8 @@
   .hero-section {
     height: 56.25vw; /* Fallback: 16:9比率計算 (9/16 = 0.5625 = 56.25%) */
     aspect-ratio: 16 / 9; /* モダンブラウザ用16:9比率 */
-    min-height: 200px; /* 最小高さを確保 */
-    max-height: 350px; /* 最大高さを制限 */
+    min-height: 220px; /* 最小高さを確保 */
+    max-height: 420px; /* 最大高さを制限 */
     transform: none; /* エントランスアニメーション無効化 */
     opacity: 1; /* デフォルトで表示 */
     transition: none; /* トランジション無効化 */

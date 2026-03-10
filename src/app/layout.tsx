@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./Font.css";
 import "./App.css";
@@ -6,7 +6,10 @@ import "./styles/global.css";
 import Header from "@/components/common/Header/Header";
 import Footer from "@/components/common/Footer/Footer";
 import PageWrapper from "@/components/common/PageWrapper/PageWrapper";
-import { LocalBusinessStructuredData, TouristAttractionStructuredData } from "@/components/StructuredData";
+import {
+  LocalBusinessStructuredData,
+  TouristAttractionStructuredData,
+} from "@/components/StructuredData";
 import { inter } from "./fonts";
 import {
   SITE_URL,
@@ -17,38 +20,64 @@ import {
   DEFAULT_OG_IMAGE,
 } from "@/constants/site";
 
+// ── viewport（Next.js 14 ではメタデータと分離して export） ──────────────
+export const viewport: Viewport = {
+  themeColor: "#2d7f7f",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
+// ── サイト共通メタデータ ──────────────────────────────────────────────────
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: SITE_TITLE,
-  description: SITE_DESCRIPTION,
-  icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
-    shortcut: "/logo.png",
+
+  // title.template を使うと各ページが "ページ名 | サイト名" になる
+  title: {
+    template: `%s | ${SITE_NAME}`,
+    default: SITE_TITLE,
   },
+  description: SITE_DESCRIPTION,
+
+  // キーワード（直接ランキング要因ではないがコンテキスト補助）
+  keywords: [
+    "奄美大島",
+    "シーカヤック",
+    "シュノーケリング",
+    "グラスボート",
+    "マリンスポーツ",
+    "宿泊",
+    "瀬戸内町",
+    "加計呂麻島",
+    "ヤマハタマリンサービスあまん",
+    "マリンサービスあまん",
+    "奄美大島 体験",
+    "奄美大島 ツアー",
+  ],
+
+  applicationName: SITE_NAME,
+  category: "travel",
   creator: SITE_NAME,
   publisher: SITE_NAME,
+
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
+
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
-  // verification: {
-  //   TODO: Google Search Console で取得した認証コードを設定してください
-  //   手順: https://search.google.com/search-console → プロパティ追加 → HTML タグ → content の値をコピー
-  //   google: "実際の認証コードをここに設定",
-  // },
+
   openGraph: {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
@@ -59,24 +88,31 @@ export const metadata: Metadata = {
         url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "ヤマハタマリンサービスあまんのサービス：シーカヤック、シュノーケル、グラスボート",
+        alt: "ヤマハタマリンサービスあまん｜奄美大島のシーカヤック・シュノーケル・グラスボート",
       },
     ],
     locale: "ja_JP",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     images: [DEFAULT_OG_IMAGE],
     creator: SITE_TWITTER_CREATOR,
+    site: SITE_TWITTER_CREATOR,
   },
+
   alternates: {
     canonical: SITE_URL,
+    languages: {
+      "ja-JP": SITE_URL,
+    },
   },
 };
 
+// ── ルートレイアウト ────────────────────────────────────────────────────────
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -89,15 +125,15 @@ export default function RootLayout({
           name={SITE_NAME}
           description={SITE_DESCRIPTION}
           address={{
-            streetAddress: "清水 古仁屋平原375-1",
+            streetAddress: "清水375-1",
             addressLocality: "瀬戸内町",
             addressRegion: "鹿児島県",
             postalCode: "894-1521",
-            addressCountry: "JP"
+            addressCountry: "JP",
           }}
           telephone="0997-72-4584"
           url={SITE_URL}
-          openingHours={["Mo-Su 08:00-18:00"]}
+          openingHours={["Mo-Su 08:00-17:00"]}
           priceRange="¥¥-¥¥¥"
           services={[
             { name: "奄美大島 シーカヤック", url: `${SITE_URL}/seaKayak` },
@@ -110,7 +146,7 @@ export default function RootLayout({
         <TouristAttractionStructuredData
           name={SITE_NAME}
           description={SITE_DESCRIPTION}
-          image={DEFAULT_OG_IMAGE}
+          image={`${SITE_URL}${DEFAULT_OG_IMAGE}`}
           url={SITE_URL}
           activities={[
             { name: "奄美大島 シーカヤック", url: `${SITE_URL}/seaKayak` },
@@ -123,9 +159,7 @@ export default function RootLayout({
         <div className="app">
           <Header />
           <main>
-            <PageWrapper>
-              {children}
-            </PageWrapper>
+            <PageWrapper>{children}</PageWrapper>
           </main>
           <Footer />
         </div>
