@@ -1,10 +1,8 @@
 "use client";
 // src/components/Section/HeroSection/HeroSection.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import NextImage from 'next/image';
-import styles from './HeroSection.module.css'; // CSS Module をインポート
-import useParallax from '../../../hooks/useParallax';
-import useIntersectionObserver from '../../../hooks/useIntersectionObserver';
+import styles from './HeroSection.module.css';
 
 const slides = [
   {
@@ -51,81 +49,61 @@ const slides = [
   }
 ];
 
+const SLIDE_INTERVAL = 5000;
+const ANIMATION_DURATION = 1000;
 
-const HeroSection = ({ animationType = 'fade' }) => {
+const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const slideInterval = 5000;
+  // isAnimating を ref で管理 → stale closure を回避
+  const isAnimatingRef = useRef(false);
 
-  const [heroRef, , hasHeroIntersected] = useIntersectionObserver();
-  const [parallaxRef, parallaxOffset] = useParallax(0.5);
-
-  const nextSlide = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setCurrentSlide((prevSlide) =>
-      prevSlide === slides.length - 1 ? 0 : prevSlide + 1
-    );
-    setTimeout(() => setIsAnimating(false), 1200);
-  };
-
-
-  useEffect(() => {
-    const interval = setInterval(nextSlide, slideInterval);
-    return () => clearInterval(interval);
+  const nextSlide = useCallback(() => {
+    if (isAnimatingRef.current) return;
+    isAnimatingRef.current = true;
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setTimeout(() => {
+      isAnimatingRef.current = false;
+    }, ANIMATION_DURATION);
   }, []);
 
+  // 次の2枚を事前ロード
   useEffect(() => {
-    // Preload next few images
-    const preloadImages = () => {
-      for (let i = 1; i <= 2; i++) {
-        const nextIndex = (currentSlide + i) % slides.length;
-        const img = new Image();
-        img.src = slides[nextIndex].image;
-      }
-    };
-    preloadImages();
+    for (let i = 1; i <= 2; i++) {
+      const nextIndex = (currentSlide + i) % slides.length;
+      const img = new Image();
+      img.src = slides[nextIndex].image;
+    }
   }, [currentSlide]);
 
+  // 自動スライド（nextSlide が useCallback で安定しているので deps に含めても安全）
+  useEffect(() => {
+    const interval = setInterval(nextSlide, SLIDE_INTERVAL);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
+
   return (
-    <section
-      ref={(el) => {
-        heroRef.current = el;
-        parallaxRef.current = el;
-      }}
-      className={`${styles['hero-section']} ${hasHeroIntersected ? styles['hero-section--visible'] : ''}`}
-      style={{
-        '--parallax-offset': `${parallaxOffset}px`
-      }}
-    >
-      <div className={`${styles['hero-section__slideshow']} ${styles[`hero-section__slideshow--${animationType}`]}`}>
+    <section className={styles.heroSection} aria-label="スライドショー">
+      <div className={styles.slideshow}>
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`${styles['hero-section__slide']} ${index === currentSlide ? styles['hero-section__slide--active'] : ''
-              } ${styles[`hero-section__slide--${index < currentSlide ? 'prev' : index > currentSlide ? 'next' : 'current'}`]}`}
+            className={`${styles.slide} ${index === currentSlide ? styles.slideActive : styles.slideHidden}`}
             aria-hidden={index !== currentSlide}
-            style={{
-              '--slide-index': index,
-              '--current-index': currentSlide,
-              '--parallax-speed': `${0.3 + (index * 0.1)}`,
-            }}
           >
-            <div className={styles['hero-section__image-wrapper']}>
+            <div className={styles.imageWrapper}>
               <NextImage
                 src={slide.image}
                 alt={slide.alt}
-                className={styles['hero-section__slide-image']}
                 fill
                 priority={index === 0}
                 sizes="100vw"
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
               />
             </div>
             {index === currentSlide && (
-              <div className={`${styles['hero-section__catchphrase']} ${styles['hero-section__catchphrase--animated']}`}>
-                <h2 className={styles['hero-section__title']}>{slide.catchphrase}</h2>
-                <p className={styles['hero-section__description']}>{slide.description}</p>
+              <div className={styles.catchphrase}>
+                <h2 className={styles.catchphraseTitle}>{slide.catchphrase}</h2>
+                <p className={styles.catchphraseDesc}>{slide.description}</p>
               </div>
             )}
           </div>
