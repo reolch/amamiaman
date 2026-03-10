@@ -1,8 +1,18 @@
-// src/components/GlassBoatPage/GlassBoatPage.jsx
+// src/pages/GlassBoatPage/GlassBoatPage.jsx
 import Image from 'next/image';
 import styles from './GlassBoatPage.module.css';
 import SocialShare from '../../components/common/SocialShare/SocialShare';
 import FooterNote from '../../components/common/FooterNote/FooterNote';
+import ReservationInfoTable from '../../components/common/ReservationInfoTable/ReservationInfoTable';
+
+const RESERVATION_ITEMS = [
+  '代表者名',
+  '連絡先',
+  '参加人数',
+  '男性○名、女性○名',
+  '参加者全員のフルネーム',
+  '参加者全員の年齢',
+];
 
 const GlassBoatPage = () => {
   return (
@@ -45,7 +55,7 @@ const GlassBoatPage = () => {
             <thead>
               <tr className={styles.headerRow}>
                 <th scope="col">&nbsp;</th>
-                <th scope="col">1時間程度</th>
+                <th scope="col">料金</th>
               </tr>
             </thead>
             <tbody>
@@ -56,13 +66,16 @@ const GlassBoatPage = () => {
               <tr>
                 <td>案内時間</td>
                 <td>9:00～17:00の間</td>
-                <td>その日の潮位によって時間が変わります。</td>
               </tr>
             </tbody>
           </table>
+          <p className={styles.tableNote}>
+            ※ 所要時間は1時間程度です。<br />
+            ※ その日の潮位によって案内時間が変わります。
+          </p>
         </section>
 
-        {/* 詳細情報テーブル */}
+        {/* 参加可能年齢テーブル */}
         <section className={styles.detailsTable}>
           <table className={styles.table}>
             <tbody>
@@ -70,38 +83,15 @@ const GlassBoatPage = () => {
                 <th className={styles.label}>参加可能年齢</th>
                 <td className={styles.value}>制限無し</td>
               </tr>
-              <tr>
-                <th className={styles.label} rowSpan="7">
-                  予約時にお伝えいただく内容
-                </th>
-                <td className={styles.value}>代表者名</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>連絡先</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>参加人数</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>男性○名、女性○名</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>参加者全員のフルネーム</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>参加者全員の年齢</td>
-              </tr>
-              <tr>
-                <th className={styles.label}>備考</th>
-                <td className={styles.value}>
-                  ご予約は電話にて受け付けています。
-                  <br />
-                  5名様以上からご案内いたします。
-                </td>
-              </tr>
             </tbody>
           </table>
         </section>
+
+        {/* 予約情報テーブル（共通コンポーネント） */}
+        <ReservationInfoTable
+          items={RESERVATION_ITEMS}
+          notes={'ご予約は電話にて受け付けています。\n5名様以上からご案内いたします。'}
+        />
 
         {/* フッターノート */}
         <FooterNote text="表記価格は税込です。" />

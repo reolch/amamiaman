@@ -1,7 +1,16 @@
-import styles from './LodgingPage.module.css'; // CSS Modulesをインポート
+import styles from './LodgingPage.module.css';
 import Image from 'next/image';
 import SocialShare from '../../components/common/SocialShare/SocialShare';
-import FooterNote from '../../components/common/FooterNote/FooterNote'; // FooterNoteをインポート
+import FooterNote from '../../components/common/FooterNote/FooterNote';
+import ReservationInfoTable from '../../components/common/ReservationInfoTable/ReservationInfoTable';
+
+const RESERVATION_ITEMS = [
+  '代表者名',
+  '連絡先',
+  '男性○名、女性○名',
+  '宿泊者全員のフルネーム',
+  '宿泊者全員の年齢',
+];
 
 const LodgingPage = () => {
   return (
@@ -37,7 +46,7 @@ const LodgingPage = () => {
         <section className={styles.details}>
           <h2 className={styles.detailsTitle}>ヤマハタマリンサービスあまん（マリンサービスあまん） 奄美大島民宿について</h2>
 
-          {/* Pricing Table */}
+          {/* 料金テーブル */}
           <div className={styles.pricingContainer}>
             <table className={styles.table}>
               <thead>
@@ -57,36 +66,11 @@ const LodgingPage = () => {
             </table>
           </div>
 
-          {/* Information Table */}
-          <table className={styles.table}>
-            <tbody>
-              <tr>
-                <th rowSpan="7" className={styles.label}>
-                  予約時にお伝えいただく内容
-                </th>
-                <td className={styles.value}>代表者名</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>連絡先</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>男性○名、女性○名</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>宿泊者全員のフルネーム</td>
-              </tr>
-              <tr>
-                <td className={styles.value}>宿泊者全員の年齢</td>
-              </tr>
-              <tr>
-                <th className={styles.label}>備考</th>
-                <td className={styles.value}>
-                  ご予約はメールまたはお電話にて受け付けています。
-                  宿泊客以外の入室はご遠慮ください。
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          {/* 予約情報テーブル（共通コンポーネント） */}
+          <ReservationInfoTable
+            items={RESERVATION_ITEMS}
+            notes={'ご予約はメールまたはお電話にて受け付けています。\n宿泊客以外の入室はご遠慮ください。'}
+          />
 
           {/* フッターノート */}
           <FooterNote text="表記価格は税込です。" />

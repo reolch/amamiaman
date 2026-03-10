@@ -4,10 +4,11 @@ import AboutSection from '@/components/Section/AboutSection/AboutSection';
 import ServiceSection from '@/components/Section/ServiceSection/ServiceSection';
 import AccessSection from '@/components/Section/AccessSection/AccessSection';
 import NewsSection from '@/components/Section/NewsSection/NewsSection';
+import { SITE_URL } from '@/constants/site';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.marine-services-aman.com',
+    canonical: SITE_URL,
   },
 };
 

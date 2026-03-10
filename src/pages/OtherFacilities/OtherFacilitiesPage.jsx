@@ -4,10 +4,10 @@ import SocialShare from '../../components/common/SocialShare/SocialShare';
 
 const OtherFacilitiesPage = () => {
   return (
-    <main className={styles.section} aria-labelledby="lodging-page-heading">
+    <main className={styles.section} aria-labelledby="other-facilities-heading">
       <div className={styles.container}>
         {/* ページタイトル */}
-        <h1 id="lodging-page-heading" className={styles.title}>
+        <h1 id="other-facilities-heading" className={styles.title}>
           施設紹介
         </h1>
         <div className={styles.descriptionContainer}>

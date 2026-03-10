@@ -1,35 +1,16 @@
 import StoreInformationPage from '@/pages/StoreInformationPage/StoreInformationPage';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/createPageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: 'アクセス | ヤマハタマリンサービスあまん - 奄美大島',
   description: 'ヤマハタマリンサービスへのアクセス方法、営業時間、お問い合わせ先をご確認いただけます。奄美大島瀬戸内町にございます。',
-  openGraph: {
-    title: 'アクセス | ヤマハタマリンサービスあまん - 奄美大島',
-    description: 'ヤマハタマリンサービスへのアクセス方法、営業時間、お問い合わせ先をご確認いただけます。奄美大島瀬戸内町にございます。',
-    url: 'https://www.marine-services-aman.com/access',
-    siteName: 'ヤマハタマリンサービスあまん',
-    images: [
-      {
-        url: '/assets/images/pages/店舗情報/top.webp',
-        width: 1200,
-        height: 630,
-        alt: 'ヤマハタマリンサービスあまんへのアクセス',
-      },
-    ],
-    locale: 'ja_JP',
-    type: 'website',
+  path: '/access',
+  image: {
+    url: '/assets/images/pages/店舗情報/top.webp',
+    alt: 'ヤマハタマリンサービスあまんへのアクセス',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'アクセス | ヤマハタマリンサービスあまん - 奄美大島',
-    description: 'ヤマハタマリンサービスあまんへのアクセス方法、営業時間、お問い合わせ先をご確認いただけます。奄美大島瀬戸内町にございます。',
-    images: ['/assets/images/pages/店舗情報/top.webp'],
-  },
-  alternates: {
-    canonical: 'https://www.marine-services-aman.com/access',
-  },
-};
+});
 
 export default function Access() {
   return <StoreInformationPage />;

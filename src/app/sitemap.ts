@@ -1,62 +1,61 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from 'next';
+import { SITE_URL } from '@/constants/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.marine-services-aman.com'
-
   return [
     {
-      url: baseUrl,
+      url: SITE_URL,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: `${baseUrl}/seaKayak`,
+      url: `${SITE_URL}/seaKayak`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/snorkelling`,
+      url: `${SITE_URL}/snorkelling`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/glassboat`,
+      url: `${SITE_URL}/glassboat`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/lodging`,
+      url: `${SITE_URL}/lodging`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/access`,
+      url: `${SITE_URL}/access`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/passion`,
+      url: `${SITE_URL}/passion`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${SITE_URL}/contact`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/other`,
+      url: `${SITE_URL}/other`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.4,
     },
-  ]
+  ];
 }

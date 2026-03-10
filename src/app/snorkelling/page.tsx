@@ -1,36 +1,17 @@
 import SnorkellingPage from '@/pages/SnorkellingPage/SnorkellingPage';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { ServiceStructuredData } from '@/components/StructuredData';
+import { createPageMetadata } from '@/lib/createPageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: 'シュノーケリング体験 | ヤマハタマリンサービスあまん - 奄美大島',
   description: 'ヤマハタマリンサービスあまんで奄美大島シュノーケル体験を楽しめます。奄美大島南部の美しい海で初心者から上級者まで安心のガイド付きツアーです。',
-  openGraph: {
-    title: 'シュノーケリング体験 | ヤマハタマリンサービスあまん - 奄美大島',
-    description: 'ヤマハタマリンサービスあまんで奄美大島シュノーケル体験を楽しめます。奄美大島南部の美しい海で初心者から上級者まで安心のガイド付きツアーです。',
-    url: 'https://www.marine-services-aman.com/snorkelling',
-    siteName: 'ヤマハタマリンサービスあまん',
-    images: [
-      {
-        url: '/assets/images/pages/トップページ/スライドショー/slide2.webp',
-        width: 1200,
-        height: 630,
-        alt: '奄美大島でのシュノーケリング体験の様子',
-      },
-    ],
-    locale: 'ja_JP',
-    type: 'website',
+  path: '/snorkelling',
+  image: {
+    url: '/assets/images/pages/トップページ/スライドショー/slide2.webp',
+    alt: '奄美大島でのシュノーケリング体験の様子',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'シュノーケリング体験 | ヤマハタマリンサービスあまん - 奄美大島',
-    description: 'ヤマハタマリンサービスあまんで奄美大島シュノーケル体験を楽しめます。奄美大島南部の美しい海で初心者から上級者まで安心のガイド付きツアーです。',
-    images: ['/assets/images/pages/トップページ/スライドショー/slide2.webp'],
-  },
-  alternates: {
-    canonical: 'https://www.marine-services-aman.com/snorkelling',
-  },
-};
+});
 
 export default function Snorkelling() {
   return (
