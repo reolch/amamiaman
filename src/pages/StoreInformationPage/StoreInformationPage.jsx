@@ -45,7 +45,7 @@ const StoreInformationPage = () => {
               <tbody>
                 <tr>
                   <th scope="row">店舗名</th>
-                  <td>ヤマハタマリンサービスあまん（マリンサービスあまん）</td>
+                  <td>ヤマハタマリンサービスあまん</td>
                 </tr>
                 <tr>
                   <th scope="row">代表</th>
