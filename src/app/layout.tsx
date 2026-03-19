@@ -5,7 +5,6 @@ import "./App.css";
 import "./styles/global.css";
 import Header from "@/components/common/Header/Header";
 import Footer from "@/components/common/Footer/Footer";
-import PageWrapper from "@/components/common/PageWrapper/PageWrapper";
 import {
   LocalBusinessStructuredData,
   TouristAttractionStructuredData,
@@ -126,7 +125,7 @@ export default function RootLayout({
           description={SITE_DESCRIPTION}
           address={{
             streetAddress: "清水375-1",
-            addressLocality: "瀬戸内町",
+            addressLocality: "大島郡瀬戸内町",
             addressRegion: "鹿児島県",
             postalCode: "894-1521",
             addressCountry: "JP",
@@ -159,7 +158,7 @@ export default function RootLayout({
         <div className="app">
           <Header />
           <main>
-            <PageWrapper>{children}</PageWrapper>
+            {children}
           </main>
           <Footer />
         </div>

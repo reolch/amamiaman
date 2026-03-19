@@ -14,12 +14,8 @@ const RESERVATION_ITEMS = [
 
 const LodgingPage = () => {
   return (
-    <main className={styles.section} aria-labelledby="lodging-page-heading">
+    <main className={styles.section} aria-label="民宿・宿泊施設ページ">
       <div className={styles.container}>
-        {/* ページタイトル */}
-        <h1 id="lodging-page-heading" className={styles.title}>
-          民宿
-        </h1>
         <div className={styles.descriptionContainer}>
           <p className={styles.description}>
             低価格でご利用いただくために、素泊まり民宿をご提供しています。

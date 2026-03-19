@@ -1,5 +1,4 @@
 // src/pages/GlassBoatPage/GlassBoatPage.jsx
-import Image from 'next/image';
 import styles from './GlassBoatPage.module.css';
 import SocialShare from '../../components/common/SocialShare/SocialShare';
 import FooterNote from '../../components/common/FooterNote/FooterNote';
@@ -16,38 +15,21 @@ const RESERVATION_ITEMS = [
 
 const GlassBoatPage = () => {
   return (
-    <main className={styles.section} aria-labelledby="glass-boat-heading">
+    <main className={styles.section} aria-label="グラスボート観光ページ">
       <div className={styles.container}>
-        {/* ページタイトル */}
-        <h1 id="glass-boat-heading" className={styles.title}>
-          奄美のグラスボートツアー
-        </h1>
 
         {/* コンテンツブロック */}
-        <section className={styles.content}>
-          <figure className={styles.imageContainer}>
-            <Image
-              src="/assets/images/pages/グラスボート/top.webp"
-              alt="奄美大島のグラスボート体験で珊瑚礁と熱帯魚を観察する観光客の様子"
-              width={800}
-              height={600}
-              priority={false}
-              className={styles.image}
-            />
-            <figcaption className={styles.imageCaption}>グラスボート</figcaption>
-          </figure>
-          <div className={styles.descriptionContainer}>
-            <p className={styles.description}>
-              <strong>グラスボート遊覧船に乗って珊瑚見学しませんか？</strong>
-              <br />
-              グラスボートに乗って、家族でのんびりとクルージングしていただけます。
-              <br />
-              ボートの中を覗くと、底一面がガラス張りになっていて、
-              <br className={styles.desktopOnly} />
-              すぐ手の届きそうな距離でキレイな魚を見ることができます。
-            </p>
-          </div>
-        </section>
+        <div className={styles.descriptionContainer}>
+          <p className={styles.description}>
+            <strong>グラスボート遊覧船に乗って珊瑚見学しませんか？</strong>
+            <br />
+            グラスボートに乗って、家族でのんびりとクルージングしていただけます。
+            <br />
+            ボートの中を覗くと、底一面がガラス張りになっていて、
+            <br className={styles.desktopOnly} />
+            すぐ手の届きそうな距離でキレイな魚を見ることができます。
+          </p>
+        </div>
 
         {/* 価格情報テーブル */}
         <section className={styles.pricingTable}>

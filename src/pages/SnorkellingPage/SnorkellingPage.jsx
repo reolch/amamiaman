@@ -17,11 +17,8 @@ const RESERVATION_ITEMS = [
 
 const SnorkellingPage = () => {
   return (
-    <main className={styles.section} aria-labelledby="snorkelling-heading">
+    <main className={styles.section} aria-label="シュノーケリング体験ページ">
       <div className={styles.container}>
-        <h1 id="snorkelling-heading" className={styles.title}>
-          シュノーケリングツアー
-        </h1>
 
         <div className={styles.descriptionContainer}>
           <p className={styles.description}>

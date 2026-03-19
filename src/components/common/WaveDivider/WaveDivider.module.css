@@ -1,0 +1,21 @@
+.waveDivider {
+  position: relative;
+  z-index: 2; /* 前のセクションに被さる */
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.svgFlipped {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(-1);
+}
