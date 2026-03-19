@@ -4,15 +4,22 @@ import { useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import styles from './ParallaxBanner.module.css';
 
+interface ParallaxBannerProps {
+  /** 画像パス（/assets/... 形式） */
+  src: string;
+  /** 画像の alt テキスト */
+  alt: string;
+  /** バナー内に表示するページタイトル（h1） */
+  title: string;
+  /** タイトル下のサブテキスト（省略可） */
+  subtitle?: string;
+  /** パララックス強度（デフォルト: 0.4） */
+  speed?: number;
+}
+
 /**
  * サービスページ用の全幅パララックスバナー。
  * PageWrapper の外側に配置することで画面幅いっぱいに表示される。
- *
- * @param {string} src        - 画像パス（/assets/... 形式）
- * @param {string} alt        - 画像の alt テキスト
- * @param {string} title      - バナー内に表示するページタイトル（h1）
- * @param {string} subtitle   - タイトル下のサブテキスト（省略可）
- * @param {number} speed      - パララックス強度（デフォルト: 0.4）
  */
 const ParallaxBanner = ({
   src,
@@ -20,10 +27,10 @@ const ParallaxBanner = ({
   title,
   subtitle,
   speed = 0.4,
-}) => {
-  const containerRef = useRef(null);
-  const imageWrapRef = useRef(null);
-  const rafRef = useRef(null);
+}: ParallaxBannerProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const imageWrapRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
 
   const updateParallax = useCallback(() => {
     const container = containerRef.current;
@@ -47,7 +54,7 @@ const ParallaxBanner = ({
 
   useEffect(() => {
     const onScroll = () => {
-      if (rafRef.current) return;
+      if (rafRef.current !== null) return;
       rafRef.current = requestAnimationFrame(() => {
         updateParallax();
         rafRef.current = null;
@@ -59,7 +66,7 @@ const ParallaxBanner = ({
 
     return () => {
       window.removeEventListener('scroll', onScroll);
-      if (rafRef.current) {
+      if (rafRef.current !== null) {
         cancelAnimationFrame(rafRef.current);
         rafRef.current = null;
       }

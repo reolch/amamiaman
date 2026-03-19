@@ -1,19 +1,25 @@
 import styles from './WaveDivider.module.css';
 
+interface WaveDividerProps {
+  /** 波の塗りつぶし色（次のセクションの背景色に合わせる） */
+  fillColor?: string;
+  /** ディバイダー自体の背景色（前のセクションの背景色に合わせる） */
+  bgColor?: string;
+  /** 波の向きを反転させるか */
+  flip?: boolean;
+  /** 波の高さ（px） */
+  height?: number;
+}
+
 /**
  * セクション間の SVG 波形ディバイダー。
- *
- * @param {string} fillColor  - 波の塗りつぶし色（次のセクションの背景色に合わせる）
- * @param {string} bgColor    - ディバイダー自体の背景色（前のセクションの背景色に合わせる）
- * @param {boolean} flip      - 波の向きを反転させるか
- * @param {number} height     - 波の高さ（px）
  */
 const WaveDivider = ({
   fillColor = '#ffffff',
   bgColor = 'transparent',
   flip = false,
   height = 60,
-}) => {
+}: WaveDividerProps) => {
   return (
     <div
       className={styles.waveDivider}
