@@ -18,20 +18,19 @@ export default function HomePage() {
     <>
       <HeroSection />
 
-      {/* ヒーロー → アバウトセクション */}
-      <WaveDivider fillColor="#f8fafc" bgColor="transparent" />
+      {/* ヒーロー（黒）→ アバウト（#f8fafc グラデ開始色） */}
+      <WaveDivider fillColor="#f8fafc" bgColor="#000000" />
       <AboutSection />
 
-      {/* アバウト → サービスセクション */}
+      {/* アバウト（#f0f9ff グラデ終了色）→ サービス（#f8fafc グラデ開始色） */}
       <WaveDivider fillColor="#f8fafc" bgColor="#f0f9ff" flip />
       <ServiceSection />
 
-      {/* サービス → アクセスセクション */}
+      {/* サービス（#f1f5f9 グラデ終了色）→ アクセス（#ffffff） */}
       <WaveDivider fillColor="#ffffff" bgColor="#f1f5f9" />
       <AccessSection />
 
-      {/* アクセス → ニュースセクション */}
-      <WaveDivider fillColor="#ffffff" bgColor="#ffffff" flip />
+      {/* アクセスとニュースは両方 #ffffff なのでディバイダー不要 */}
       <NewsSection />
     </>
   );

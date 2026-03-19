@@ -6,13 +6,14 @@ import ParallaxBanner from '@/components/common/ParallaxBanner/ParallaxBanner';
 import PageWrapper from '@/components/common/PageWrapper/PageWrapper';
 
 export const metadata: Metadata = createPageMetadata({
-  title: '宿泊施設 | ヤマハタマリンサービスあまん - 奄美大島',
-  description: 'ヤマハタマリンサービスあまんが提供する、奄美大島の海を満喫できる宿泊施設。マリンアクティビティと合わせて快適にお過ごしいただけます。',
+  title: '奄美大島の民宿｜瀬戸内町の海辺の宿【素泊り4,000円〜】',
+  description: '奄美大島瀬戸内町の民宿あまん。素泊り1泊4,000円〜。シーカヤックやシュノーケルの拠点に最適。海まで徒歩すぐ、無料駐車場完備。マリン体験とセットでお得。',
   path: '/lodging',
   image: {
     url: '/assets/images/LodgingGridItem1.webp',
     alt: 'ヤマハタマリンサービスあまんの宿泊施設の様子',
   },
+  keywords: ['奄美大島 民宿', '民宿 あまん', '瀬戸内町 宿泊', '奄美大島 宿泊 安い'],
 });
 
 export default function Lodging() {

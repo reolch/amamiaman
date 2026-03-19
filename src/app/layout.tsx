@@ -125,7 +125,7 @@ export default function RootLayout({
           description={SITE_DESCRIPTION}
           address={{
             streetAddress: "清水375-1",
-            addressLocality: "瀬戸内町",
+            addressLocality: "大島郡瀬戸内町",
             addressRegion: "鹿児島県",
             postalCode: "894-1521",
             addressCountry: "JP",

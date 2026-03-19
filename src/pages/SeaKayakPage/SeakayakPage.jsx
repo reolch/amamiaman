@@ -1,5 +1,4 @@
 // src/pages/SeaKayakPage/SeaKayakPage.jsx
-import Image from 'next/image';
 import styles from './SeaKayakPage.module.css';
 import SocialShare from '../../components/common/SocialShare/SocialShare';
 import FooterNote from '../../components/common/FooterNote/FooterNote';
@@ -21,30 +20,17 @@ const SeaKayakPage = () => {
       <div className={styles.container}>
 
         {/* コンテンツブロック */}
-        <section className={styles.content}>
-          <figure className={styles.imageContainer}>
-            <Image
-              src="/assets/images/pages/シーカヤック/top.webp"
-              alt="奄美大島の透明度抜群の海でシーカヤック体験を楽しむ観光客の様子"
-              width={800}
-              height={600}
-              priority={false}
-              className={styles.image}
-            />
-            <figcaption className={styles.imageCaption}>シーカヤックで奄美の海を楽しむ様子</figcaption>
-          </figure>
-          <div className={styles.descriptionContainer}>
-            <p className={styles.description}>
-              <strong>シーカヤックで奄美の海を散策しませんか？</strong>
-              <br />
-              サンゴ礁の海を滑るように進むシーカヤックは最高です！
-              <br />
-              シーカヤックを漕いで行き、美しいビーチで一休み。
-              <br />
-              運が良ければウミガメを見ることができます。
-            </p>
-          </div>
-        </section>
+        <div className={styles.descriptionContainer}>
+          <p className={styles.description}>
+            <strong>シーカヤックで奄美の海を散策しませんか？</strong>
+            <br />
+            サンゴ礁の海を滑るように進むシーカヤックは最高です！
+            <br />
+            シーカヤックを漕いで行き、美しいビーチで一休み。
+            <br />
+            運が良ければウミガメを見ることができます。
+          </p>
+        </div>
 
         {/* 料金情報テーブル */}
         <section className={styles.pricingTable}>

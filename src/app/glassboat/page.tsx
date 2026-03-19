@@ -6,13 +6,14 @@ import ParallaxBanner from '@/components/common/ParallaxBanner/ParallaxBanner';
 import PageWrapper from '@/components/common/PageWrapper/PageWrapper';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'グラスボート観光 | ヤマハタマリンサービスあまん - 奄美大島',
-  description: 'ヤマハタマリンサービスあまんで奄美大島の美しい海中世界をグラスボートで観光できます。濡れることなく海中の美しいサンゴや魚たちを観察いただけます。',
+  title: '奄美大島グラスボート｜濡れずに海中散歩【料金・予約】',
+  description: '奄美大島瀬戸内町でグラスボート体験。大人2,500円〜、所要約40分。服のままサンゴ礁や熱帯魚を観察できます。小さなお子様連れにも人気。当日予約OK。',
   path: '/glassboat',
   image: {
     url: '/assets/images/pages/グラスボート/top.webp',
     alt: '奄美大島でのグラスボート観光の様子',
   },
+  keywords: ['奄美大島 グラスボート', '奄美 グラスボート', 'グラスボート 体験', '奄美大島 子連れ'],
 });
 
 export default function GlassBoat() {

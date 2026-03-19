@@ -1,9 +1,9 @@
 .waveDivider {
   position: relative;
+  z-index: 2; /* 前のセクションに被さる */
   width: 100%;
   overflow: hidden;
   line-height: 0;
-  margin-top: -2px; /* セクション間の隙間を防ぐ */
   pointer-events: none;
 }
 

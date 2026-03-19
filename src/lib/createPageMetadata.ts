@@ -46,13 +46,15 @@ export function createPageMetadata({
   const canonicalUrl = `${SITE_URL}${path}`;
   // 画像 URL が相対パスの場合は絶対 URL に変換
   const imageUrl = image.url.startsWith('http') ? image.url : `${SITE_URL}${image.url}`;
+  // OG / Twitter 用にはフルタイトル（layout.tsx の template が適用されないため）
+  const fullTitle = `${title} | ${SITE_NAME}`;
 
   return {
-    title,
+    title,       // layout.tsx の template で「%s | ヤマハタマリンサービスあまん」になる
     description,
     keywords: [...BASE_KEYWORDS, ...keywords],
     openGraph: {
-      title,
+      title: fullTitle,
       description,
       url: canonicalUrl,
       siteName: SITE_NAME,
@@ -69,7 +71,7 @@ export function createPageMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: fullTitle,
       description,
       images: [imageUrl],
       creator: SITE_TWITTER_CREATOR,

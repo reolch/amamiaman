@@ -13,27 +13,32 @@ interface WaveDividerProps {
 
 /**
  * セクション間の SVG 波形ディバイダー。
+ * 前のセクションに完全に被さるため、隙間ゼロで繋がる。
  */
 const WaveDivider = ({
   fillColor = '#ffffff',
   bgColor = 'transparent',
   flip = false,
-  height = 60,
+  height = 70,
 }: WaveDividerProps) => {
   return (
     <div
       className={styles.waveDivider}
-      style={{ backgroundColor: bgColor, height: `${height}px` }}
+      style={{
+        backgroundColor: bgColor,
+        height: `${height}px`,
+        marginTop: `-${height}px`,
+      }}
       aria-hidden="true"
     >
       <svg
         className={flip ? styles.svgFlipped : styles.svg}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 60"
+        viewBox="0 0 1440 120"
         preserveAspectRatio="none"
       >
         <path
-          d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z"
+          d="M0,60 C180,100 360,20 540,60 C720,100 900,20 1080,60 C1260,100 1440,40 1440,60 L1440,120 L0,120 Z"
           fill={fillColor}
         />
       </svg>

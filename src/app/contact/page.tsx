@@ -4,8 +4,8 @@ import { createPageMetadata } from '@/lib/createPageMetadata';
 import PageWrapper from '@/components/common/PageWrapper/PageWrapper';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'お問い合わせ | ヤマハタマリンサービスあまん - 奄美大島',
-  description: 'ヤマハタマリンサービスあまんへのお問い合わせ、ご予約はこちらから。マリンアクティビティや宿泊に関するご質問にお答えします。',
+  title: 'ご予約・お問い合わせ｜奄美大島 瀬戸内町',
+  description: 'シーカヤック・シュノーケリング・グラスボートのご予約、宿泊のお問い合わせはこちら。電話 0997-72-4584（8:00〜17:00）。当日予約もお気軽にどうぞ。',
   path: '/contact',
   image: {
     url: '/assets/images/pages/お問い合わせ/top.webp',
