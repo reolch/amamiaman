@@ -5,28 +5,20 @@ import Image from 'next/image';
 import styles from './ParallaxBanner.module.css';
 
 interface ParallaxBannerProps {
-  /** 画像パス（/assets/... 形式） */
   src: string;
-  /** 画像の alt テキスト */
   alt: string;
-  /** バナー内に表示するページタイトル（h1） */
   title: string;
-  /** タイトル下のサブテキスト（省略可） */
   subtitle?: string;
-  /** パララックス強度（デフォルト: 0.4） */
+  /** パララックス強度 0〜1（デフォルト: 0.6）大きいほど動きが大きい */
   speed?: number;
 }
 
-/**
- * サービスページ用の全幅パララックスバナー。
- * PageWrapper の外側に配置することで画面幅いっぱいに表示される。
- */
 const ParallaxBanner = ({
   src,
   alt,
   title,
   subtitle,
-  speed = 0.4,
+  speed = 0.6,
 }: ParallaxBannerProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageWrapRef = useRef<HTMLDivElement>(null);
@@ -38,16 +30,16 @@ const ParallaxBanner = ({
     if (!container || !imageWrap) return;
 
     const rect = container.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const elementTop = rect.top;
-    const elementHeight = rect.height;
+    const windowH = window.innerHeight;
+    const elTop = rect.top;
+    const elH = rect.height;
 
-    if (elementTop < windowHeight && elementTop + elementHeight > 0) {
-      const scrolled = windowHeight - elementTop;
-      const total = windowHeight + elementHeight;
-      const progress = Math.max(0, Math.min(1, scrolled / total));
-      // 中央（progress=0.5）を基準に ±(speed×50)px
-      const offset = (progress - 0.5) * speed * 100;
+    if (elTop < windowH && elTop + elH > 0) {
+      // progress: 0（画面下端から出現）→ 1（画面上端から退場）
+      const progress = Math.max(0, Math.min(1, (windowH - elTop) / (windowH + elH)));
+      // 移動幅 = バナー高さの 30% × speed（inset -100px で余裕あり）
+      const maxOffset = elH * 0.3 * speed;
+      const offset = (progress - 0.5) * 2 * maxOffset;
       imageWrap.style.transform = `translateY(${offset}px)`;
     }
   }, [speed]);
@@ -61,7 +53,7 @@ const ParallaxBanner = ({
       });
     };
 
-    updateParallax(); // 初期位置を設定
+    updateParallax();
     window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => {
@@ -75,7 +67,6 @@ const ParallaxBanner = ({
 
   return (
     <div className={styles.banner} ref={containerRef}>
-      {/* 画像ラッパー: コンテナより縦に大きく取りパララックスの余白を確保 */}
       <div className={styles.imageWrap} ref={imageWrapRef}>
         <Image
           src={src}
@@ -86,11 +77,7 @@ const ParallaxBanner = ({
           sizes="100vw"
         />
       </div>
-
-      {/* グラデーションオーバーレイ */}
       <div className={styles.overlay} aria-hidden="true" />
-
-      {/* タイトルテキスト */}
       <div className={styles.content}>
         <h1 className={styles.title}>{title}</h1>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
