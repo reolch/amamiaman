@@ -1,6 +1,7 @@
 import ContactPage from '@/pages/ContactPage/ContactPage';
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/createPageMetadata';
+import PageWrapper from '@/components/common/PageWrapper/PageWrapper';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'お問い合わせ | ヤマハタマリンサービスあまん - 奄美大島',
@@ -13,5 +14,9 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function Contact() {
-  return <ContactPage />;
+  return (
+    <PageWrapper>
+      <ContactPage />
+    </PageWrapper>
+  );
 }

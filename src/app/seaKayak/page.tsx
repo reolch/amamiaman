@@ -2,6 +2,8 @@ import SeaKayakPage from '@/pages/SeaKayakPage/SeakayakPage';
 import type { Metadata } from 'next';
 import { ServiceStructuredData } from '@/components/StructuredData';
 import { createPageMetadata } from '@/lib/createPageMetadata';
+import ParallaxBanner from '@/components/common/ParallaxBanner/ParallaxBanner';
+import PageWrapper from '@/components/common/PageWrapper/PageWrapper';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'シーカヤック体験 | ヤマハタマリンサービスあまん - 奄美大島',
@@ -16,7 +18,15 @@ export const metadata: Metadata = createPageMetadata({
 export default function SeaKayak() {
   return (
     <>
-      <SeaKayakPage />
+      <ParallaxBanner
+        src="/assets/images/pages/シーカヤック/top.webp"
+        alt="奄美大島でのシーカヤック体験の様子"
+        title="シーカヤック体験"
+        subtitle="加計呂麻島の大自然をカヤックで探検"
+      />
+      <PageWrapper>
+        <SeaKayakPage />
+      </PageWrapper>
       <ServiceStructuredData
         name="シーカヤック体験"
         description="加計呂麻島でのシーカヤックツアー。マングローブの森や美しい海岸線を巡ります。"

@@ -2,6 +2,8 @@ import SnorkellingPage from '@/pages/SnorkellingPage/SnorkellingPage';
 import type { Metadata } from 'next';
 import { ServiceStructuredData } from '@/components/StructuredData';
 import { createPageMetadata } from '@/lib/createPageMetadata';
+import ParallaxBanner from '@/components/common/ParallaxBanner/ParallaxBanner';
+import PageWrapper from '@/components/common/PageWrapper/PageWrapper';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'シュノーケリング体験 | ヤマハタマリンサービスあまん - 奄美大島',
@@ -16,7 +18,15 @@ export const metadata: Metadata = createPageMetadata({
 export default function Snorkelling() {
   return (
     <>
-      <SnorkellingPage />
+      <ParallaxBanner
+        src="/assets/images/pages/トップページ/スライドショー/slide2.webp"
+        alt="奄美大島でのシュノーケリング体験の様子"
+        title="シュノーケリング体験"
+        subtitle="奄美の青い海で魚たちとふれあう"
+      />
+      <PageWrapper>
+        <SnorkellingPage />
+      </PageWrapper>
       <ServiceStructuredData
         name="シュノーケリング体験"
         description="奄美大島南部の美しい海で、初心者から上級者まで楽しめるガイド付きシュノーケリングツアーです。"

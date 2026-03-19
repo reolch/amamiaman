@@ -16,12 +16,8 @@ const RESERVATION_ITEMS = [
 
 const GlassBoatPage = () => {
   return (
-    <main className={styles.section} aria-labelledby="glass-boat-heading">
+    <main className={styles.section} aria-label="グラスボート観光ページ">
       <div className={styles.container}>
-        {/* ページタイトル */}
-        <h1 id="glass-boat-heading" className={styles.title}>
-          奄美のグラスボートツアー
-        </h1>
 
         {/* コンテンツブロック */}
         <section className={styles.content}>

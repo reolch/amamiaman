@@ -1,6 +1,7 @@
 import OurPassionPage from '@/pages/OurPassionPage/OurPassionPage';
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/createPageMetadata';
+import PageWrapper from '@/components/common/PageWrapper/PageWrapper';
 
 export const metadata: Metadata = createPageMetadata({
   title: '私たちの想い | ヤマハタマリンサービスあまん - 奄美大島',
@@ -13,5 +14,9 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function Passion() {
-  return <OurPassionPage />;
+  return (
+    <PageWrapper>
+      <OurPassionPage />
+    </PageWrapper>
+  );
 }

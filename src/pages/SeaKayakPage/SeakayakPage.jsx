@@ -17,12 +17,8 @@ const RESERVATION_ITEMS = [
 
 const SeaKayakPage = () => {
   return (
-    <main className={styles.section} aria-labelledby="sea-kayak-heading">
+    <main className={styles.section} aria-label="シーカヤック体験ページ">
       <div className={styles.container}>
-        {/* ページタイトル */}
-        <h1 id="sea-kayak-heading" className={styles.title}>
-          シーカヤックツアー
-        </h1>
 
         {/* コンテンツブロック */}
         <section className={styles.content}>

@@ -2,6 +2,8 @@ import GlassBoatPage from '@/pages/GlassBoatPage/GlassBoatPage';
 import type { Metadata } from 'next';
 import { ServiceStructuredData } from '@/components/StructuredData';
 import { createPageMetadata } from '@/lib/createPageMetadata';
+import ParallaxBanner from '@/components/common/ParallaxBanner/ParallaxBanner';
+import PageWrapper from '@/components/common/PageWrapper/PageWrapper';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'グラスボート観光 | ヤマハタマリンサービスあまん - 奄美大島',
@@ -16,7 +18,15 @@ export const metadata: Metadata = createPageMetadata({
 export default function GlassBoat() {
   return (
     <>
-      <GlassBoatPage />
+      <ParallaxBanner
+        src="/assets/images/pages/グラスボート/top.webp"
+        alt="奄美大島でのグラスボート観光の様子"
+        title="グラスボート観光"
+        subtitle="濡れずに楽しむ奄美の海中世界"
+      />
+      <PageWrapper>
+        <GlassBoatPage />
+      </PageWrapper>
       <ServiceStructuredData
         name="グラスボート観光"
         description="服のまま海中世界を楽しめるグラスボートツアー。サンゴ礁や熱帯魚を間近で観察できます。"

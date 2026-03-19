@@ -1,6 +1,7 @@
 import StoreInformationPage from '@/pages/StoreInformationPage/StoreInformationPage';
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/createPageMetadata';
+import PageWrapper from '@/components/common/PageWrapper/PageWrapper';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'アクセス | ヤマハタマリンサービスあまん - 奄美大島',
@@ -13,5 +14,9 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function Access() {
-  return <StoreInformationPage />;
+  return (
+    <PageWrapper>
+      <StoreInformationPage />
+    </PageWrapper>
+  );
 }
