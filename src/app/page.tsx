@@ -16,11 +16,11 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      {/* Hero(黒)→About(薄青)のフェード */}
+      {/* Hero下の黒帯 */}
       <div
         style={{
-          height: '80px',
-          background: 'linear-gradient(to bottom, #000000, #e8f4f8)',
+          height: '40px',
+          background: '#000000',
         }}
         aria-hidden="true"
       />
