@@ -65,7 +65,7 @@
 /* ─── 画像ラッパー ───────────────────────────────────────────────────── */
 .imageWrapper {
   position: absolute;
-  inset: 0;
+  inset: -100px 0; /* パララックス移動分（±100px）のバッファ */
   overflow: hidden;
 }
 

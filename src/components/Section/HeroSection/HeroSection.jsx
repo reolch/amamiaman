@@ -2,6 +2,7 @@
 // src/components/Section/HeroSection/HeroSection.jsx
 import { useState, useEffect, useRef, useCallback } from 'react';
 import NextImage from 'next/image';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import styles from './HeroSection.module.css';
 
 const slides = [
@@ -56,6 +57,18 @@ const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   // isAnimating を ref で管理 → stale closure を回避
   const isAnimatingRef = useRef(false);
+  const heroRef = useRef(null);
+
+  // ─── Framer Motion パララックス ───────────────────────────────────────
+  // heroRef のスクロール進捗：0（ヒーロー頂部が画面上端）→ 1（ヒーロー底部が画面上端）
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  // スプリングで滑らかに
+  const spring = useSpring(scrollYProgress, { stiffness: 300, damping: 60 });
+  // スクロールで画像を下方向にゆっくり動かす（ページより遅い → パララックス）
+  const imageY = useTransform(spring, [0, 1], ['0px', '100px']);
 
   const nextSlide = useCallback(() => {
     if (isAnimatingRef.current) return;
@@ -82,7 +95,7 @@ const HeroSection = () => {
   }, [nextSlide]);
 
   return (
-    <section className={styles.heroSection} aria-label="スライドショー">
+    <motion.section ref={heroRef} className={styles.heroSection} aria-label="スライドショー">
       <div className={styles.slideshow}>
         {slides.map((slide, index) => (
           <div
@@ -90,7 +103,7 @@ const HeroSection = () => {
             className={`${styles.slide} ${index === currentSlide ? styles.slideActive : styles.slideHidden}`}
             aria-hidden={index !== currentSlide}
           >
-            <div className={styles.imageWrapper}>
+            <motion.div className={styles.imageWrapper} style={{ y: imageY }}>
               <NextImage
                 src={slide.image}
                 alt={slide.alt}
@@ -99,7 +112,7 @@ const HeroSection = () => {
                 sizes="100vw"
                 style={{ objectFit: 'cover', objectPosition: 'center' }}
               />
-            </div>
+            </motion.div>
             {index === currentSlide && (
               <div className={styles.catchphrase}>
                 <h2 className={styles.catchphraseTitle}>{slide.catchphrase}</h2>
@@ -109,7 +122,7 @@ const HeroSection = () => {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

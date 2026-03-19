@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef, useCallback } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import styles from './ParallaxBanner.module.css';
 
 interface ParallaxBannerProps {
@@ -21,53 +22,23 @@ const ParallaxBanner = ({
   speed = 0.6,
 }: ParallaxBannerProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const imageWrapRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number | null>(null);
 
-  const updateParallax = useCallback(() => {
-    const container = containerRef.current;
-    const imageWrap = imageWrapRef.current;
-    if (!container || !imageWrap) return;
+  // バナーが画面下端から入る → 画面上端から出るまでの進捗（0→1）
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start'],
+  });
 
-    const rect = container.getBoundingClientRect();
-    const windowH = window.innerHeight;
-    const elTop = rect.top;
-    const elH = rect.height;
+  // スプリングで滑らかに補間（サンプルと同じ設定）
+  const spring = useSpring(scrollYProgress, { stiffness: 300, damping: 60 });
 
-    if (elTop < windowH && elTop + elH > 0) {
-      // progress: 0（画面下端から出現）→ 1（画面上端から退場）
-      const progress = Math.max(0, Math.min(1, (windowH - elTop) / (windowH + elH)));
-      // 移動幅 = バナー高さの 30% × speed（inset -100px で余裕あり）
-      const maxOffset = elH * 0.3 * speed;
-      const offset = (progress - 0.5) * 2 * maxOffset;
-      imageWrap.style.transform = `translateY(${offset}px)`;
-    }
-  }, [speed]);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (rafRef.current !== null) return;
-      rafRef.current = requestAnimationFrame(() => {
-        updateParallax();
-        rafRef.current = null;
-      });
-    };
-
-    updateParallax();
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      if (rafRef.current !== null) {
-        cancelAnimationFrame(rafRef.current);
-        rafRef.current = null;
-      }
-    };
-  }, [updateParallax]);
+  // inset: -100px のバッファ内で移動（speed=1 で ±80px、speed=0.6 で ±48px）
+  const maxPx = Math.round(80 * speed);
+  const y = useTransform(spring, [0, 1], [`-${maxPx}px`, `${maxPx}px`]);
 
   return (
     <div className={styles.banner} ref={containerRef}>
-      <div className={styles.imageWrap} ref={imageWrapRef}>
+      <motion.div className={styles.imageWrap} style={{ y }}>
         <Image
           src={src}
           alt={alt}
@@ -76,7 +47,7 @@ const ParallaxBanner = ({
           priority
           sizes="100vw"
         />
-      </div>
+      </motion.div>
       <div className={styles.overlay} aria-hidden="true" />
       <div className={styles.content}>
         <h1 className={styles.title}>{title}</h1>
