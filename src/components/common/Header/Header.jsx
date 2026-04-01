@@ -8,7 +8,8 @@ import NAV_ITEMS from './navItems';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null); // 開いているドロップダウンのhref
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleClickOutside = (event) => {
     if (!event.target.closest(`.${styles.globalNav}`) && !event.target.closest(`.${styles.menuIcon}`)) {
@@ -26,6 +27,14 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const toggleMenu = (e) => {
     e.stopPropagation();
     setIsMenuOpen((prev) => !prev);
@@ -39,7 +48,7 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.header} role="banner">
+    <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`} role="banner">
       <div className={styles.topBar}>
         <div className={styles.logo}>
           <p>

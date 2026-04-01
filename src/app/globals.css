@@ -3,24 +3,26 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  
-  /* メリハリのある落ち着いたカラーパレット */
+
+  /* ─── カラーパレット（サイト全体で統一） ──────────────────────── */
   --primary-blue: #2c5282;
   --primary-blue-light: #3182ce;
   --primary-blue-dark: #1a365d;
-  
+
   --secondary-teal: #2d7f7f;
   --secondary-teal-light: #4fd1c7;
   --secondary-teal-dark: #1a5555;
-  
+
   --neutral-50: #f7fafc;
   --neutral-100: #edf2f7;
   --neutral-200: #e2e8f0;
   --neutral-300: #cbd5e0;
+  --neutral-400: #a0aec0;
+  --neutral-500: #718096;
   --neutral-600: #4a5568;
   --neutral-700: #2d3748;
   --neutral-800: #1a202c;
-  
+
   --ocean-blue: #1e3a8a;
   --ocean-green: #065f46;
   --sand-beige: #f0f7f7;
@@ -28,24 +30,56 @@
   --accent: #2d7f7f;
   --accent-dark: #1a5555;
   --accent-light: #e0f0f0;
-  
-  /* プロフェッショナルタイポグラフィ */
+
+  /* ─── テキストカラー（ハードコード #333 等を統一） ────────────── */
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  /* ─── ボーダー・背景 ──────────────────────────────────────────── */
+  --border-color: #e2e8f0;
+  --border-light: #f1f5f9;
+  --surface: #ffffff;
+  --surface-raised: #f8fafc;
+  --surface-overlay: rgba(0, 0, 0, 0.5);
+
+  /* ─── シャドウ ────────────────────────────────────────────────── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.12);
+  --shadow-accent: 0 4px 15px rgba(45, 127, 127, 0.2);
+
+  /* ─── 角丸 ────────────────────────────────────────────────────── */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* ─── トランジション ──────────────────────────────────────────── */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* ─── タイポグラフィ ──────────────────────────────────────────── */
   --font-family-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  
+  --font-family-body: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
   --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  
+
   --line-height-tight: 1.25;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.75;
-  
+
   --letter-spacing-tight: -0.025em;
   --letter-spacing-normal: 0;
-  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wide: 0.05em;
 }
 
 @theme inline {
@@ -55,9 +89,14 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* ─── ベースリセット ───────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: #ffffff;
-  color: var(--neutral-700);
+  background: var(--background);
+  color: var(--text-secondary);
   font-family: var(--font-family-body);
   font-weight: var(--font-weight-normal);
   line-height: var(--line-height-normal);
@@ -65,4 +104,39 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── フォーカススタイル（キーボードナビ用） ─────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ─── 画像のデフォルト ─────────────────────────────────────────── */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ─── セレクション ─────────────────────────────────────────────── */
+::selection {
+  background: var(--accent-light);
+  color: var(--accent-dark);
+}
+
+/* ─── モーション軽減（グローバル） ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
