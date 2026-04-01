@@ -18,15 +18,26 @@
 
 @media (max-width: 767px) {
   .pageWrapper {
-    margin: 0 16px;
+    margin: 0 12px;
   }
-  
+
   .pageWrapper > * {
-    padding: 16px;
+    padding: 20px 4px;
   }
-  
+
   .pageWrapper > section[class*="hero-section"] {
     padding: 0;
+  }
+}
+
+/* 小型モバイル */
+@media (max-width: 380px) {
+  .pageWrapper {
+    margin: 0 8px;
+  }
+
+  .pageWrapper > * {
+    padding: 16px 2px;
   }
 }
 

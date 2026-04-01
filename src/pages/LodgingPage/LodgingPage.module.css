@@ -61,7 +61,7 @@
   .detailsTitle {
     font-size: 1.25rem;
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: var(--text-primary, #1e293b);
     font-weight: 600;
     text-align: center;
     letter-spacing: 0.02em;
@@ -77,56 +77,63 @@
   
   .table {
     width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #e0e0e0;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--radius-md, 12px);
+    overflow: hidden;
+    border: 1px solid var(--border-color, #e2e8f0);
     background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.08));
     font-size: 0.875rem;
   }
-  
+
   .table th,
   .table td {
     padding: 0.75rem 1rem;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border-color, #e2e8f0);
     vertical-align: middle;
     text-align: left;
     line-height: 1.6;
   }
-  
+
   .table th {
-    background-color: #f0f7f7;
+    background-color: var(--accent-light, #e0f0f0);
     font-weight: 600;
-    color: #1a5555;
+    color: var(--accent-dark, #1a5555);
     font-size: 0.8125rem;
   }
 
   .table td {
-    color: #555;
+    color: var(--text-secondary, #475569);
     font-size: 0.875rem;
   }
 
+  .table tr:last-child td {
+    border-bottom: none;
+  }
+
   .headerRow th {
-    background-color: #c8e6e6;
+    background-color: var(--accent-light, #e0f0f0);
     text-align: center;
     font-weight: 600;
   }
 
   .label {
     font-weight: 600;
-    background-color: #f0f7f7;
+    background-color: var(--accent-light, #e0f0f0);
     width: 30%;
   }
-  
+
   .value {
-    color: #555;
+    color: var(--text-secondary, #475569);
   }
-  
+
   /* Google Map */
   .map {
     margin: 40px 0;
-    border-radius: 8px;
+    border-radius: var(--radius-md, 12px);
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.08));
   }
   
   .iframe {
@@ -135,6 +142,50 @@
     border: none;
   }
   
+  /* ─── モバイルテーブル最適化（〜480px） ──────────────────────── */
+  @media (max-width: 480px) {
+    .descriptionContainer {
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 0.875rem;
+      line-height: 1.8;
+      text-align: left;
+    }
+
+    .detailsTitle {
+      font-size: 1.05rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .pricingContainer {
+      margin-bottom: 24px;
+    }
+
+    .table {
+      font-size: 0.8125rem;
+    }
+
+    .table th,
+    .table td {
+      padding: 0.625rem 0.75rem;
+      font-size: 0.8125rem;
+    }
+
+    .table th {
+      font-size: 0.75rem;
+    }
+
+    .iframe {
+      height: 280px;
+    }
+
+    .map {
+      margin: 24px 0;
+    }
+  }
+
   /* レスポンシブスタイル - モバイルファースト */
   @media (min-width: 640px) {
     .title {

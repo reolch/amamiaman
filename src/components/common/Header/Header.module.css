@@ -1,13 +1,22 @@
 
 /* ヘッダー全体のベースレイアウト */
 .header {
-  background: #ffffff;
-  border-top: 3px solid #2d7f7f;
-  border-bottom: 1px solid #e5e5e5;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 3px solid var(--accent, #2d7f7f);
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  box-shadow: none;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* スクロール時のヘッダー */
+.headerScrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.98);
 }
 
 /* ヘッダー上部のロゴ・連絡先エリア */
@@ -42,7 +51,7 @@
 
 .logo p a {
   text-decoration: none;
-  color: #1a4a4a;
+  color: var(--text-primary, #1e293b);
   display: block;
   transition: color 0.2s ease;
 }
@@ -79,7 +88,7 @@
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
-  color: #333;
+  color: var(--text-primary, #1e293b);
   padding: 0.75rem;
   display: flex;
   align-items: center;
@@ -120,7 +129,7 @@
 
 .phoneNumber {
   font-size: 1rem;
-  color: #333;
+  color: var(--text-primary, #1e293b);
   text-decoration: none;
   font-weight: 500;
 }
@@ -159,7 +168,7 @@
 /* ナビゲーションリンク */
 .navLink {
   text-decoration: none;
-  color: #333;
+  color: var(--text-primary, #1e293b);
   line-height: 1.5;
   font-size: 1rem;
   font-weight: 400;
@@ -304,7 +313,7 @@
 .dropdownButton {
   width: 100%;
   text-decoration: none;
-  color: #333;
+  color: var(--text-primary, #1e293b);
   font-size: 1rem;
   padding: 1rem;
   display: flex;
@@ -335,7 +344,7 @@
 .dropdownLink {
   display: block;
   padding: 0.8rem 1rem;
-  color: #333333;
+  color: var(--text-primary, #1e293b);
   text-decoration: none;
   text-align: center;
   transition: all 0.2s ease;
