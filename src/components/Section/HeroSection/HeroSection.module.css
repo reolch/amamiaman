@@ -9,12 +9,12 @@
   background: #000;     /* 画像ロード前の背景色 */
 }
 
-/* モバイル: 16:9 固定比率 */
+/* モバイル: 少し縦長にしてCTAの余裕を確保 */
 @media (max-width: 767px) {
   .heroSection {
-    aspect-ratio: 16 / 9;
-    min-height: 200px;
-    max-height: 420px;
+    aspect-ratio: 16 / 10;
+    min-height: 240px;
+    max-height: 450px;
   }
 }
 
@@ -199,10 +199,44 @@
   }
 }
 
-/* モバイルではキャッチフレーズを非表示 */
+/* モバイル向けキャッチフレーズ */
 @media (max-width: 767px) {
   .catchphrase {
-    display: none;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 16px 14px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 70%, transparent 100%);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+    animation: none;
+    opacity: 1;
+  }
+
+  .catchphraseTitle {
+    font-size: 1rem;
+    margin: 0 0 0.2rem;
+  }
+
+  .catchphraseDesc {
+    font-size: 0.75rem;
+    opacity: 0.85;
+  }
+
+  .ctaButtons {
+    margin-top: 0.6rem;
+    gap: 8px;
+    animation: none;
+  }
+
+  .ctaPrimary {
+    padding: 8px 18px;
+    font-size: 0.8rem;
+  }
+
+  .ctaSecondary {
+    padding: 8px 18px;
+    font-size: 0.8rem;
+    border-width: 1.5px;
   }
 }
 
