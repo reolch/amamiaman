@@ -107,6 +107,53 @@
   opacity: 0.9;
 }
 
+/* ─── CTAボタン ──────────────────────────────────────────────────── */
+.ctaButtons {
+  display: flex;
+  gap: 12px;
+  margin-top: 1.2rem;
+  animation: catchphraseIn 0.8s ease-out 0.5s both;
+}
+
+.ctaPrimary {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--accent, #2d7f7f);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.ctaPrimary:hover,
+.ctaPrimary:focus {
+  background: var(--accent-dark, #1a5555);
+  transform: translateY(-2px);
+}
+
+.ctaSecondary {
+  display: inline-block;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 30px;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.ctaSecondary:hover,
+.ctaSecondary:focus {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
 /* タブレット以上 */
 @media (min-width: 768px) {
   .catchphrase {
@@ -121,6 +168,12 @@
 
   .catchphraseDesc {
     font-size: 1.1rem;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    padding: 14px 32px;
+    font-size: 1rem;
   }
 }
 
@@ -138,11 +191,36 @@
   .catchphraseDesc {
     font-size: 1.25rem;
   }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    padding: 16px 36px;
+    font-size: 1.1rem;
+  }
 }
 
 /* モバイルではキャッチフレーズを非表示 */
 @media (max-width: 767px) {
   .catchphrase {
     display: none;
+  }
+}
+
+/* アクセシビリティ：モーション軽減設定 */
+@media (prefers-reduced-motion: reduce) {
+  .slide {
+    transition: none;
+  }
+
+  .catchphrase,
+  .ctaButtons {
+    animation: none;
+  }
+
+  .ctaPrimary:hover,
+  .ctaPrimary:focus,
+  .ctaSecondary:hover,
+  .ctaSecondary:focus {
+    transform: none;
   }
 }

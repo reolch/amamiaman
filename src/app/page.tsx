@@ -16,14 +16,6 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      {/* Hero下の黒帯 */}
-      <div
-        style={{
-          height: '40px',
-          background: '#000000',
-        }}
-        aria-hidden="true"
-      />
       <AboutSection />
       <ServiceSection />
       <AccessSection />
