@@ -21,7 +21,7 @@ const altMap = {
   lodging: 'ヤマハタマリンサービスあまん宿泊施設サービスアイコン',
 };
 
-const ServiceCard = ({ type, title, description, link, index }) => {
+const ServiceCard = ({ type, title, description, link, price, index }) => {
   const iconSrc = iconMap[type];
   const iconAlt = altMap[type];
   const [cardRef, isIntersecting, hasIntersected] = useIntersectionObserver();
@@ -43,6 +43,7 @@ const ServiceCard = ({ type, title, description, link, index }) => {
         <img src={iconSrc} alt={iconAlt} className={styles.icon} />
       </div>
       <h3 className={styles.title}>{title}</h3>
+      {price && <p className={styles.price}>{price}</p>}
       <p className={styles.description}>{description}</p>
       <Link href={link} className={styles.link}>
         詳しく見る
@@ -56,6 +57,7 @@ ServiceCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
+  price: PropTypes.string,
   index: PropTypes.number.isRequired,
 };
 
@@ -67,24 +69,28 @@ const ServiceSection = () => {
     {
       type: 'snorkelling',
       title: '奄美大島 シュノーケリング',
+      price: '7,000円〜',
       description: '透明度抜群の海で、色とりどりの熱帯魚とサンゴ礁を楽しもう。',
       link: '/snorkelling',
     },
     {
       type: 'seakayak',
       title: '奄美大島 シーカヤック',
+      price: '6,000円〜',
       description: '加計呂麻島周辺の穏やかな海で、手つかずの自然を探検。',
       link: '/seaKayak',
     },
     {
       type: 'glassboat',
       title: '奄美大島 グラスボート',
+      price: '2,000円〜',
       description: '服を着たまま気軽に楽しめる、美しいサンゴ礁の水中世界へ。',
       link: '/glassboat',
     },
     {
       type: 'lodging',
       title: '宿泊施設',
+      price: '4,000円〜 / 泊',
       description: 'マリンスポーツの後は、ゆったりとくつろげる空間でリラックス。',
       link: '/lodging',
     },

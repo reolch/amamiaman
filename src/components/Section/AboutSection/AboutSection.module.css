@@ -2,7 +2,7 @@
     position: relative;
     padding: 80px 20px;
     text-align: center;
-    background: linear-gradient(180deg, #e8f4f8 0%, #f0f9ff 50%, #f0f9ff 100%);
+    background: linear-gradient(180deg, #1a1a1a 0%, #e8f4f8 15%, #f0f9ff 50%, #f0f9ff 100%);
     overflow: hidden;
     opacity: 0;
     transform: translateY(50px);
@@ -70,27 +70,26 @@
 .titleLine {
     display: block;
     opacity: 0;
-    transform: translateX(-50px) rotateX(45deg);
+    transform: translateX(-30px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    perspective: 1000px;
 }
 
 .titleVisible .titleLine:nth-child(1) {
-    animation: titleLineSlideIn 0.8s ease-out 0.2s both;
+    animation: titleLineSlideIn 0.7s ease-out 0.2s both;
 }
 
 .titleVisible .titleLine:nth-child(2) {
-    animation: titleLineSlideIn 0.8s ease-out 0.4s both;
+    animation: titleLineSlideIn 0.7s ease-out 0.35s both;
 }
 
 @keyframes titleLineSlideIn {
     0% {
         opacity: 0;
-        transform: translateX(-50px) rotateX(45deg);
+        transform: translateX(-30px);
     }
     100% {
         opacity: 1;
-        transform: translateX(0) rotateX(0deg);
+        transform: translateX(0);
     }
 }
 
@@ -104,30 +103,25 @@
     margin-bottom: 8px;
     color: #475569;
     opacity: 0;
-    transform: translateY(30px) rotateX(30deg);
+    transform: translateY(20px);
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    perspective: 1000px;
     font-weight: 500;
 }
 
 .textLineVisible {
     opacity: 1;
-    transform: translateY(0) rotateX(0deg);
-    animation: textLineSlideIn 0.6s ease-out calc(0.6s + var(--line-index, 0) * 0.1s) both;
+    transform: translateY(0);
+    animation: textLineSlideIn 0.5s ease-out calc(0.5s + var(--line-index, 0) * 0.08s) both;
 }
 
 @keyframes textLineSlideIn {
     0% {
         opacity: 0;
-        transform: translateY(30px) rotateX(30deg) scale(0.95);
-    }
-    60% {
-        opacity: 0.8;
-        transform: translateY(5px) rotateX(5deg) scale(0.98);
+        transform: translateY(20px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0) rotateX(0deg) scale(1);
+        transform: translateY(0);
     }
 }
 
@@ -179,5 +173,19 @@
     .textLine {
         font-size: 1.5rem;
         margin-bottom: 15px;
+    }
+}
+
+/* アクセシビリティ：モーション軽減設定 */
+@media (prefers-reduced-motion: reduce) {
+    .section,
+    .content,
+    .title,
+    .titleLine,
+    .textLine {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1;
+        transform: none;
     }
 }

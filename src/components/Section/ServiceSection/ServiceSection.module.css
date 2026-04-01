@@ -68,35 +68,29 @@
   position: relative;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(60px) rotateX(15deg);
-  backface-visibility: hidden;
-  perspective: 1000px;
+  transform: translateY(40px);
 }
 
 .cardVisible {
   opacity: 1;
-  transform: translateY(calc(var(--parallax-offset, 0) * 0.2)) rotateX(0deg);
-  animation: cardSlideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  transform: translateY(calc(var(--parallax-offset, 0) * 0.2));
+  animation: cardSlideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   animation-delay: var(--animation-delay, 0s);
 }
 
 .cardHidden {
   opacity: 0;
-  transform: translateY(60px) rotateX(15deg);
+  transform: translateY(40px);
 }
 
 @keyframes cardSlideIn {
   0% {
     opacity: 0;
-    transform: translateY(60px) rotateX(15deg) scale(0.9);
-  }
-  50% {
-    opacity: 0.8;
-    transform: translateY(20px) rotateX(5deg) scale(0.95);
+    transform: translateY(40px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) rotateX(0deg) scale(1);
+    transform: translateY(0);
   }
 }
 
@@ -140,8 +134,8 @@
 }
 
 .card:hover .iconWrapper {
-  transform: rotateY(360deg) scale(1.1);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transform: scale(1.08);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .iconWrapper::after {
@@ -152,20 +146,9 @@
   right: -5px;
   bottom: -5px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(45, 127, 127, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(45, 127, 127, 0.15) 0%, transparent 70%);
   z-index: -1;
-  animation: iconPulse 3s infinite;
-}
-
-@keyframes iconPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.3;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.1;
-  }
+  opacity: 0.3;
 }
 
 
@@ -186,6 +169,15 @@
   color: #333;
   margin-bottom: 15px;
   font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent, #2d7f7f);
+  margin-bottom: 12px;
   position: relative;
   z-index: 1;
 }
@@ -254,6 +246,11 @@
     margin-bottom: 20px;
   }
 
+  .price {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+
   .description {
     font-size: 1.1rem;
     margin-bottom: 30px;
@@ -286,6 +283,11 @@
     margin-bottom: 25px;
   }
 
+  .price {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+  }
+
   .description {
     font-size: 1.2rem;
     margin-bottom: 35px;
@@ -294,5 +296,31 @@
   .link {
     padding: 14px 30px;
     font-size: 1.1rem;
+  }
+}
+
+/* アクセシビリティ：モーション軽減設定 */
+@media (prefers-reduced-motion: reduce) {
+  .sectionTitle,
+  .card,
+  .cardVisible,
+  .cardHidden {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .card:hover .iconWrapper {
+    transform: none;
+  }
+
+  .link:hover,
+  .link:focus {
+    transform: none;
   }
 }

@@ -2,6 +2,7 @@
 // src/components/Section/HeroSection/HeroSection.jsx
 import { useState, useEffect, useRef, useCallback } from 'react';
 import NextImage from 'next/image';
+import Link from 'next/link';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import styles from './HeroSection.module.css';
 
@@ -117,6 +118,14 @@ const HeroSection = () => {
               <div className={styles.catchphrase}>
                 <h2 className={styles.catchphraseTitle}>{slide.catchphrase}</h2>
                 <p className={styles.catchphraseDesc}>{slide.description}</p>
+                <div className={styles.ctaButtons}>
+                  <Link href="/contact" className={styles.ctaPrimary}>
+                    今すぐ予約する
+                  </Link>
+                  <a href="tel:0997724584" className={styles.ctaSecondary}>
+                    電話で予約
+                  </a>
+                </div>
               </div>
             )}
           </div>
