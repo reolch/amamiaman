@@ -36,6 +36,7 @@ const WaveDivider = ({
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 120"
         preserveAspectRatio="none"
+        focusable="false"
       >
         <path
           d="M0,60 C180,100 360,20 540,60 C720,100 900,20 1080,60 C1260,100 1440,40 1440,60 L1440,120 L0,120 Z"

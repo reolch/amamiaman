@@ -135,11 +135,11 @@ export default function RootLayout({
           openingHours={["Mo-Su 08:00-17:00"]}
           priceRange="¥¥-¥¥¥"
           services={[
-            { name: "奄美大島 シーカヤック", url: `${SITE_URL}/seaKayak` },
-            { name: "加計呂麻島 シーカヤック", url: `${SITE_URL}/seaKayak` },
-            { name: "奄美大島 シュノーケル", url: `${SITE_URL}/snorkelling` },
-            { name: "奄美大島 グラスボート", url: `${SITE_URL}/glassboat` },
-            { name: "奄美大島 宿泊", url: `${SITE_URL}/lodging` },
+            { name: "奄美大島 シーカヤック", url: `${SITE_URL}/seaKayak/` },
+            { name: "加計呂麻島 シーカヤック", url: `${SITE_URL}/seaKayak/` },
+            { name: "奄美大島 シュノーケル", url: `${SITE_URL}/snorkelling/` },
+            { name: "奄美大島 グラスボート", url: `${SITE_URL}/glassboat/` },
+            { name: "奄美大島 宿泊", url: `${SITE_URL}/lodging/` },
           ]}
         />
         <TouristAttractionStructuredData
@@ -148,11 +148,11 @@ export default function RootLayout({
           image={`${SITE_URL}${DEFAULT_OG_IMAGE}`}
           url={SITE_URL}
           activities={[
-            { name: "奄美大島 シーカヤック", url: `${SITE_URL}/seaKayak` },
-            { name: "加計呂麻島 シーカヤック", url: `${SITE_URL}/seaKayak` },
-            { name: "奄美大島 シュノーケル", url: `${SITE_URL}/snorkelling` },
-            { name: "奄美大島 グラスボート", url: `${SITE_URL}/glassboat` },
-            { name: "奄美大島 宿泊", url: `${SITE_URL}/lodging` },
+            { name: "奄美大島 シーカヤック", url: `${SITE_URL}/seaKayak/` },
+            { name: "加計呂麻島 シーカヤック", url: `${SITE_URL}/seaKayak/` },
+            { name: "奄美大島 シュノーケル", url: `${SITE_URL}/snorkelling/` },
+            { name: "奄美大島 グラスボート", url: `${SITE_URL}/glassboat/` },
+            { name: "奄美大島 宿泊", url: `${SITE_URL}/lodging/` },
           ]}
         />
         <div className="app">
